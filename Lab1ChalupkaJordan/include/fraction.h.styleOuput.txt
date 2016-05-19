@@ -1,0 +1,6 @@
+fraction.h:5:  #ifndef header guard has wrong style, please use: SUMMER2016_CIS2520_LABS_LAB1CHALUPKAJORDAN_INCLUDE_FRACTION_H_  [build/header_guard] [5]
+fraction.h:52:  #endif line should be "#endif  // SUMMER2016_CIS2520_LABS_LAB1CHALUPKAJORDAN_INCLUDE_FRACTION_H_"  [build/header_guard] [5]
+Done processing fraction.h
+Category 'build/header_guard' errors found: 2
+Total errors found: 2
+LOC: 52
