@@ -1,0 +1,67 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 1
+May 19, 2016
+***********************************
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the Lab1ChalupkaJordan file use the command: 
+
+make
+
+You will now have an executable file named test.
+
+*****
+Usage
+*****
+
+To run the a program which will test the fraction ADT,
+ while inside the same directory as before which will 
+now contain an executable file named test,
+use this command:
+
+make run
+
+*******
+Testing
+*******
+
+Testing was conducted using the test file test.c.
+Included in this file is tests for each individual function, as well
+as tests that use a combination of all of the functions.
+
+The test program is thorough as it tests each individual function
+in the ADT.  This ensures that each function is working properly.
+
+Also this test program runs randomized tests which rely on the 
+correctness of all of the functions working together.
+The randomized tests are currently set to run 10 tests,
+but this value can and has been changed to test up to 100,000
+test cases with zero errors.  The values in the randomized tests
+can and has also been changed to include very large values as well
+as small values, as well as positives and negative values, to ensure
+correctness.
+
+Zero has previously been included in the test program, but has been removed
+due to obvious errors it causes when placed in the denominator.
+See question 2 for implementation of a program that solves zero-denominators.
+Zero does function properly when placed as a numerator in previous tests.
+
+
+*****************
+Known Limitations
+*****************
+
+Error when zero is placed as a denominator.  This was not included in the source
+code as it was only necessary in the instructions to include implementation
+instructions in question 2.
+
+**********
+References
+**********
+
+  - - -
+

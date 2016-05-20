@@ -1,0 +1,5 @@
+Question Two
+
+In order to make the ADT meet this more detailed definition one change that would need to be made is checking in the create_fraction function that the denominator parameter is non-zero.  This could be done simply with an if statement stoping the creation of the fraction unless the denominator is non zero.
+
+Another change that would need to be made is making sure that the greatest common denominator of (a,b) is one, or in other words that the fraction is in lowest terms.  This could be done by finding the greatest common factor of a and b and then dividing these numbers by the greatest common divisor.  This will put the fraction in lowest terms and make the greatest common denominator of (a,b) 1.
