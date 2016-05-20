@@ -5,7 +5,7 @@
 SOURCEDIR=src/
 
 EXECUTABLE=test
-FLAGS=-Wall -std=c99
+FLAGS=-Wall -ansi
 CC=gcc $(FLAGS) -Iinclude
 RM=rm
 

@@ -25,9 +25,9 @@
 */
 #include "test.h"
 
-// Use these variables to change the testing
-#define NUM_TESTS 10  // Number of tests you would like to run
-#define LARGEST_VALUE 10 // The largest random value to be used in the test cases
+/*Use these variables to change the testing*/
+#define NUM_TESTS 10  /* Number of tests you would like to run*/
+#define LARGEST_VALUE 10 /* The largest random value to be used in the test cases*/
 
 /*Testing Outputs*/
 int correct_output (char * test_type) {
@@ -43,7 +43,7 @@ int incorrect_output (char * test_type, char * expected_out, char * actual_out) 
 }
 
 /*Test Individual Functions*/
-// Tests the create_fraction function
+/* Tests the create_fraction function*/
 int test_create (void) {
     Fraction * test_0 = create_fraction(50,2);
     if (test_0 != NULL) {
@@ -52,7 +52,7 @@ int test_create (void) {
     else incorrect_output("create_fraction", "Pointer to fraction", "Null Pointer");
     return 0;
 }
-// Tests the destroy_fraction function
+/* Tests the destroy_fraction function*/
 int test_destroy (void) {
     Fraction * test_0 = create_fraction(89,9);
     destroy_fraction(&test_0);
@@ -62,7 +62,7 @@ int test_destroy (void) {
     else incorrect_output("destroy_fraction", "Destroyed fraction", "Fraction not destroyed");
     return 0;
 }
-//Tests the get_numerator function
+/*Tests the get_numerator function*/
 int test_numerator (void) {
     Fraction * test_0 = create_fraction(88,98);
     int numerator = get_numerator(test_0);
@@ -75,7 +75,7 @@ int test_numerator (void) {
     }
     return 0;
 }
-//Tests the get_denominator function
+/*Tests the get_denominator function*/
 int test_denominator (void) {
     Fraction * test_0 = create_fraction(87,-13);
     int numerator = get_denominator(test_0);
@@ -88,7 +88,7 @@ int test_denominator (void) {
     }
     return 0;
 }
-// Tests the add_fraction function
+/* Tests the add_fraction function*/
 int test_add (void) {
     Fraction * test_0 = create_fraction(1,2);
     Fraction * test_1 = create_fraction(3,4);
@@ -110,7 +110,7 @@ int test_add (void) {
     }
     return 0;
 }
-//Tests the mult_fraction function
+/*Tests the mult_fraction function*/
 int test_multiply (void) {
     Fraction * test_0 = create_fraction(10,5);
     Fraction * test_1 = create_fraction(1,2);
@@ -133,7 +133,7 @@ int test_multiply (void) {
     return 0;
 }
 
-// This will run through a test for each of the functions in the ADT
+/* This will run through a test for each of the functions in the ADT*/
 int check_functions (void) {
     test_create();
     test_destroy();
@@ -145,7 +145,7 @@ int check_functions (void) {
     return 0;
 }
 
-// Generates a random number
+/* Generates a random number*/
 int get_number (void) {
     int num, negative;
     num = (rand()%LARGEST_VALUE)+1;
@@ -159,9 +159,9 @@ int get_number (void) {
     return num;
 }
 
-// Generates a random operation (add or multiply)
+/* Generates a random operation (add or multiply)*/
 functionPtr get_operation (int operation) {
-    functionPtr ptr;  //Function pointer that will point to either the add or multiply functions
+    functionPtr ptr;  /*Function pointer that will point to either the add or multiply functions*/
     if (operation) {
         ptr = &add_fraction;
     } 
@@ -170,23 +170,23 @@ functionPtr get_operation (int operation) {
     return ptr;
 }
 
-// Runs one test
+/* Runs one test*/
 int run_test (int i) {
     printf("Running Test %d\n", i);
     int a,b,c,d;
-    // These four numbers will be used to generate the fractions
+    /* These four numbers will be used to generate the fractions*/
     a = get_number();
     b = get_number();
     c = get_number();
     d = get_number();
-    //Create two fractions
+    /*Create two fractions*/
     Fraction * first = create_fraction(a,b);
     Fraction * second = create_fraction(c,d);
-    // num will be used for binary probability (negative or postive and add or multiply)
+    /* num will be used for binary probability (negative or postive and add or multiply)*/
     int num = rand()%2;
     char operation_char;
     double total;
-    // Set variables that are dependant on the binary probability for add or multiply
+    /* Set variables that are dependant on the binary probability for add or multiply*/
     if (num) {
         operation_char = '+';
         total = ((double)a/b) + ((double)c/d);
@@ -194,19 +194,19 @@ int run_test (int i) {
         operation_char = '*';
         total = ((double)a/b) * ((double)c/d);
     }
-    // Get the function pointer
+    /* Get the function pointer*/
     functionPtr operation = get_operation(num);
-    // Run the function
+    /* Run the function*/
     Fraction * sum_fraction = operation(first, second);
 
     int sum_numerator, sum_denominator;
     sum_numerator = get_numerator(sum_fraction);
     sum_denominator = get_denominator(sum_fraction);
-    // Print out the equation
+    /* Print out the equation*/
     printf("\t%d/%d %c %d/%d = %d/%d\n", a,b,operation_char,c,d,sum_numerator,sum_denominator);
 
     double total_fraction = (double) sum_numerator / sum_denominator;
-    // The less than is used due to floating point error with equality
+    /* The less than is used due to floating point error with equality*/
     destroy_fraction(&first);
     destroy_fraction(&second);
     destroy_fraction(&sum_fraction);
@@ -220,25 +220,25 @@ int run_test (int i) {
 }
 
 int test_example (void) {
-    // Seed random number generator 
+    /* Seed random number generator */
     srand(time(NULL));
     int num_tests,correct;
-    // Number of tests to be run
+    /* Number of tests to be run*/
     num_tests = NUM_TESTS;
     correct = 0; 
-    // Run the tests
+    /* Run the tests*/
     for (int i = 0; i < num_tests; i++) {
         correct += run_test(i);
     }
-    // Give the test results
+    /* Give the test results*/
     printf("%d/%d Tests Correct\n", correct, num_tests);
     return 0;
 }
 
 int main (void) {
-    // Check each individual function
+    /* Check each individual function*/
     check_functions();
-    // Use the functions all together with randomness
+    /* Use the functions all together with randomness*/
     test_example();
     return 0;
 }
