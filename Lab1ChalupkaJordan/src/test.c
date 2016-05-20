@@ -227,7 +227,8 @@ int test_example (void) {
     num_tests = NUM_TESTS;
     correct = 0; 
     /* Run the tests*/
-    for (int i = 0; i < num_tests; i++) {
+    int i;
+    for (i = 0; i < num_tests; i++) {
         correct += run_test(i);
     }
     /* Give the test results*/
