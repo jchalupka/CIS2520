@@ -37,6 +37,11 @@ $(PROGNAME): $(OBJECTS)
 .c.o:
 	$(CC) $(CFLAGS) $< -o $(OBJDIR)$(notdir $@) $(INCLUDES)
 
+.PHONY: clean run
+
 clean:
 	rm src/*.o
 	rm bin/test
+
+run:
+	./bin/test
