@@ -1,32 +1,42 @@
-#Made by Jordan Chalupka February 28 2016
-#0928258
+CC          =	gcc
+# Flags that are sent to the compiler
+# Do not change these
+CFLAGS      =	-c -Wall -ansi
+LDFLAGS     =
 
-.PHONY: clean tab run
+#Directories where the compiler can find things
+INCLUDES    = -Iinclude
+LIBDIRS     = 
+LIBRARYS    = 
 
-SOURCEDIR=src/
+# add directory names here if you want to separate files by directories
+BINDIR = bin/
+SOURCEDIR   = src/
+INCLUDEDIR  = include/
+OBJDIR      = obj/
 
-EXECUTABLE=test
-FLAGS=-Wall -ansi
-CC=gcc $(FLAGS) -Iinclude
-RM=rm
+#Put the names of your source code file in the lines below.  
 
-LIBRARY=
-SOURCES=$(wildcard src/*.c)
-INCLUDES=$(wildcard include/*.h)
-OBJECTS=$(SOURCES:.c=.o)
+SOURCES = $(wildcard $(SOURCEDIR)*c)
 
-#Main target
-all: $(EXECUTABLE)
+#The list of object files is below.  The object file names here must match the file names of your source code 
+# except with .o instead of .c.   Make changes as appropriate
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@ $(LIBRARY)
+OBJECTS = $(SOURCES:.c=.o)
+
+#The names of the binary programs that will be produced.  
+#
+PROGNAME = $(BINDIR)test
+
+
+all : $(PROGNAME)
+
+$(PROGNAME): $(OBJECTS)
+	$(CC) $(LIBDIRS) $(LDFLAGS) $(addprefix $(OBJDIR),$(notdir $(OBJECTS))) $(LIBS) -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $< -o $(OBJDIR)$(notdir $@) $(INCLUDES)
 
 clean:
-	$(RM) $(OBJECTS) $(EXECUTABLE)
-
-tab: $(SOURCES) $(INCLUDES)
-	/Users/JordanChalupka/my_shells/tab_shell.sh $(SOURCES) 
-	/Users/JordanChalupka/my_shells/tab_shell.sh $(INCLUDES)
-
-run: $(EXECUTABLE)
-	./$(EXECUTABLE)
+	rm src/*.o
+	rm bin/test
