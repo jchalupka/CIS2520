@@ -40,7 +40,7 @@ $(PROGNAME): $(OBJECTS)
 .PHONY: clean run
 
 clean:
-	rm src/*.o
+	rm obj/*.o
 	rm bin/test
 
 run:
