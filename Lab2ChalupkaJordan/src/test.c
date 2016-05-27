@@ -164,5 +164,7 @@ int main (void) {
 
 	removePastZero(list);
 
+	destroyList(list);
+
 	return 0;
 }
