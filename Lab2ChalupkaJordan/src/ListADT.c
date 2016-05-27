@@ -2,7 +2,7 @@
 	Jordan Chalupka
 	0928258
 */
-#include "listADT.h"
+#include "ListADT.h"
 
 /*Return a list ADT*/
 node * createList (void) {
