@@ -1,0 +1,51 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 2
+May 27, 2016
+***********************************
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the Lab2ChalupkaJordan file use the command: 
+
+make
+
+You will now have an executable file named test.
+
+*****
+Usage
+*****
+
+To run the a program which will test the linked list ADT,
+ while inside the same directory as before which will 
+now contain an executable file named test,
+use this command:
+
+make run
+
+*******
+Testing
+*******
+
+Testing was conducted using the test file test.c.
+Included in this file is tests for each individual function, as well
+as tests that use a combination of all of the functions.
+
+The test program is thorough as it tests each individual function
+in the ADT.  This ensures that each function is working properly.
+Also, each function was tested with NULL list ADTs, to test
+for uninitialized ADT errors.
+
+*****************
+Known Limitations
+*****************
+
+List was not made generic, and will need to be updated in the future.
+
+**********
+References
+**********
+
+  - - -
