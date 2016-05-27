@@ -43,7 +43,7 @@ clean:
 	rm obj/*.o
 	rm bin/test
 
-run:
+run: all
 	./bin/test
 
 tab: all
