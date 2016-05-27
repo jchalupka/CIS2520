@@ -6,7 +6,7 @@
 #define __TEST__
 
 #include <stdio.h>
-#include "listADT.h"
+#include "ListADT.h"
 
 void testAddFront(int num, node * list);
 /*
