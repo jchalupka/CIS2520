@@ -170,7 +170,7 @@ int main (void) {
 
 	destroyList(list);
 
-	printList(list);
+
 
 	return 0;
 }

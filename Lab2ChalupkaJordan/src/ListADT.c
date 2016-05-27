@@ -26,10 +26,10 @@ void destroyList (node * theList) {
 		//printf("%d\n",(theList->next)->nodeValue);
 		node * temp;
 		temp = theList;
-		printList(theList);
 		theList = theList->next;
 
-		free(temp);		
+		free(temp);	
+		temp = NULL;
 	}
 
 	return;
@@ -87,8 +87,8 @@ void printList (node * theList) {
 		return;
 	}
 	printf("LIST: ");
-	theList = theList->next;
-	while (theList != NULL) {
+	
+	while (theList->next != NULL) {
 		printf("[%d]",theList->nodeValue);
 		theList = theList->next;
 	}
