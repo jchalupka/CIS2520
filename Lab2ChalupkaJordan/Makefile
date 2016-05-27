@@ -45,3 +45,7 @@ clean:
 
 run:
 	./bin/test
+
+tab: all
+	/Users/JordanChalupka/my_shells/tab_shell.sh src/*
+	/Users/JordanChalupka/my_shells/tab_shell.sh include/* 

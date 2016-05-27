@@ -1,6 +1,6 @@
 /*
-	Jordan Chalupka
-	0928258
+    Jordan Chalupka
+    0928258
 */
 #ifndef __LIST_ADT__
 #define __LIST_ADT__
@@ -10,8 +10,8 @@
 #include <time.h>
 
 typedef struct listNode {
-	int nodeValue;
-	struct listNode * next;
+    int nodeValue;
+    struct listNode * next;
 } node;
 
 node * createList (void);

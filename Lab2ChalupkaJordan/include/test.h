@@ -1,6 +1,6 @@
 /*
-	Jordan Chalupka
-	0928258
+    Jordan Chalupka
+    0928258
 */
 #ifndef __TEST__
 #define __TEST__

@@ -38,6 +38,9 @@ in the ADT.  This ensures that each function is working properly.
 Also, each function was tested with NULL list ADTs, to test
 for uninitialized ADT errors.
 
+Also, valgrind was used to discover any memory leaks.  After testing with valgrind,
+the program currently has the status, “no memory leaks possible”.
+
 *****************
 Known Limitations
 *****************
