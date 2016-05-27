@@ -11,6 +11,9 @@
 
 	This program also tests each function for NULL, to ensure proper functionality even
 	when the pre conditions for the functions are not met. (The use of uninitialized lists)
+
+	Not included in this test file are tests completed using valgrind, showing that the
+	same number of frees and allocs were made (11), and that no leaks are possible.
 */
 #include "test.h"
 
