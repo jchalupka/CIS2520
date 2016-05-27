@@ -108,7 +108,7 @@ void removeAndGetLength (node * list) {
 	printf("********** Removing and Getting the Length **********\n");
 	testPrintList("[54][892347847][9000000][-2][5]", list);
 	testRemoveFront(list);
-	testPrintList("[-892347847][9000000][-2][5]", list);
+	testPrintList("[892347847][9000000][-2][5]", list);
 	testGetLength(4,list);
 	testRemoveFront(list);
 	testGetLength(3,list);
@@ -170,7 +170,7 @@ int main (void) {
 
 	destroyList(list);
 
-
+	printList(list);
 
 	return 0;
 }

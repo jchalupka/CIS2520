@@ -87,8 +87,9 @@ void printList (node * theList) {
 		return;
 	}
 	printf("LIST: ");
-	
-	while (theList->next != NULL) {
+
+	theList = theList->next;
+	while (theList != NULL) {
 		printf("[%d]",theList->nodeValue);
 		theList = theList->next;
 	}
@@ -102,11 +103,16 @@ void removeFront (node * theList) {
 	if (!isInit(theList)) {
 		return;
 	}
+
 	if (theList->next == NULL) {
 		return;
 	}
+
 	node * firstNode = theList->next;
 	theList->next = firstNode->next; 
+	free(firstNode);
+	firstNode = NULL;
+
 
 	return;
 }
