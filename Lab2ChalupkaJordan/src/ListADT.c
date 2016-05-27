@@ -22,11 +22,11 @@ void destroyList (node * theList) {
 	if (!isInit(theList)) {
 		return;
 	}
-	theList = theList->next;
 	while (theList != NULL) {
 		//printf("%d\n",(theList->next)->nodeValue);
 		node * temp;
 		temp = theList;
+		printList(theList);
 		theList = theList->next;
 
 		free(temp);		

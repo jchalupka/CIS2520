@@ -164,7 +164,13 @@ int main (void) {
 
 	removePastZero(list);
 
+	addFour(list);
+
+	printList(list);
+
 	destroyList(list);
+
+	printList(list);
 
 	return 0;
 }
