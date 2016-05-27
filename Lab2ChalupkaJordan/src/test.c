@@ -166,11 +166,7 @@ int main (void) {
 
 	addFour(list);
 
-	printList(list);
-
 	destroyList(list);
-
-	printList(list);
 
 	return 0;
 }
