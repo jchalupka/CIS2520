@@ -1,7 +1,7 @@
 CC          =	gcc
 # Flags that are sent to the compiler
 # Do not change these
-CFLAGS      =	-c -Wall -ansi
+CFLAGS      =	-c -Wall -std=c99
 LDFLAGS     =
 
 #Directories where the compiler can find things

@@ -65,11 +65,9 @@ void testRemoveFront(node * list) {
 }
 
 /*Test all of the functions for NULL inputs*/
-void testForNull (void) {
+void testForNull () {
 	/*Test functions for uninitialized lists*/
 	printf("Running NULL tests, correct output is 7 iterations of \"Error: List uninitialized\"\nOUTPUT:\n");
-	node * list;
-	destroyList(list);
 	addFront(NULL,1);
 	getFrontValue(NULL);
 	getLength(NULL);
@@ -165,8 +163,6 @@ int main (void) {
 	randomAddAndRemove(list);
 
 	removePastZero(list);
-
-	testDestroy(list);
 
 	return 0;
 }
