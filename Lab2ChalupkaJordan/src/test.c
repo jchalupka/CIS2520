@@ -70,7 +70,7 @@ void testRemoveFront(node * list) {
 /*Test all of the functions for NULL inputs*/
 void testForNull () {
     /*Test functions for uninitialized lists*/
-    printf("Running NULL tests, correct output is 7 iterations of \"Error: List uninitialized\"\nOUTPUT:\n");
+    printf("Running NULL tests, correct output is 6 iterations of \"Error: List uninitialized\"\nOUTPUT:\n");
     addFront(NULL,1);
     getFrontValue(NULL);
     getLength(NULL);
