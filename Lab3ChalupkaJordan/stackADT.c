@@ -46,12 +46,7 @@ void stack_push (stack ** head, void * data) {
 		abort();
 	}
 	node->data = data;
-	if (!stack_isEmpty(*head)) {
-		node->next = *head;
-	}
-	else {
-		node->next = NULL;
-	}
+	node->next = *head;
 
 	*head = node;
 
