@@ -21,8 +21,9 @@ void * stack_peek (stack * head) {
 
 void stack_destroy (stack ** head) {
 	while (!stack_isEmpty(*head)) {
-		stack_pop(head);
+		printf("%d ",*(int*)stack_pop(head));
 	}
+	printf("\n");
 }
 
 stack * stack_create (void) {
@@ -78,7 +79,6 @@ int main (void) {
 		stack_push(&s, tmp);
 		// Create function to view int, string, etc
 		printf("%d ",*(int*)stack_peek(s));
-		free(tmp);
 	}
 	printf("\n");
 	check_empty(s);
