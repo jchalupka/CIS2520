@@ -89,7 +89,7 @@ int main (void) {
 	stack_destroy(&s);
 
 	check_empty(s);
-	char * word;
+	char ** word;
 	printf("Made it\n");
 	word = malloc(sizeof(char)*15);
 	printf("Made it\n");
@@ -97,7 +97,7 @@ int main (void) {
 
 	strcpy(word,"Hello");
 	check_empty(s);
-	printf("%s\n", (char*)stack_peek(s));
+	printf("%s\n", *(char*)stack_peek(s));
 	stack_destroy(&s);
 
 }
