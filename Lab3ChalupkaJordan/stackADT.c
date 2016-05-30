@@ -20,7 +20,7 @@ void * stack_peek (stack * head) {
 }
 
 void stack_destroy (stack ** head) {
-	while (!stack_isEmpty(*head)) {
+	for (int i = 0; i < 10; i++) {
 		stack_pop(head);
 	}
 	free(*head);
