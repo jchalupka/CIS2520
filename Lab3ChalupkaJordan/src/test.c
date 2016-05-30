@@ -7,14 +7,14 @@ int correctOutput (char * funcName) {
 }
 
 int incorrectOutput (char * funcName) {
-	printf("%s INCORREECT\n", funcName);
+	printf("%s: INCORREECT\n", funcName);
 	return 1;
 }
 
 int test_create () {
 	char * funcName = "stack_create";
 	stack *s = stack_create();
-	if (s == NULL) {
+	if (s != NULL) {
 		return correctOutput(funcName);
 	}
 	return incorrectOutput(funcName);

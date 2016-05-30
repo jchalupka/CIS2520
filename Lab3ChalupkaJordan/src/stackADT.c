@@ -7,8 +7,10 @@ void * stack_peek (stack * head) {
 
 void stack_destroy (stack ** head) {
 	while (*head != NULL) {
+		printf("Destroying\n");
 		stack_pop(head);
 	}
+	free(*head);
 	*head = NULL;
 	printf("\n");
 
@@ -16,7 +18,7 @@ void stack_destroy (stack ** head) {
 }
 
 stack * stack_create (void) {
-	stack *s = NULL;
+	stack *s = malloc(sizeof(stack));
 	return s;
 }
 
