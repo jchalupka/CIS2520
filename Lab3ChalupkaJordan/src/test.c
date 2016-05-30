@@ -42,10 +42,8 @@ int test_push () {
 		return 0;
 	}
 
-	free(numPtr);
-	free(charPtr);
 	free(*stringPtr);
-	free(stringPtr);
+	stack_destroy(&s);
 	return 1;
 }
 
