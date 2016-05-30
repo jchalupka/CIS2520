@@ -106,5 +106,6 @@ int main (void) {
 	printf("And again %s\n", *(char**)stack_peek(s));
 	printf("Made it\n");
 	stack_destroy(&s);
+	free(word);
 
 }
