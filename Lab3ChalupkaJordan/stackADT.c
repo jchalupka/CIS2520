@@ -56,7 +56,7 @@ void * stack_pop (stack ** head) {
 	void * value;
 	top = *head;
 	value = top->data;
-	*head = top->next;
+	head = top->next;
 	free(value);
 	free(top);
 
