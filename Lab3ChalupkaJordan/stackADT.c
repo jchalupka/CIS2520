@@ -20,11 +20,13 @@ void * stack_peek (stack * head) {
 }
 
 void stack_destroy (stack ** head) {
-	for (int i = 0; i < 10; i++) {
+	while (*head != NULL) {
 		stack_pop(head);
 	}
-	free(*head);
+	*head = NULL;
 	printf("\n");
+
+	return;
 }
 
 stack * stack_create (void) {
@@ -89,14 +91,20 @@ int main (void) {
 	stack_destroy(&s);
 
 	check_empty(s);
-	char ** word;
-	word = malloc(sizeof(*word));
+	char * word;
+	word = malloc(sizeof(char)*15);
+	strcpy(word,"Hello");
+	printf("This is the word: %s\n",word);
 	
-	stack_push(&s, word);
+	char ** wordPtr = malloc(sizeof(word));
+	*wordPtr = word;
+	stack_push(&s, wordPtr);
 
-	strcpy(*word,"Hello");
+	
 	check_empty(s);
-	printf("%s\n", (char*)stack_peek(s));
+
+	printf("And again %s\n", *(char**)stack_peek(s));
+	printf("Made it\n");
 	stack_destroy(&s);
 
 }
