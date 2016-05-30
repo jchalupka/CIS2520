@@ -91,5 +91,6 @@ int main (void) {
 	strcpy(word,"Hello");
 	check_empty(s);
 	printf("%s\n", (char*)stack_peek(s));
+	free(word);
 
 }
