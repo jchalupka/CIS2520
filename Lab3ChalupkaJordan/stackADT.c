@@ -8,7 +8,7 @@ typedef struct stack {
 } stack;
 
 void stack_push (stack ** head, void * data);
-void * stack_pop (stack ** head);
+void stack_pop (stack ** head);
 stack * stack_create (void);
 void stack_destroy (stack ** head);
 int stack_isEmpty (stack * head);
@@ -21,7 +21,7 @@ void * stack_peek (stack * head) {
 
 void stack_destroy (stack ** head) {
 	while (!stack_isEmpty(*head)) {
-		printf("%d ",*(int*)stack_pop(head));
+		stack_pop(head);
 	}
 	printf("\n");
 }
@@ -51,16 +51,17 @@ void stack_push (stack ** head, void * data) {
 	return;
 }
 
-void * stack_pop (stack ** head) {
+void stack_pop (stack ** head) {
 	stack * top;
 	void * value;
 	top = *head;
 	value = top->data;
 	*head = top->next;
 	
+	free(value);
 	free(top);
 
-	return value;
+	return;
 }
 
 void check_empty(stack * s) {
@@ -93,6 +94,5 @@ int main (void) {
 	check_empty(s);
 	printf("%s\n", (char*)stack_peek(s));
 	free(word);
-	free(tmp);
 
 }
