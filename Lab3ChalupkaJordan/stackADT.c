@@ -90,8 +90,11 @@ int main (void) {
 
 	check_empty(s);
 	char * word;
+	printf("Made it\n");
 	word = malloc(sizeof(char)*15);
+	printf("Made it\n");
 	stack_push(&s, word);
+
 	strcpy(word,"Hello");
 	check_empty(s);
 	printf("%s\n", (char*)stack_peek(s));
