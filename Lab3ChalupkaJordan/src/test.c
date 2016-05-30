@@ -42,7 +42,6 @@ int test_push () {
 		return 0;
 	}
 
-	free(*stringPtr);
 	stack_destroy(&s);
 	return 1;
 }
