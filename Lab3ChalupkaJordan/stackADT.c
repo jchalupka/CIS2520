@@ -23,6 +23,7 @@ void stack_destroy (stack ** head) {
 	while (!stack_isEmpty(*head)) {
 		stack_pop(head);
 	}
+	free(*head);
 	printf("\n");
 }
 
