@@ -56,8 +56,8 @@ void * stack_pop (stack ** head) {
 	void * value;
 	top = *head;
 	value = top->data;
-	head = top->next;
-	free(value);
+	*head = top->next;
+	
 	free(top);
 
 	return value;
@@ -93,5 +93,6 @@ int main (void) {
 	check_empty(s);
 	printf("%s\n", (char*)stack_peek(s));
 	free(word);
+	free(tmp);
 
 }
