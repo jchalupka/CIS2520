@@ -23,7 +23,7 @@ void destroyList (node ** theList) {
         printf("Not found\n");
         return;
     }
-    while ((*theList)->next != NULL) {
+    while (*theList != NULL) {
         node * temp;
         temp = *theList;
         *theList = (*theList)->next;

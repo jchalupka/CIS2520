@@ -13,8 +13,12 @@ int incorrectOutput (char * funcName) {
 int test_create (void) {
 	char * funcName = "stack_create";
 	stack *s = stack_create();
-	stack_destroy(&s);
+	int correct = 0;
 	if (s != NULL) {
+		correct++;
+	}
+	stack_destroy(&s);
+	if (correct == 1) {
 		return correctOutput(funcName);
 	}
 	return incorrectOutput(funcName);
