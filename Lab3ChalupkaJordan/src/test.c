@@ -120,6 +120,11 @@ int test_destroy (void) {
 
 	stack_destroy (&s);
 	stack_destroy (&s);
+	
+	free(numPtr);
+	free(charPtr);
+	free(stringPtr);
+
 	if (s == NULL) {
 		return correctOutput(funcName);
 	}
@@ -151,6 +156,8 @@ int test_isEmpty (void) {
 		correct += 1;
 	}	else correct += -999;
 
+
+	free(numPtr);
 
 	if (correct == 3) {
 		return correctOutput(funcName);
