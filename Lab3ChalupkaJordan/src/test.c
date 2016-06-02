@@ -84,15 +84,11 @@ int test_pop (void) {
 	stack_pop(s);
 	stack_pop(s);
 
+	stack_destroy(&s);
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}
 	return incorrectOutput(funcName);
-	
-	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
-	free(stringPtr);
 }
 
 int test_destroy (void) {
