@@ -115,7 +115,7 @@ int test_destroy (void) {
 	stack_push(s, stringPtr);
 
 	stack_destroy (&s);
-	stack_destroy(&s);
+	stack_destroy (&s);
 	if (s == NULL) {
 		return correctOutput(funcName);
 	}
@@ -128,14 +128,6 @@ int test_isEmpty (void) {
 
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
-
-	char * charPtr = malloc(sizeof(*charPtr));
-	*charPtr = 'c';
-
-	char ** stringPtr = malloc(sizeof(char*));
-	*stringPtr = malloc(sizeof(char)*15);
-	strcpy(*stringPtr, "string");
-
 
 	int correct = 0;
 
@@ -162,10 +154,7 @@ int test_isEmpty (void) {
 		return incorrectOutput(funcName);
 	}
 
-	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
-	free(stringPtr);
+
 }
 
 int test_peek (void) {
