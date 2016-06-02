@@ -90,6 +90,9 @@ int test_pop (void) {
 	return incorrectOutput(funcName);
 	
 	stack_destroy(&s);
+	free(numPtr);
+	free(charPtr);
+	free(stringPtr);
 }
 
 int test_destroy (void) {
