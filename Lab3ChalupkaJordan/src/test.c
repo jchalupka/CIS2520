@@ -192,17 +192,15 @@ int test_peek (void) {
 		correct += 1;
 	} else correct += -999;
 
-	
+	stack_destroy(&s);
+	free(numPtr);
+	free(charPtr);
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}
 	else {
 		return incorrectOutput(funcName);
 	}
-
-	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
 }
 
 int test_functions (void) {
