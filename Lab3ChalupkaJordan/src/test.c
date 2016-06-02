@@ -92,6 +92,7 @@ int test_pop (void) {
 	stack_destroy(&s);
 	free(numPtr);
 	free(charPtr);
+	free(*stringPtr);
 	free(stringPtr);
 	if (correct == 2) {
 		return correctOutput(funcName);
@@ -123,6 +124,7 @@ int test_destroy (void) {
 	
 	free(numPtr);
 	free(charPtr);
+	free(*stringPtr);
 	free(stringPtr);
 
 	if (s == NULL) {
