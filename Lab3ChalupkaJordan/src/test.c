@@ -88,7 +88,8 @@ int test_pop (void) {
 		return correctOutput(funcName);
 	}
 	return incorrectOutput(funcName);
-		
+	
+	stack_destroy(&s);
 }
 
 int test_destroy (void) {
