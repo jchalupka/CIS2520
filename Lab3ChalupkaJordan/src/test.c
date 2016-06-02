@@ -157,6 +157,11 @@ int test_isEmpty (void) {
 	} else {
 		return incorrectOutput(funcName);
 	}
+
+	stack_destroy(&s);
+	free(numPtr);
+	free(charPtr);
+	free(stringPtr);
 }
 
 int test_peek (void) {
@@ -187,6 +192,10 @@ int test_peek (void) {
 	else {
 		return incorrectOutput(funcName);
 	}
+
+	stack_destroy(&s);
+	free(numPtr);
+	free(charPtr);
 }
 
 int test_functions (void) {
