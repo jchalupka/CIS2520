@@ -27,6 +27,7 @@ void destroyList (node ** theList) {
         node * temp;
         temp = *theList;
         *theList = (*theList)->next;
+
         free(temp); 
     }
     *theList = NULL;
@@ -38,6 +39,7 @@ void destroyList (node ** theList) {
 node * initNode (void * value) {
     node * newNode = malloc(sizeof(node));
     newNode->data = value;
+    
     return newNode;
 }
 

@@ -22,29 +22,34 @@ int test_create (void) {
 int test_push (void) {
 	char * funcName = "stack_push";
 	stack *s = stack_create();
-	int num;
-	num = 5;
+	int * numPtr = malloc(sizeof(*numPtr));
+	*numPtr = 5;
 
-	char letter;
-	letter = 'c';
+	char * charPtr = malloc(sizeof(*charPtr));
+	*charPtr = 'c';
 
-	char * string;
-	string = malloc(sizeof(char)*15);
-	strcpy(string, "string");
+	char ** stringPtr = malloc(sizeof(char*));
+	*stringPtr = malloc(sizeof(char)*15);
+	strcpy(*stringPtr, "string");
 
 
-	stack_push(s, &num);
-	stack_push(s, &letter);
-	stack_push(s, &string);
+	stack_push(s, numPtr);
+	stack_push(s, charPtr);
+	stack_push(s, stringPtr);
 
 	int correct;
 	if (strcmp(*(char**)stack_peek(s),"string") == 0) {
 		correct = 1;
 	}
 	else correct = 0;
-
+printf("%s\n",*(char**)stack_peek(s));
 	stack_destroy(&s);
-	printf("%d\n", num);
+	free(numPtr);
+	free(charPtr);
+	free(*stringPtr);
+	free(stringPtr);
+
+
 	if (correct) {
 		return correctOutput(funcName);
 	}
@@ -85,7 +90,9 @@ int test_pop (void) {
 	stack_pop(s);
 
 	stack_destroy(&s);
+	free(numPtr);
 	free(charPtr);
+	free(stringPtr);
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}
