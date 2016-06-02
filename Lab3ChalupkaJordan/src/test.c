@@ -163,8 +163,9 @@ int test_isEmpty (void) {
 		correct += 1;
 	}	else correct += -999;
 
-
+	stack_destroy(&s);
 	free(numPtr);
+
 
 	if (correct == 3) {
 		return correctOutput(funcName);
