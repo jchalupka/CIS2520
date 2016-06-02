@@ -85,7 +85,7 @@ int test_pop (void) {
 	stack_pop(s);
 
 	stack_destroy(&s);
-	free(*stringPtr);
+	free(charPtr);
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}
