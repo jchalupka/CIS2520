@@ -1,13 +1,15 @@
 /*
     Jordan Chalupka
     0928258
+
+    This file contains a generic List ADT, made using a Linked List method.
 */
 #include "ListADT.h"
 
 /*Return a list ADT*/
-node * createList (void) {
-    node * list;
-    list = malloc(sizeof(node));
+Node * createList (void) {
+    Node * list;
+    list = malloc(sizeof(Node));
     if (list == NULL) {
         printf("An error has occured, not enough memory available.\n");
         return NULL;
@@ -20,12 +22,12 @@ node * createList (void) {
 }
 
 /*Destory the list, freeing all of the associated memory*/
-void destroyList (node ** theList) {
-    if (!isInit(*theList)) {
+void destroyList (Node ** theList) {
+    if ((theList == NULL) || (*theList == NULL)) {
         return;
     }
     while (*theList != NULL) {
-        node * temp;
+        Node * temp;
         temp = *theList;
         *theList = (*theList)->next;
         if (temp->data != NULL) {
@@ -39,8 +41,8 @@ void destroyList (node ** theList) {
 }
 
 /*Initialize a node, mallocing all of the needed memory*/
-node * initNode (void * value) {
-    node * newNode = malloc(sizeof(node));
+Node * initNode (void * value) {
+    Node * newNode = malloc(sizeof(Node));
     void ** dataPtr = malloc(sizeof(value));
     *dataPtr = value;
     newNode->data = dataPtr;
@@ -48,11 +50,11 @@ node * initNode (void * value) {
     return newNode;
 }
 
-void addFront (node * theList, void * value) {
+void addFront (Node * theList, void * value) {
     if (!isInit(theList)) {
         return;
     }
-    node * newNode = initNode(value);
+    Node * newNode = initNode(value);
     newNode->next = theList->next;
     theList->next = newNode;
 
@@ -60,11 +62,11 @@ void addFront (node * theList, void * value) {
 }
 
 /*Get the value of the front of the list*/
-void * getFrontValue (node * theList) {
+void * getFrontValue (Node * theList) {
     if (!isInit(theList)) {
         return NULL;
     }
-    node * firstNode;
+    Node * firstNode;
     firstNode = theList->next;
     void ** frontValue;
     frontValue = firstNode->data;
@@ -73,7 +75,7 @@ void * getFrontValue (node * theList) {
 }
 
 /*Get the length of the list*/
-int getLength (node * theList) {
+int getLength (Node * theList) {
     if (!isInit(theList)) {
         return 0;
     }   
@@ -87,7 +89,7 @@ int getLength (node * theList) {
 }
 
 /*Print out each of the nodes in the list*/
-void printList (node * theList) {
+void printList (Node * theList) {
     if (!isInit(theList)) {
         return;
     }
@@ -104,7 +106,7 @@ void printList (node * theList) {
 }
 
 /*Remove the first item in the list*/
-void removeFront (node * theList) {
+void removeFront (Node * theList) {
     if (!isInit(theList)) {
         return;
     }
@@ -113,7 +115,7 @@ void removeFront (node * theList) {
         return;
     }
 
-    node * firstNode = theList->next;
+    Node * firstNode = theList->next;
     theList->next = firstNode->next; 
     free(firstNode->data);
     free(firstNode);
@@ -124,9 +126,16 @@ void removeFront (node * theList) {
 }
 
 /*Check if the node is initialized*/
-int isInit(node * theList) {
+int isInit(Node * theList) {
     if (theList == NULL) {
         return 0;
     }
     return 1;
+}
+
+int listIsEmpty (Node * theList) {
+    if ((theList == NULL)||(theList->next == NULL)) {
+        return 1;
+    }
+    return 0;
 }

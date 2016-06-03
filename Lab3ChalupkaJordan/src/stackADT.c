@@ -1,50 +1,49 @@
 /*
     Jordan Chalupka
     0928258
+
+    This file contains a generic Stack ADT, made using a Linked List ADT
 */
 #include "stackADT.h"
 
 /*Get the top value of the stack*/
-void * stack_peek (stack * head) {
-	void * data = getFrontValue(head);
+void * stack_peek (Stack * top) {
+	void * data = getFrontValue(top);
 	return data;
 }
 
 /*Null the stack and free all of the memory*/
-void stack_destroy (stack ** head) {
-	destroyList(head);
+void stack_destroy (Stack ** top) {
+	destroyList(top);
 	return;
 }
 
 /*Create a new stack*/
-stack * stack_create (void) {
+Stack * stack_create (void) {
 	return createList();
 }
 
 /*Check if the stack is empty*/
-int stack_isEmpty (stack * head) {
-	if (head->next == NULL) {
-		return 1;
-	}
-	return 0;
+int stack_isEmpty (Stack * top) {
+	return listIsEmpty(top);
 }
 
 /*Push a new item onto the stack*/
-void stack_push (stack * head, void * data) {
-	addFront(head, data);
+void stack_push (Stack * top, void * data) {
+	addFront(top, data);
 
 	return;
 }
 
 /*Remove the top item on the stack*/
-void stack_pop (stack * head) {
-	removeFront(head);
+void stack_pop (Stack * top) {
+	removeFront(top);
 
 	return;
 }
 
 /*Print a message if the stack is empty*/
-void check_empty(stack * s) {
+void check_empty(Stack * s) {
 	if (stack_isEmpty(s)) {
 		printf("stack empty\n");
 	}

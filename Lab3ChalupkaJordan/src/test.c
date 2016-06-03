@@ -1,6 +1,19 @@
 /*
     Jordan Chalupka
     0928258
+
+    This file contains the test program for the Stack ADT.
+    Included in this file is tests for each individual function, as well as
+    tests that use a combination of all of the functions.
+
+    The test program is thorough as it tests each individual function in the ADT.
+    This ensures each function is working properly.
+
+    This program also tests each function for NULL, to ensure proper functionality even
+    when the pre conditions for the functions are not met. (The use of uninitialized lists)
+
+    Not included in this test file are tests completed using valgrind, showing that the
+    same number of frees and allocs were made, and that no leaks are possible.
 */
 #include "test.h"
 
@@ -14,6 +27,7 @@ int main (void) {
 	else {
 		printf("%d function tests unsuccesful\n", numErrors);
 	}
+	test_null();
     return 0;
 }
 
@@ -30,6 +44,17 @@ int test_functions (void) {
 	return testErrors;
 }
 
+int test_null (void) {
+	printf("Testing all functions with NULL\n");
+	stack_peek(NULL);
+	correctOutput("stack_peek");
+	stack_destroy(NULL);
+	correctOutput("stack_destroy");
+	stack_isEmpty(NULL);
+	correctOutput("stack_isEmpty");
+
+	return 1;
+}
 /*Function used for correct test responses*/
 int correctOutput (char * funcName) {
 	printf("%s: \tCORRECT\n", funcName);
@@ -45,7 +70,7 @@ int incorrectOutput (char * funcName) {
 /*Test the stack_create function*/
 int test_create (void) {
 	char * funcName = "stack_create";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 	int correct = 0;
 	if (s != NULL) {
 		correct++;
@@ -60,7 +85,7 @@ int test_create (void) {
 /*Test the stack_push function*/
 int test_push (void) {
 	char * funcName = "stack_push";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
 
@@ -82,11 +107,6 @@ int test_push (void) {
 	}
 	else correct = 0;
 	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
-	free(*stringPtr);
-	free(stringPtr);
-
 
 	if (correct) {
 		return correctOutput(funcName);
@@ -97,7 +117,7 @@ int test_push (void) {
 /*Test the stack_pop function*/
 int test_pop (void) {
 	char * funcName = "test_pop";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 	
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
@@ -129,10 +149,7 @@ int test_pop (void) {
 	stack_pop(s);
 
 	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
-	free(*stringPtr);
-	free(stringPtr);
+
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}
@@ -142,7 +159,7 @@ int test_pop (void) {
 /*Test the stack_destroy function*/
 int test_destroy (void) {
 	char * funcName = "test_destroy";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 	
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
@@ -161,11 +178,6 @@ int test_destroy (void) {
 
 	stack_destroy (&s);
 	stack_destroy (&s);
-	
-	free(numPtr);
-	free(charPtr);
-	free(*stringPtr);
-	free(stringPtr);
 
 	if (s == NULL) {
 		return correctOutput(funcName);
@@ -176,7 +188,7 @@ int test_destroy (void) {
 /*Test the stack_isEmpty function*/
 int test_isEmpty (void) {
 	char * funcName = "test_isEmpty";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
@@ -200,8 +212,6 @@ int test_isEmpty (void) {
 	}	else correct += -999;
 
 	stack_destroy(&s);
-	free(numPtr);
-
 
 	if (correct == 3) {
 		return correctOutput(funcName);
@@ -212,7 +222,7 @@ int test_isEmpty (void) {
 /*Test the stack_peek function*/
 int test_peek (void) {
 	char * funcName = "test_pop";
-	stack *s = stack_create();
+	Stack *s = stack_create();
 	
 	int * numPtr = malloc(sizeof(*numPtr));
 	*numPtr = 5;
@@ -232,8 +242,7 @@ int test_peek (void) {
 	} else correct += -999;
 
 	stack_destroy(&s);
-	free(numPtr);
-	free(charPtr);
+
 	if (correct == 2) {
 		return correctOutput(funcName);
 	}

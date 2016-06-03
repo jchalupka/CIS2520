@@ -10,37 +10,43 @@
 #include <string.h>
 #include "ListADT.h"
 
-typedef node stack;
+typedef Node Stack;
 
-void stack_push (stack * head, void * data);
 /*
+Push a node onto the stack ADT
 Pre: An initialized stack ADT
 Post: The stack's head is now the data pointer
 */
-void stack_pop (stack * head);
+void stack_push (Stack * top, void * data);
 /*
+Pop a node off of the stack ADT
 Pre: An initialized stack ADT
 Post: The top node of the stack is free'd (if no nodes then the stack remains the same)
 */
-stack * stack_create (void);
+void stack_pop (Stack * top);
 /*
+Initialize a new stack ADT
 Pre: None
 Post: A stack ADT is created and memory is malloced for it
 */
-void stack_destroy (stack ** head);
+Stack * stack_create (void);
 /*
+Free all of the memory on the stack ADT
 Pre: An initialized stack ADT
 Post: All memory is free'd that was used in the stack ADT
 */
-int stack_isEmpty (stack * head);
+void stack_destroy (Stack ** top);
 /*
+Check if the stack ADT is empty
 Pre: An initialized stack ADT
 Post: An integer is returned: 1 for empty, 0 for non empty
 */
-void * stack_peek (stack * head);
+int stack_isEmpty (Stack * top);
 /*
+Get the first node's data of the stack ADT
 Pre: An initialized stack ADT with atleast one node
 Post: Returns a pointer to the top node
 */
+void * stack_peek (Stack * top);
 
 #endif
