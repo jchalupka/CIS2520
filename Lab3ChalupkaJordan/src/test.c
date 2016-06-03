@@ -27,7 +27,11 @@ int main (void) {
 	else {
 		printf("%d function tests unsuccesful\n", numErrors);
 	}
-	test_null();
+	if (test_null()) {
+		printf("All null function tests succesful\n");
+	}else {
+		printf("ERROR: Not all functions passed null test\n");
+	}
     return 0;
 }
 
@@ -52,7 +56,10 @@ int test_null (void) {
 	correctOutput("stack_destroy");
 	stack_isEmpty(NULL);
 	correctOutput("stack_isEmpty");
-
+	stack_push(NULL,NULL);
+	correctOutput("stack_push");
+	stack_pop(NULL);
+	correctOutput("stack_pop");
 	return 1;
 }
 /*Function used for correct test responses*/
