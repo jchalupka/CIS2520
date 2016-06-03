@@ -93,6 +93,7 @@ int test_push (void) {
 	*charPtr = 'c';
 
 	char ** stringPtr;
+	*stringPtr = malloc(sizeof(char)*15);
 	strcpy(*stringPtr, "string");
 
 
