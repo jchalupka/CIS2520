@@ -69,5 +69,4 @@ Post: The correctness of functions with NULL parameters is known
 */
 int test_null(void);
 
-
 #endif

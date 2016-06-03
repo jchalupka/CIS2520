@@ -17,7 +17,6 @@ Node * createList (void) {
     list->data = NULL;
     list->next = NULL;
 
-
     return list;
 }
 
@@ -121,7 +120,6 @@ void removeFront (Node * theList) {
     free(firstNode);
     firstNode = NULL;
 
-
     return;
 }
 
@@ -137,5 +135,6 @@ int listIsEmpty (Node * theList) {
     if ((theList == NULL)||(theList->next == NULL)) {
         return 1;
     }
+    
     return 0;
 }
