@@ -66,10 +66,10 @@ void * getFrontValue (node * theList) {
     }
     node * firstNode;
     firstNode = theList->next;
-    void * frontValue;
+    void ** frontValue;
     frontValue = firstNode->data;
 
-    return frontValue;
+    return *frontValue;
 }
 
 /*Get the length of the list*/
