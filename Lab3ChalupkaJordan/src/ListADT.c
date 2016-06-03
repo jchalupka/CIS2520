@@ -41,7 +41,7 @@ void destroyList (node ** theList) {
 /*Initialize a node, mallocing all of the needed memory*/
 node * initNode (void * value) {
     node * newNode = malloc(sizeof(node));
-    void ** dataPtr = malloc(sizeof(*value));
+    void ** dataPtr = malloc(sizeof(value));
     *dataPtr = value;
     newNode->data = dataPtr;
     
