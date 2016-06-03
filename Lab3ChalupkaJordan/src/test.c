@@ -27,7 +27,7 @@ int main (void) {
 	else {
 		printf("%d function tests unsuccesful\n", numErrors);
 	}
-	//test_null();
+	test_null();
     return 0;
 }
 
@@ -86,27 +86,22 @@ int test_create (void) {
 int test_push (void) {
 	char * funcName = "stack_push";
 	Stack *s = stack_create();
-	int * numPtr;
-	*numPtr = 5;
+	
+	int numPtr = 5;
+	char charPtr = 'c';
+	char *stringPtr = malloc(sizeof(char)*15);
+	strcpy(stringPtr, "string");
 
-	char * charPtr;
-	*charPtr = 'c';
-
-	char ** stringPtr;
-	*stringPtr = malloc(sizeof(char)*15);
-	strcpy(*stringPtr, "string");
-
-
-	stack_push(s, numPtr);
-	stack_push(s, charPtr);
-	stack_push(s, stringPtr);
+	stack_push(s, &numPtr);
+	stack_push(s, &charPtr);
+	stack_push(s, &stringPtr);
 
 	int correct;
 	if (strcmp(*(char**)stack_peek(s),"string") == 0) {
 		correct = 1;
 	}
 	else correct = 0;
-	free(*stringPtr);
+	free(stringPtr);
 	stack_destroy(&s);
 
 	if (correct) {
@@ -120,19 +115,14 @@ int test_pop (void) {
 	char * funcName = "test_pop";
 	Stack *s = stack_create();
 	
-	int * numPtr;
-	*numPtr = 5;
+	int numPtr = 5;
+	char charPtr = 'c';
+	char *stringPtr = malloc(sizeof(char)*15);
+	strcpy(stringPtr, "string");
 
-	char * charPtr;
-	*charPtr = 'c';
-
-	char ** stringPtr;
-	strcpy(*stringPtr, "string");
-
-
-	stack_push(s, numPtr);
-	stack_push(s, charPtr);
-	stack_push(s, stringPtr);
+	stack_push(s, &numPtr);
+	stack_push(s, &charPtr);
+	stack_push(s, &stringPtr);
 
 	stack_pop(s);
 	int correct = 0;
@@ -147,7 +137,7 @@ int test_pop (void) {
 	}
 	stack_pop(s);
 	stack_pop(s);
-
+	free(stringPtr);
 	stack_destroy(&s);
 
 	if (correct == 2) {
@@ -161,23 +151,19 @@ int test_destroy (void) {
 	char * funcName = "test_destroy";
 	Stack *s = stack_create();
 	
-	int * numPtr;
-	*numPtr = 5;
-
-	char * charPtr;
-	*charPtr = 'c';
-
-	char ** stringPtr;
-	strcpy(*stringPtr, "string");
+	int numPtr = 5;
+	char charPtr = 'c';
+	char *stringPtr = malloc(sizeof(char)*15);
+	strcpy(stringPtr, "string");
 
 
-	stack_push(s, numPtr);
-	stack_push(s, charPtr);
-	stack_push(s, stringPtr);
+	stack_push(s, &numPtr);
+	stack_push(s, &charPtr);
+	stack_push(s, &stringPtr);
 
 	stack_destroy (&s);
 	stack_destroy (&s);
-
+	free(stringPtr);
 	if (s == NULL) {
 		return correctOutput(funcName);
 	}
@@ -189,8 +175,7 @@ int test_isEmpty (void) {
 	char * funcName = "test_isEmpty";
 	Stack *s = stack_create();
 
-	int * numPtr;
-	*numPtr = 5;
+	int numPtr = 5;
 
 	int correct = 0;
 
@@ -198,7 +183,7 @@ int test_isEmpty (void) {
 		correct += 1;
 	}	else correct += -999;
 
-	stack_push(s, numPtr);
+	stack_push(s, &numPtr);
 
 	if (!stack_isEmpty(s)) {
 		correct += 1;
@@ -223,19 +208,17 @@ int test_peek (void) {
 	char * funcName = "test_pop";
 	Stack *s = stack_create();
 	
-	int * numPtr;
-	*numPtr = 5;
+	int numPtr = 5;
 
-	char * charPtr;
-	*charPtr = 'c';
+	char charPtr = 'c';
 
-	stack_push(s, numPtr);
+	stack_push(s, &numPtr);
 	int correct = 0;
 	if (*(int*)stack_peek(s) == 5) {
 		correct += 1;
 	} else correct += -999;
 	
-	stack_push(s, charPtr);
+	stack_push(s, &charPtr);
 	if (*(char*)stack_peek(s) == 'c') {
 		correct += 1;
 	} else correct += -999;
