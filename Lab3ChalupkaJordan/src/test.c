@@ -132,18 +132,17 @@ int test_pop (void) {
     stack_push(s, &charPtr);
     stack_push(s, &stringPtr);
 
-    stack_pop(s);
     int correct = 0;
+    stack_pop(s);
     if (*(char*)stack_peek(s) == 'c') {
         correct += 1;
     }
     else correct += -999;
-
     stack_pop(s);
-    if (*(int*)stack_peek(s) == 5) {
+    if (*(int*)stack_pop(s) == 5) {
         correct += 1;
     }
-    stack_pop(s);
+
     stack_pop(s);
     free(stringPtr);
     stack_destroy(&s);

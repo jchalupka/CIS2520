@@ -17,6 +17,7 @@ Node * createList (void) {
     list->data = NULL;
     list->next = NULL;
 
+
     return list;
 }
 
@@ -67,6 +68,9 @@ void * getFrontValue (Node * theList) {
     }
     Node * firstNode;
     firstNode = theList->next;
+    if (firstNode == NULL) {
+        return NULL;
+    }
     void ** frontValue;
     frontValue = firstNode->data;
 
@@ -135,6 +139,6 @@ int listIsEmpty (Node * theList) {
     if ((theList == NULL)||(theList->next == NULL)) {
         return 1;
     }
-    
+
     return 0;
 }

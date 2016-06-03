@@ -23,7 +23,7 @@ Pop a node off of the stack ADT
 Pre: An initialized stack ADT
 Post: The top node of the stack is free'd (if no nodes then the stack remains the same)
 */
-void stack_pop (Stack * top);
+void * stack_pop (Stack * top);
 /*
 Initialize a new stack ADT
 Pre: None

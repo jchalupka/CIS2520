@@ -36,10 +36,11 @@ void stack_push (Stack * top, void * data) {
 }
 
 /*Remove the top item on the stack*/
-void stack_pop (Stack * top) {
+void * stack_pop (Stack * top) {
+	void * data = getFrontValue(top);
     removeFront(top);
 
-    return;
+    return data;
 }
 
 /*Print a message if the stack is empty*/
