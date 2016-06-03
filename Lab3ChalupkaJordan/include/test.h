@@ -6,7 +6,7 @@
 #define __JCHALUPKA__STACK_TEST__
 
 #include <stdio.h>
-#include "stackADT.h"
+#include "StackADT.h"
 
 /*
 Gives correct test responce to user
