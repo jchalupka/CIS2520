@@ -86,14 +86,13 @@ int test_create (void) {
 int test_push (void) {
 	char * funcName = "stack_push";
 	Stack *s = stack_create();
-	int * numPtr = malloc(sizeof(*numPtr));
+	int * numPtr;
 	*numPtr = 5;
 
-	char * charPtr = malloc(sizeof(*charPtr));
+	char * charPtr;
 	*charPtr = 'c';
 
-	char ** stringPtr = malloc(sizeof(char*));
-	*stringPtr = malloc(sizeof(char)*15);
+	char ** stringPtr;
 	strcpy(*stringPtr, "string");
 
 
@@ -119,14 +118,13 @@ int test_pop (void) {
 	char * funcName = "test_pop";
 	Stack *s = stack_create();
 	
-	int * numPtr = malloc(sizeof(*numPtr));
+	int * numPtr;
 	*numPtr = 5;
 
-	char * charPtr = malloc(sizeof(*charPtr));
+	char * charPtr;
 	*charPtr = 'c';
 
-	char ** stringPtr = malloc(sizeof(char*));
-	*stringPtr = malloc(sizeof(char)*15);
+	char ** stringPtr;
 	strcpy(*stringPtr, "string");
 
 
@@ -161,14 +159,13 @@ int test_destroy (void) {
 	char * funcName = "test_destroy";
 	Stack *s = stack_create();
 	
-	int * numPtr = malloc(sizeof(*numPtr));
+	int * numPtr;
 	*numPtr = 5;
 
-	char * charPtr = malloc(sizeof(*charPtr));
+	char * charPtr;
 	*charPtr = 'c';
 
-	char ** stringPtr = malloc(sizeof(char*));
-	*stringPtr = malloc(sizeof(char)*15);
+	char ** stringPtr;
 	strcpy(*stringPtr, "string");
 
 
@@ -190,7 +187,7 @@ int test_isEmpty (void) {
 	char * funcName = "test_isEmpty";
 	Stack *s = stack_create();
 
-	int * numPtr = malloc(sizeof(*numPtr));
+	int * numPtr;
 	*numPtr = 5;
 
 	int correct = 0;
@@ -224,10 +221,10 @@ int test_peek (void) {
 	char * funcName = "test_pop";
 	Stack *s = stack_create();
 	
-	int * numPtr = malloc(sizeof(*numPtr));
+	int * numPtr;
 	*numPtr = 5;
 
-	char * charPtr = malloc(sizeof(*charPtr));
+	char * charPtr;
 	*charPtr = 'c';
 
 	stack_push(s, numPtr);
