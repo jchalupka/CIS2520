@@ -10,7 +10,7 @@
 #include <time.h>
 
 typedef struct listNode {
-    void * data;
+    void ** data;
     struct listNode * next;
 } node;
 

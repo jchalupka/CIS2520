@@ -12,7 +12,9 @@ node * createList (void) {
         printf("An error has occured, not enough memory available.\n");
         return NULL;
     }
+    list->data = NULL;
     list->next = NULL;
+
 
     return list;
 }
@@ -20,14 +22,15 @@ node * createList (void) {
 /*Destory the list, freeing all of the associated memory*/
 void destroyList (node ** theList) {
     if (!isInit(*theList)) {
-        
         return;
     }
     while (*theList != NULL) {
         node * temp;
         temp = *theList;
         *theList = (*theList)->next;
-
+        if (temp->data != NULL) {
+            free(temp->data);
+        }
         free(temp); 
     }
     *theList = NULL;
@@ -38,7 +41,9 @@ void destroyList (node ** theList) {
 /*Initialize a node, mallocing all of the needed memory*/
 node * initNode (void * value) {
     node * newNode = malloc(sizeof(node));
-    newNode->data = value;
+    void ** dataPtr = malloc(sizeof(*value));
+    *dataPtr = value;
+    newNode->data = dataPtr;
     
     return newNode;
 }
