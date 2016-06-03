@@ -106,6 +106,7 @@ int test_push (void) {
 		correct = 1;
 	}
 	else correct = 0;
+	free(*stringPtr);
 	stack_destroy(&s);
 
 	if (correct) {
