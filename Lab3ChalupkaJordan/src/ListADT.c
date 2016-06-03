@@ -20,7 +20,7 @@ node * createList (void) {
 /*Destory the list, freeing all of the associated memory*/
 void destroyList (node ** theList) {
     if (!isInit(*theList)) {
-        printf("Not found\n");
+        
         return;
     }
     while (*theList != NULL) {
