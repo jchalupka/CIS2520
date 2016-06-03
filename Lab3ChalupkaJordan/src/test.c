@@ -27,7 +27,7 @@ int main (void) {
 	else {
 		printf("%d function tests unsuccesful\n", numErrors);
 	}
-	test_null();
+	//test_null();
     return 0;
 }
 
