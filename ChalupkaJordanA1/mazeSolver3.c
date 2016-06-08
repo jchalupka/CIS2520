@@ -178,7 +178,7 @@ void popTile (Solver * solver, Maze * maze) {
 	int y = tile->position.y;
 	int x = tile->position.x;
 	maze->mazeMap[y][x] = '!';
-	free(solver->tile);
+	
 	stack_pop(solver->route);
 	solver->tile = (Tile*)stack_peek(solver->route);
 	//maze->mazeMap[y][x] = '!';
