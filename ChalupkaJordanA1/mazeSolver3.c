@@ -283,6 +283,9 @@ int main (void) {
 		printMaze(maze);
 		checkSolved(solver);
 	}
+	free(maze->mazeBinary);
+	free(maze->mazeMap);
+	free(maze);
 	maze = getMaze();
 	printRoute(solver,maze);
 	printMaze(maze);
