@@ -250,9 +250,8 @@ void printRoute (Solver * solver, Maze * maze) {
 		y = ((Tile*)stack_peek(solver->route))->position.y;
 		printf("%d %d\n",x,y);
 		if (maze->mazeMap[y][x] != 'S' && maze->mazeMap[y][x] != 'F') {
-			maze->mazeMap[y][x] = '@';
+			maze->mazeMap[y][x] = 'X';
 		}
-		free(solver->tile);
 		stack_pop(solver->route);
 		
 	}
@@ -289,6 +288,9 @@ int main (void) {
 	printMaze(maze);
 	stack_destroy(&solver->route);
 	free(solver);
+	free(maze->mazeBinary);
+	free(maze->mazeMap);
+	free(maze);
 
 	return 0;
 }
