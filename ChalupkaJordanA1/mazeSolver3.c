@@ -284,9 +284,10 @@ int main (void) {
 		checkSolved(solver);
 	}
 	maze = getMaze();
+	free(solver->tile);
 	printRoute(solver,maze);
 	printMaze(maze);
-	stack_destroy(solver->route);
+	stack_destroy(&solver->route);
 	free(solver);
 
 	return 0;
