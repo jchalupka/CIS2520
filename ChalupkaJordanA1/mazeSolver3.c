@@ -252,6 +252,7 @@ void printRoute (Solver * solver, Maze * maze) {
 		if (maze->mazeMap[y][x] != 'S' && maze->mazeMap[y][x] != 'F') {
 			maze->mazeMap[y][x] = '@';
 		}
+		free(solver->tile);
 		stack_pop(solver->route);
 		
 	}
@@ -284,7 +285,6 @@ int main (void) {
 		checkSolved(solver);
 	}
 	maze = getMaze();
-	free(solver->tile);
 	printRoute(solver,maze);
 	printMaze(maze);
 	stack_destroy(&solver->route);
