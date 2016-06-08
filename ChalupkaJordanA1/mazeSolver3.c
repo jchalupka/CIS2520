@@ -65,10 +65,10 @@ void unlockMoves (Tile * tile) {
 	return;
 }
 
-Tile * createTile (void) {
-	Tile * tile = malloc(sizeof(Tile));
+void createTile (Solver * solver) {
+	Tile * tile = solver->tile;
 	unlockMoves(tile);
-	return tile;
+	return;
 }
 
 void closeDir (Tile * tile, int dir) {
@@ -165,7 +165,7 @@ void pushTile (Solver * solver, Maze * maze) {
 	maze->mazeBinary[y][x] = 1;
 	solver->previous = solver->tile->position;
 	stack_push(solver->route, tile);
-	solver->tile = createTile();
+	createTile(solver);
 	solver->tile->position = solver->previous;
 
 	printf("Pushing\n");
@@ -178,7 +178,7 @@ void popTile (Solver * solver, Maze * maze) {
 	int y = tile->position.y;
 	int x = tile->position.x;
 	maze->mazeMap[y][x] = '!';
-	
+
 	stack_pop(solver->route);
 	solver->tile = (Tile*)stack_peek(solver->route);
 	//maze->mazeMap[y][x] = '!';
@@ -269,7 +269,7 @@ int main (void) {
 	// Create a route stack
 	solver->route = stack_create();
 	// Create a tile struct
-	solver->tile = createTile();
+	createTile(solver);
 	// Give the solver struct the current position
 	solver->tile->position.y = solver->start.y;
 	solver->tile->position.x = solver->start.x;
