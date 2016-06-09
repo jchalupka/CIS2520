@@ -208,7 +208,6 @@ void solveMaze (void) {
 	while (!solver->solved) {
 		movePos(solver,maze);
 		checkSolved(solver);
-		printf("Made it\n");
 	}
 	printRoute(solver,maze);
 }
