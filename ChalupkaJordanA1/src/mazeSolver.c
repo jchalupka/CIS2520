@@ -36,7 +36,7 @@ void getPosition (Solver * solver, Maze * maze) {
 // Create initiate variables and allocate memory for the solver struct
 Solver * initSolver (void) {
 	Solver * solver = malloc(sizeof(Solver));
-	solver->route = malloc(sizeof(Stack));
+	
 	solver->solved = 0;
 
 	return solver;
