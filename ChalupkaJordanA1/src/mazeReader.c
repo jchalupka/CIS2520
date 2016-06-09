@@ -98,8 +98,8 @@ Maze * getMaze (void) {
 	FILE * mazeFile = openFile("doc/maze.txt");
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
-			printf("Made it\n");
 	convertBinary(maze);
+			printf("Made it\n");
 	
 	return maze;
 }
