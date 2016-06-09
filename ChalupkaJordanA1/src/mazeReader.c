@@ -63,7 +63,7 @@ void convertBinary (Maze * maze) {
 		for (int j = 0; j < maze->width; j++) {
 			char mazeChar = maze->mazeMap[i][j];
 			if (mazeChar == '+'||mazeChar == '-'||mazeChar == '|') {
-				/*Error here*/
+				printf("Made it\n");
 				maze->mazeBinary[i][j] = 1;
 			}
 			else if (mazeChar == 'S' || mazeChar == 'F') {
@@ -74,7 +74,7 @@ void convertBinary (Maze * maze) {
 			}
 		}
 	}
-	printf("Made it\n");
+	
 	return;
 }
 
