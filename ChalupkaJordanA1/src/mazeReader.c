@@ -32,7 +32,7 @@ void removeNewLines (char input[255]) {
 /*Convert the maze file into a 2D array of characters`*/
 Maze * convertMaze (FILE * mazeFile) {
 	char input[255];
-	char (*maze)[255] = malloc(255*255);
+	char (*maze)[255] = malloc(sizeof(char)*255*255);
 	/*Repeat for each line in the file*/
 	int height = 0;
 	int width = 0;
