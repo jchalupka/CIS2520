@@ -170,7 +170,6 @@ void printMaze (Maze * maze) {
 void checkSolved (Solver * solver) {
 	if (solver->end.x == solver->current.x && solver->end.y == solver->current.y) {
 		solver->solved =1;
-		printf("Solved!\n");
 	}
 
 	return;
