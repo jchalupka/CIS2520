@@ -31,6 +31,7 @@ void destroyList (Node ** theList) {
         temp = *theList;
         *theList = (*theList)->next;
         if (temp->data != NULL) {
+            free(*(temp->data));
             free(temp->data);
         }
         free(temp); 
