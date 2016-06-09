@@ -210,6 +210,12 @@ void solveMaze (void) {
 		checkSolved(solver);
 	}
 	printRoute(solver,maze);
+
+	free(maze->mazeMap);
+	free(maze->mazeBinary);
+	free(maze);
+	stackDestroy(&solver->route);
+	free(solver);
 }
 
 int main (void) {
