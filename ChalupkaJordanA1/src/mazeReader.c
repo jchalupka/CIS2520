@@ -14,6 +14,7 @@ FILE * openFile (char * fileName) {
 		printf("The file does not exist\n");
 		exit(1);
 	}
+
 	return file;
 }
 
@@ -24,6 +25,8 @@ void removeNewLines (char input[255]) {
 			input [i] = '\0';
 		}
 	}
+
+	return;
 }
 
 /*Convert the maze file into a 2D array of characters`*/
@@ -49,13 +52,13 @@ Maze * convertMaze (FILE * mazeFile) {
 	mazeStruct->height = height;
 	mazeStruct->width = width;
 	mazeStruct->mazeMap = maze;
+
 	return mazeStruct;
 }
 
 /*Convert the maze to a simpler integer model with 1 being wall, -1 being start/end and 0 being free space*/
 void convertBinary (Maze * maze) {
 	maze->mazeBinary = malloc(255*255);
-	printf("Made it\n");
 	for (int i = 0; i < maze->height; i++) {
 		for (int j = 0; j < maze->width; j++) {
 			char mazeChar = maze->mazeMap[i][j];
@@ -71,6 +74,8 @@ void convertBinary (Maze * maze) {
 			}
 		}
 	}
+	printf("Made it\n");
+	return;
 }
 
 /*Print the binary model (This was used for testing)*/
@@ -91,6 +96,8 @@ void printBinary (Maze * maze) {
 		}
 	printf("\n");
 	}
+
+	return;
 }
 
 /*Retrive the maze file and convert to a FILE pointer*/
