@@ -119,7 +119,8 @@ void removeFront (Node * theList) {
     }
 
     Node * firstNode = theList->next;
-    theList->next = firstNode->next; 
+    theList->next = firstNode->next;
+    free(*(firstNode->data));
     free(firstNode->data);
     free(firstNode);
     firstNode = NULL;
