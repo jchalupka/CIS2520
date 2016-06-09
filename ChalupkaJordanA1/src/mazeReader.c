@@ -58,12 +58,12 @@ Maze * convertMaze (FILE * mazeFile) {
 
 /*Convert the maze to a simpler integer model with 1 being wall, -1 being start/end and 0 being free space*/
 void convertBinary (Maze * maze) {
+	int num = 0;
 	maze->mazeBinary = malloc(255*255);
 	for (int i = 0; i < maze->height; i++) {
 		for (int j = 0; j < maze->width; j++) {
 			char mazeChar = maze->mazeMap[i][j];
 			if (mazeChar == '+'||mazeChar == '-'||mazeChar == '|') {
-				printf("Made it\n");
 				maze->mazeBinary[i][j] = 1;
 			}
 			else if (mazeChar == 'S' || mazeChar == 'F') {
@@ -72,7 +72,9 @@ void convertBinary (Maze * maze) {
 			else {
 				maze->mazeBinary[i][j] = 0;
 			}
+			printf("%d\n",num);
 		}
+		num++;
 	}
 	
 	return;
