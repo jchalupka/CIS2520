@@ -215,6 +215,7 @@ void solveMaze (void) {
 	free(maze->mazeBinary);
 	free(maze);
 	stackDestroy(&solver->route);
+	free(solver->route);
 	free(solver);
 }
 
