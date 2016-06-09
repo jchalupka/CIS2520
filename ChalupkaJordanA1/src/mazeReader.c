@@ -59,17 +59,17 @@ Maze * convertMaze (FILE * mazeFile) {
 /*Convert the maze to a simpler integer model with 1 being wall, -1 being start/end and 0 being free space*/
 void convertBinary (Maze * maze) {
 	maze->mazeBinary = malloc(sizeof(int)*255*255);
-	for (int i = 0; i < maze->height; i++) {
-		for (int j = 0; j < maze->width; j++) {
-			char mazeChar = maze->mazeMap[i][j];
+	for (int y = 0; y < maze->height; y++) {
+		for (int x = 0; x < maze->width; x++) {
+			char mazeChar = maze->mazeMap[y][x];
 			if (mazeChar == '+'||mazeChar == '-'||mazeChar == '|') {
-				maze->mazeBinary[i][j] = 1;
+				maze->mazeBinary[y][x] = 1;
 			}
 			else if (mazeChar == 'S' || mazeChar == 'F') {
-				maze->mazeBinary[i][j] = -1;
+				maze->mazeBinary[y][x] = -1;
 			}
 			else {
-				maze->mazeBinary[i][j] = 0;
+				maze->mazeBinary[y][x] = 0;
 			}
 		}
 	}
@@ -81,19 +81,18 @@ void convertBinary (Maze * maze) {
 void printBinary (Maze * maze) {
 	/*Convert the maze file to a 2D array*/
 	
-	for (int i = 0; i < maze->height; i++) {
-		for (int j = 0; j < maze->width; j++) {
-			if (maze->mazeBinary[i][j] > 0) {
+	for (int y = 0; y < maze->height; y++) {
+		for (int x = 0; x < maze->width; x++) {
+			if (maze->mazeBinary[y][x] > 0) {
 				printf("X");
 			}
-			else if (maze->mazeBinary[i][j]) {
+			else if (maze->mazeBinary[y][x]) {
 				printf("@");
 			}
 			else {
 				printf(" ");
 			}
 		}
-	printf("\n");
 	}
 
 	return;
