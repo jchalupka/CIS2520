@@ -2,7 +2,7 @@ CC          =	gcc
 # Flags that are sent to the compiler
 # Do not change these
 CFLAGS      =	-c -Wall -std=c99
-LDFLAGS     =
+LDFLAGS     =   -g
 
 #Directories where the compiler can find things
 INCLUDES    = -Iinclude
