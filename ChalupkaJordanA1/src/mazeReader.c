@@ -14,7 +14,6 @@ FILE * openFile (char * fileName) {
 		printf("The file does not exist\n");
 		exit(1);
 	}
-		printf("Made it\n");
 	return file;
 }
 
@@ -99,6 +98,7 @@ Maze * getMaze (void) {
 	FILE * mazeFile = openFile("doc/maze.txt");
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
+			printf("Made it\n");
 	convertBinary(maze);
 	
 	return maze;
