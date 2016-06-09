@@ -1,19 +1,23 @@
-/*This function will read in the maze file and create a 2D array of the maze
-In the maze, 1 will mean wall (+,-,|), and 0 will mean free space*/
+/*
+    Jordan Chalupka
+    0928258
+*/
+
 #include "mazeReader.h"
 
+/* Open the file containing the maze*/
 FILE * openFile (char * fileName) {
 	FILE * file;
 	/*Put in a file validator maybe*/
 	file = fopen(fileName,"r");
 	if (file == NULL) {
 		printf("The file does not exist\n");
-		abort();
+		exit(1);
 	}
 	return file;
 }
 
-/*Removes all of the new line characters and replaces then with NULL characters*/
+/*Removes all of the new line characters and replaces then with null terminating characters*/
 void removeNewLines (char input[255]) {
 	for (int i = 0; i < strlen(input); i++) {
 		if (input[i] == '\n') {
@@ -22,7 +26,7 @@ void removeNewLines (char input[255]) {
 	}
 }
 
-/*First convert the map into a 2D array*/
+/*Convert the maze file into a 2D array of characters`*/
 Maze * convertMaze (FILE * mazeFile) {
 	char input[255];
 	char (*maze)[255] = malloc(255*255);
@@ -48,6 +52,7 @@ Maze * convertMaze (FILE * mazeFile) {
 	return mazeStruct;
 }
 
+/*Convert the maze to a simpler integer model with 1 being wall, -1 being start/end and 0 being free space*/
 void convertBinary (Maze * maze) {
 	maze->mazeBinary = malloc(255*255);
 	for (int i = 0; i < maze->height; i++) {
@@ -67,8 +72,8 @@ void convertBinary (Maze * maze) {
 	}
 }
 
+/*Print the binary model (This was used for testing)*/
 void printBinary (Maze * maze) {
-	printf("Printing Maze\n");
 	/*Convert the maze file to a 2D array*/
 	
 	for (int i = 0; i < maze->height; i++) {
@@ -87,21 +92,13 @@ void printBinary (Maze * maze) {
 	}
 }
 
+/*Retrive the maze file and convert to a FILE pointer*/
 Maze * getMaze (void) {
 	/*Pointer to the maze file*/
-	FILE * mazeFile = openFile("maze.txt");
-	printf("Printing Maze\n");
+	FILE * mazeFile = openFile("doc/maze.txt");
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
-	for (int i = 0; i < maze->height; i++) {
-		for (int j = 0; j < maze->width; j++) {
-			printf("%c",(char)maze->mazeMap[i][j]);
-		}
-	printf("\n");
-	}
-
 	convertBinary(maze);
-	printBinary(maze);
 	
 	return maze;
 }
