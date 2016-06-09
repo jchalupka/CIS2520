@@ -58,7 +58,7 @@ Maze * convertMaze (FILE * mazeFile) {
 
 /*Convert the maze to a simpler integer model with 1 being wall, -1 being start/end and 0 being free space*/
 void convertBinary (Maze * maze) {
-	maze->mazeBinary = malloc(2550*2550);
+	maze->mazeBinary = malloc(sizeof(int)*255*255);
 	for (int i = 0; i < maze->height; i++) {
 		for (int j = 0; j < maze->width; j++) {
 			char mazeChar = maze->mazeMap[i][j];
