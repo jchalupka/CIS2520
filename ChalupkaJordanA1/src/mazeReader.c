@@ -106,6 +106,6 @@ Maze * getMaze (void) {
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
 	convertBinary(maze);
-	
+	fclose(mazeFile);
 	return maze;
 }
