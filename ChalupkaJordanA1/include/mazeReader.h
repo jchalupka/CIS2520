@@ -54,9 +54,10 @@ void printBinary(Maze * maze);
 
 /*
 Initializes all of the maze struct variables.
-Pre: None
+Pre: mazeName is the location of a maze.
 Post: Maze struct is initialized and memory has been allocated.
 */
-Maze * getMaze (void);
+Maze * getMaze (char * mazeName);
+
 
 #endif

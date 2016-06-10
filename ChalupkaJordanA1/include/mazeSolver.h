@@ -94,4 +94,11 @@ Post: The route is now represented on the maze map.
 */
 void printRoute (Solver * solver, Maze * maze);
 
+/*
+Solves the maze, calling all other functions.
+Pre: The name of the maze is entered as a string
+Post: The maze has been solved and a correct solution is output to the screen.
+*/
+void solveMaze (char * mazeName);
+
 #endif

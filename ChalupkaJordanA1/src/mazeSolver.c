@@ -193,11 +193,11 @@ void printRoute (Solver * solver, Maze * maze) {
 	return;
 }
 
-void solveMaze (void) {
+void solveMaze (char * mazeName) {
 	// Initialize the solver struct
 	Solver * solver = initSolver();
 	// Get the maze struct
-	Maze * maze = getMaze();
+	Maze * maze = getMaze(mazeName);
 	// Get the important positions from the maze
 	getPosition(solver,maze);
 	// Create a route stack
@@ -217,25 +217,3 @@ void solveMaze (void) {
 	stackDestroy(&solver->route);
 	free(solver);
 }
-
-int main (void) {
-	solveMaze();
-
-	return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

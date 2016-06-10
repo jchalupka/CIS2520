@@ -99,9 +99,10 @@ void printBinary (Maze * maze) {
 }
 
 /*Retrive the maze file and convert to a FILE pointer*/
-Maze * getMaze (void) {
+Maze * getMaze (char * mazeName) {
 	/*Pointer to the maze file*/
-	FILE * mazeFile = openFile("doc/maze.txt");
+	FILE * mazeFile = openFile(mazeName);
+	free(mazeName);
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
 	convertBinary(maze);

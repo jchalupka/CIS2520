@@ -65,19 +65,21 @@ int testNull (void) {
 }
 /*Function used for correct test responses*/
 int correctOutput (char * funcName) {
-    printf("%s: \tCORRECT\n", funcName);
+    printf("%s: \tCORRECT\n\n", funcName);
     return 0;
 }
 
 /*Function used for incorrect test responses*/
 int incorrectOutput (char * funcName) {
-    printf("%s: \tINCORREECT\n", funcName);
+    printf("%s: \tINCORREECT\n\n", funcName);
     return 1;
 }
 
 /*Test the stackCreate function*/
 int testCreate (void) {
     char * funcName = "stackCreate";
+    printf("Testing testCreate\n");
+    printf("Creating stack ...\n");
     Stack *s = stackCreate();
     int correct = 0;
     if (s != NULL) {
@@ -92,6 +94,7 @@ int testCreate (void) {
 
 /*Test the stackPush function*/
 int testPush (void) {
+    printf("Testing testPush\n");
     char * funcName = "stackPush";
     Stack *s = stackCreate();
     
@@ -100,11 +103,15 @@ int testPush (void) {
     char *stringPtr = malloc(sizeof(char)*15);
     strcpy(stringPtr, "string");
 
+    printf("Pushing int onto stack ...\n");
     stackPush(s, &numPtr);
+    printf("Pushing char onto stack ...\n");
     stackPush(s, &charPtr);
+    printf("Pushing string onto stack ...\n");
     stackPush(s, &stringPtr);
 
     int correct;
+    printf("Checking if top of stack is string ...\n");
     if (strcmp(*(char**)stackPeek(s),"string") == 0) {
         correct = 1;
     }
@@ -120,6 +127,7 @@ int testPush (void) {
 
 /*Test the stackPop function*/
 int testPop (void) {
+    printf("Testing testPop\n");
     char * funcName = "testPop";
     Stack *s = stackCreate();
     
@@ -133,12 +141,16 @@ int testPop (void) {
     stackPush(s, &stringPtr);
 
     int correct = 0;
+    printf("Popping string from stack ...\n");
     stackPop(s);
+    printf("Checking if top of stack is character ...\n");
     if (*(char*)stackPeek(s) == 'c') {
         correct += 1;
     }
     else correct += -999;
     stackPop(s);
+    printf("Popping char from stack ...\n");
+    printf("Checking if top of stack is int ...\n");
     if (*(int*)stackPop(s) == 5) {
         correct += 1;
     }
@@ -155,6 +167,7 @@ int testPop (void) {
 
 /*Test the stackDestroy function*/
 int testDestroy (void) {
+    printf("Testing testDestroy\n");
     char * funcName = "testDestroy";
     Stack *s = stackCreate();
     
@@ -163,14 +176,16 @@ int testDestroy (void) {
     char *stringPtr = malloc(sizeof(char)*15);
     strcpy(stringPtr, "string");
 
-
+    printf("Pushing int, char, and string onto stack ...\n");
     stackPush(s, &numPtr);
     stackPush(s, &charPtr);
     stackPush(s, &stringPtr);
-
+    printf("Destroying stack ...\n");
     stackDestroy (&s);
+    printf("Destroying destroyed stack ...\n");
     stackDestroy (&s);
     free(stringPtr);
+    printf("Checking that destroyed stack is NULL ...\n");
     if (s == NULL) {
         return correctOutput(funcName);
     }
@@ -179,25 +194,28 @@ int testDestroy (void) {
 
 /*Test the stackIsEmpty function*/
 int testIsEmpty (void) {
+    printf("Testing testIsEmpty\n");
     char * funcName = "testIsEmpty";
     Stack *s = stackCreate();
 
     int numPtr = 5;
 
     int correct = 0;
-
+    printf("Checking if newly created stack is empty ...\n");
     if (stackIsEmpty(s)) {
         correct += 1;
     }   else correct += -999;
 
+    printf("Pushing int onto stack ...\n");
     stackPush(s, &numPtr);
 
+    printf("Checking if stack is empty ...\n");
     if (!stackIsEmpty(s)) {
         correct += 1;
     }   else correct += -999;
-
+    printf("Popping stack ...\n");
     stackPop(s);
-
+    printf("Checking if stack is empty ...\n");
     if (stackIsEmpty(s)) {
         correct += 1;
     }   else correct += -999;
@@ -212,20 +230,23 @@ int testIsEmpty (void) {
 
 /*Test the stackPeek function*/
 int testPeek (void) {
+    printf("Testing testPeek\n");
     char * funcName = "testPop";
     Stack *s = stackCreate();
     
     int numPtr = 5;
 
     char charPtr = 'c';
-
+    printf("Pushing int onto stack ...\n");
     stackPush(s, &numPtr);
     int correct = 0;
+    printf("Checking if top of stack is int ...\n");
     if (*(int*)stackPeek(s) == 5) {
         correct += 1;
     } else correct += -999;
-    
+    printf("Pushing char onto stack ...\n");
     stackPush(s, &charPtr);
+    printf("Checking if top of stack is char ...\n");
     if (*(char*)stackPeek(s) == 'c') {
         correct += 1;
     } else correct += -999;

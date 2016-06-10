@@ -35,14 +35,14 @@ STACK_PROGNAME = $(BINDIR)testStack
 default : mazeLink stackLink
 
 mazeLink: mazeCompile
-	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(MAZE_PROGNAME) $(OBJ) obj/mazeSolver.o $(LIBS)
+	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(MAZE_PROGNAME) $(OBJ) obj/mazeSolver.o obj/mazeProg.o $(LIBS)
 
 stackLink: stackCompile
 	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(STACK_PROGNAME) $(OBJ) obj/stackTest.o $(LIBS)
 
 
 mazeCompile: 
-	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/mazeSolver.c
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/mazeSolver.c src/mazeProg.c
 	mv *.o obj/
 
 stackCompile:
