@@ -27,12 +27,12 @@ OBJ    = $(OBJDIR)ListADT.o $(OBJDIR)StackADT.o $(OBJDIR)mazeReader.o
 
 #The names of the binary programs that will be produced.  
 #
-MAZE_PROGNAME  = $(BINDIR)solveMaze
-LIST_PROGNAME  = $(BINDIR)testList
-STACK_PROGNAME = $(BINDIR)testStack
+MAZE_PROGNAME     = $(BINDIR)solveMaze
+STACK_PROGNAME    = $(BINDIR)testStack
+TESTMAZE_PROGNAME = $(BINDIR)testMaze
 
 
-default : mazeLink stackLink
+default : mazeLink stackLink mazeTestLink
 
 mazeLink: mazeCompile
 	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(MAZE_PROGNAME) $(OBJ) obj/mazeSolver.o obj/mazeProg.o $(LIBS)
@@ -40,6 +40,8 @@ mazeLink: mazeCompile
 stackLink: stackCompile
 	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(STACK_PROGNAME) $(OBJ) obj/stackTest.o $(LIBS)
 
+mazeTestLink: mazeTestCompile
+	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(TESTMAZE_PROGNAME) $(OBJ) obj/mazeSolver.o obj/mazeTest.o $(LIBS)
 
 mazeCompile: 
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/mazeSolver.c src/mazeProg.c
@@ -49,6 +51,10 @@ stackCompile:
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/stackTest.c
 	mv *.o obj/
 
+mazeTestCompile:
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/mazeSolver.c src/mazeTest.c
+	mv *.o obj/
 
 clean:
-	@ rm *.o
+	rm obj/*.o
+	rm bin/*

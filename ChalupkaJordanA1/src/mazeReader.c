@@ -102,7 +102,6 @@ void printBinary (Maze * maze) {
 Maze * getMaze (char * mazeName) {
 	/*Pointer to the maze file*/
 	FILE * mazeFile = openFile(mazeName);
-	free(mazeName);
 	/*Convert the maze file to a 2D array*/
 	Maze * maze = convertMaze(mazeFile);
 	convertBinary(maze);

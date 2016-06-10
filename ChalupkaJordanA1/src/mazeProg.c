@@ -1,3 +1,10 @@
+/*
+    Jordan Chalupka
+    0928258
+*/
+
+// This file is used as a way for the user to select which maze file they would like to solve
+
 #include "mazeSolver.h"
 
 int main (int argc, char * argv[]) {
@@ -7,8 +14,8 @@ int main (int argc, char * argv[]) {
 	}
 	char * mazeName = malloc(sizeof(char)*255);
 	strcpy(mazeName, argv[1]);
-
 	solveMaze(mazeName);
+	free(mazeName);
 
 	return 0;
 }
