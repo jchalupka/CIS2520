@@ -1,51 +1,54 @@
 CC          =	gcc
 # Flags that are sent to the compiler
 # Do not change these
-CFLAGS      =	-c -Wall -std=c99 -g
-LDFLAGS     =   
+CFLAGS      =	-std=c99 -Wall -g
+LDFLAGS     =
 
 #Directories where the compiler can find things
 INCLUDES    = -Iinclude
 LIBDIRS     = 
-LIBRARYS    = 
+LIBS        = 
 
 # add directory names here if you want to separate files by directories
 BINDIR = bin/
-SOURCEDIR   = src/
-INCLUDEDIR  = include/
-OBJDIR      = obj/
+SRCDIR = src/
+OBJDIR = obj/
 
 #Put the names of your source code file in the lines below.  
 
-SOURCES = $(wildcard $(SOURCEDIR)*c)
+SOURCE = $(SRCDIR)ListADT.c $(SRCDIR)StackADT.c $(SRCDIR)mazeReader.c 
 
 #The list of object files is below.  The object file names here must match the file names of your source code 
 # except with .o instead of .c.   Make changes as appropriate
 
-OBJECTS = $(SOURCES:.c=.o)
+
+OBJ    = $(OBJDIR)ListADT.o $(OBJDIR)StackADT.o $(OBJDIR)mazeReader.o
+
 
 #The names of the binary programs that will be produced.  
 #
-PROGNAME = $(BINDIR)test
+MAZE_PROGNAME  = $(BINDIR)solveMaze
+LIST_PROGNAME  = $(BINDIR)testList
+STACK_PROGNAME = $(BINDIR)testStack
 
 
-all : $(PROGNAME)
+default : mazeLink stackLink
 
-$(PROGNAME): $(OBJECTS)
-	$(CC) $(LIBDIRS) $(LDFLAGS) $(addprefix $(OBJDIR),$(notdir $(OBJECTS))) $(LIBS) -o $@
+mazeLink: mazeCompile
+	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(MAZE_PROGNAME) $(OBJ) obj/mazeSolver.o $(LIBS)
 
-.c.o:
-	$(CC) $(CFLAGS) $< -o $(OBJDIR)$(notdir $@) $(INCLUDES)
+stackLink: stackCompile
+	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(STACK_PROGNAME) $(OBJ) obj/stackTest.o $(LIBS)
 
-.PHONY: clean run
+
+mazeCompile: 
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/mazeSolver.c
+	mv *.o obj/
+
+stackCompile:
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) src/stackTest.c
+	mv *.o obj/
+
 
 clean:
-	rm obj/*.o
-	rm bin/test
-
-run: all
-	./bin/test
-
-tab: all
-	/Users/JordanChalupka/my_shells/tab_shell.sh src/*
-	/Users/JordanChalupka/my_shells/tab_shell.sh include/* 
+	@ rm *.o
