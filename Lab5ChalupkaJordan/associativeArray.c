@@ -18,17 +18,17 @@ AArray * createAAray (int size) {
 	return array;
 }
 
+// Get the hash index for a key
 int hashIndex (AArray * array, void * key) {
-	//int i = atoi(key) * 33 % array->size;
 	int sum = 0;
 	for (int n = 0; n < strlen(key); n++) {
 		sum += abs(((int*)key)[n]) * 33;
 	}
 	sum = abs(sum % array->size);
-	printf("%d\n", sum);
 	return sum;
 }
 
+// Insert a key into the hash table and associate it with some value
 void hashInsert (AArray * array, void * key, void * value) {
 	int i = hashIndex(array, key);
 	if (array->key[i] != NULL) {
@@ -43,18 +43,27 @@ void hashInsert (AArray * array, void * key, void * value) {
 			counter ++;		
 		}
 	}
+	//printf("%d Key: %s Data: %s\n",i, key, value);
 	array->key[i] = key;
 	array->data[i] = value;
 
 	return;
 }
 
+// Look at the value associated with a key
 void * hashLook (AArray * array, void * key) {
 	int i = hashIndex(array, key);
-	void * temp = array->data[i];
-	if (strcmp(temp,key) == 0) {
-		return temp;
-	} else return "key not found";
+	int counter = 0;
+	while (array->key[i] == NULL || strcmp(array->key[i],key) != 0) {
+		i = (i+1) % array->size;
+		if (counter == array->size) {
+				printf("Not found\n");
+				return NULL;
+		}
+		counter++;
+	} 
+
+	return array->data[i];
 }
 
 void * hashRemove (AArray * array, void * key) {
@@ -90,20 +99,25 @@ void printAArray (AArray * array) {
 int main (void) {
 	AArray * array = createAAray(10);
 	//hashInsert(array, "Hello", "World");
-	int * intPtr = malloc(sizeof(int));
-	*intPtr = 9;
-	hashInsert(array, "A","A Data");
-	hashInsert(array, "B","B Data");
-	hashInsert(array, "C","C Data");
-	hashInsert(array, "D", "D Data");
-	hashInsert(array, "E", "E Data");
-	hashInsert(array, "F", "F Data");
-	
+	char * A = "Apple";
+	char * B = "Apples";
+	char * C = "Carrot";
+	char * D = "Dubstep";
+	char * E = "Elephant";
+	char * F = "Fruit";
+	char * Dog = "DOG";
+	hashInsert(array, A,"Pineapple");
+	hashInsert(array, B,B);
+	hashInsert(array, "Dog",Dog);
+	hashInsert(array, D,D);
+	hashInsert(array, E, E);
+	hashInsert(array, F, F);
+
 	//hashRemove(array, "Apple");
 	//printf("Boom: %s\n", hashLook(array, "Boom"));
-	printf("Remove Boom: %s\n", hashRemove(array, "Boom"));
-	printf("\n");
-	printAArray(array);
+	printf("Remove Apple: %s\n", hashRemove(array, "Apple"));
+	printf("This is apple: %s\n",hashLook(array,"Apple"));
+	//printAArray(array);
 	destroyAArray(array);
 	//char * phrase = (char*) hashRemove(array,"Apple");
 	//printf("%s\n", hashLook(array, "Hello"));
