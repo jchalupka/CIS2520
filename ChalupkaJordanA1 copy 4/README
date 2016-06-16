@@ -1,0 +1,64 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Assignment 1
+June 9, 2016
+***********************************
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the ChalupkaJordanA1 folder use the command: 
+
+make
+
+You will now have three executable files named solveMaze, testMaze, and testStack.
+
+*****
+Usage
+*****
+
+solveMaze: 
+    This program is used to solve any maze that is less than 100x100 characters.
+    To use this program enter:
+        ./bin/solveMaze ./doc/mazes/[MAZE NAME]
+    ./doc/mazes/[MAZE NAME] can be replaced with the location of any maze.
+    There are five mazes already located inside of the doc/mazes/ directory:
+	maze0, maze1, maze2, maze3, and maze4.
+    * Note that maze1 may look distorted if your window is not large enough
+    as this is a 100x100 maze.  Make your text smaller to avoid any distortion
+    when using this maze.
+
+testMaze:
+    This program is used to test the maze solver.
+    It will run through all five of the mazes inside of the doc/mazes/ directory
+    and solve each maze.
+    To use this program enter:
+        ./bin/testMaze 
+ 
+testStack:
+    This program is used to test the Stack ADT.
+    It will run through all of tests to ensure that the Stack is working properly.
+    To use this program enter:
+        ./bin/testStack 
+
+*******
+Testing
+*******
+
+Testing was conducted using the test functions testMaze.c and testStack.c.
+To use these functions see the Usage section of the README.
+For more information on testing, read the testing document for at:
+    doc/
+
+*****************
+Known Limitations
+*****************
+
+For mazes larger than 100x100 the size of the arrays holding the maze maps are not guaranteed to work with these large mazes.
+
+**********
+References
+**********
+
+  - - -

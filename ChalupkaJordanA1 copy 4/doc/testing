@@ -1,0 +1,44 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Assignment 1
+June 9, 2016
+***********************************
+
+***********************************
+Testing
+***********************************
+
+This testing document is broken down into two sections:
+Testing the Maze Solver Program, and testing the Stack ADT
+
+***********************************
+Maze Solver
+***********************************
+
+Testing on the maze solver program was conducted using the mazeTest program.  
+This program tests a series of mazes to guarantee correct performance.
+The mazes used by the test program offer a wide variety of situation for the 
+mazes such as:
+    wide hallways
+    non-edge starting/ending positions
+    100x100 sized maze
+Possible situations not featured in the test mazes in this program (to avoid confusion for program failure) are:
+    no solution puzzles
+    no start and or end puzzles (The S and F were removed)
+    invalid puzzle file names 
+All of these situations listed above are working and have been tested.
+
+***********************************
+Stack ADT
+***********************************
+
+Testing was conducted using the test file testStack.c.
+Included in this file is tests for each individual function, as well
+as tests that use a combination of all of the functions.
+
+The test program is thorough as it tests each individual function
+in the ADT.  This ensures that each function is working properly.
+Also, each function was tested with NULL stack ADTs, to test
+for uninitialized ADT errors.
+
+This program was also tested using valgrind
