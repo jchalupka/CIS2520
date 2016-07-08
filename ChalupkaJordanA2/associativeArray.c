@@ -44,18 +44,21 @@ int hashInsert (AArray * array, void * key, void * value) {
 void * hashLook (AArray * array, void * key) {
 	//Fix none found
 	int i = hashIndex(array, key);
-
-	int counter = 0;
 	char * keyFound = getFrontValue(array->key[i]);
-	if (getFrontValue(array->key[i]) == NULL) {
-		printf("Number not found\n");
+
+	if (keyFound == NULL) {
 		return NULL;
 	}
 
+	int counter = 0;
 	while (strcmp(keyFound,key) != 0 && getFrontValue(array->key[i])!= NULL) {
 		array->key[i] = ((Node*)array->key[i])->next;
 		array->data[i] = ((Node*)array->data[i])->next;
 		keyFound = getFrontValue(array->key[i]);
+		counter++;
+		if (counter > getLength(array->key[i])) {
+			return NULL;
+		}
 	}
 
 	return array->data[i];
