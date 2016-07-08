@@ -31,7 +31,7 @@ Calculate the elapsed time it takes to run the sorting functions.
 Pre: Array contains unsorted integers.
 Post: Time in milliseconds is returned.
 */
-float elapsedTime (sortFunction function, int * array, int size);
+double elapsedTime (sortFunction function, int * array, int size);
 
 /*
 Given the dimensions of an array will perform the testing of the two sorting functions on the array.
