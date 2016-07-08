@@ -34,16 +34,32 @@ int hashIndex (AArray * array, void * key) {
 // Insert a key into the hash table and associate it with some value
 int hashInsert (AArray * array, void * key, void * value) {
 	int i = hashIndex(array, key);
+    
+    void * tempKey = malloc(strlen(key)+1);
+    memcpy(tempKey,key,strlen(key)+1);
+    printf("%p\n%p\n",tempKey,key);
+    void * tempValue = malloc(strlen(value)+1);
+    memcpy(tempValue, value, strlen(value)+1);
+    
 	if (array->key[i] != NULL) {
 		printf("COLLISION! %d %s %s\n",i,key,value);
-        // Handle the collision here
-        addFront(array->data[i],value);
-	}
+        addFront(array->data[i],tempValue);
+        // This will need to be made into an array at some point
+        // Will cause an issue with hash collisions
+        addFront(array->key[i],tempKey);
+        //printf("%d\n",getLength(array->data[i]));
+        return i;
+    }
 	//printf("%d Key: %s Data: %s\n",i, key, value);
-	array->key[i] = malloc(sizeof(int));
-	*(int*)array->key[i] = *(int*)key;
-	array->data[i] = createList();
-    addFront(array->data[i],value);
+
+    
+    array->key[i] = createList();
+    addFront(array->key[i],tempKey);
+    array->data[i] = createList();
+    addFront(array->data[i],tempValue);
+    //printf("ADDRESS %p\n",value);
+    //printf("Data Address %p\n", array->data[i]);
+    //printf("VALUE %s\n",getFrontValue(array->data[i]));
 
 	return i;
 }
@@ -52,7 +68,8 @@ int hashInsert (AArray * array, void * key, void * value) {
 void * hashLook (AArray * array, void * key) {
 	int i = hashIndex(array, key);
 	int counter = 0;
-	while (array->key[i] == NULL || strcmp(array->key[i],key) != 0) {
+	while (array->key[i] == NULL || strcmp(array->key[i],key) != 0)
+    {
 		i = (i+1) % array->size;
 		if (counter == array->size) {
 				printf("Not found\n");
@@ -88,9 +105,16 @@ void destroyAArray (AArray * array) {
 
 void printAArray (AArray * array) {
 	for (int i = 0; i < array->size; i++) {
-		printf("%d Key: %s Data: %s\n",i, array->key[i], array->data[i]);
+        
+        int length = getLength(array->data[i]);
+        void * data = array->data[i];
+        void * key = array->key[i];
+        for (int n = 0; n < length;n++){
+            printf("%d Key: %s Data: %s\n",i, getFrontValue(key),getFrontValue(data));
+            data = ((Node*)data)->next;
+            key = ((Node*)key)->next;
+        }
 	}
-
 	return;
 }
 
@@ -125,7 +149,7 @@ void lowerCaseString (char * string, char * lowerString) {
 }
 
 int main (void) {
-	int size = 250;
+	int size = 5;
 	AArray * array = createAAray(size);
 	int * collision = calloc(size,sizeof(int));;
 	
@@ -136,7 +160,7 @@ int main (void) {
 	srand(5);
 	// Add 300 items
 	int pos = 0;
-	for (int i = 0; i < 300; i++) { 
+	for (int i = 0; i < 10; i++) {
 		char string[255], lowerString[255];
 		random_string(string, 10);
 		lowerCaseString(string,lowerString);
@@ -144,7 +168,8 @@ int main (void) {
 		++collision[pos];
 	}
 	//printCollisions(collision, size);
-	//printAArray(array);
+	printAArray(array);
+    printAArray(array);
 	
 	return 0;
 }
