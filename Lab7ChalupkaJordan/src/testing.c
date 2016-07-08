@@ -28,7 +28,7 @@ double elapsedTime (sortFunction function, int * array, int size) {
 	stop = clock();
 	// Time = number of clock cycles / clocks per second on machine.
 	// Multiply by 1000 for milliseconds 
-	double diff = ((double)(stop-start)/ CLOCKS_PER_SEC)*1000;
+	double diff = ((double)(stop-start)/ CLOCKS_PER_SEC)*1000.0;
 	return diff;
 }
 
