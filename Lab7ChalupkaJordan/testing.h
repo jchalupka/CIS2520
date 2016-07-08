@@ -1,7 +1,7 @@
 // Jordan Chalupka 0928258
 
 #ifndef __JCHALUPKA_TESTING__
-#define __JCAHLUPKA_TESTING__
+#define __JCHALUPKA_TESTING__
 
 #include <stdio.h>
 #include <stdlib.h>
