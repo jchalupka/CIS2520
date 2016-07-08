@@ -21,14 +21,14 @@ void printArray (int * array, int size) {
 }
 
 // Get teh elapsed time in milliseconds
-float elapsedTime (sortFunction function, int * array, int size) {
+double elapsedTime (sortFunction function, int * array, int size) {
 	clock_t start, stop;
 	start = clock();
 	function(array, size);
 	stop = clock();
 	// Time = number of clock cycles / clocks per second on machine.
 	// Multiply by 1000 for milliseconds 
-	double diff = ((double)(stop-start)/ CLOCKS_PER_SEC)*1000;
+	double diff = ((double)(stop-start)/ CLOCKS_PER_SEC)*1000.0;
 	return diff;
 }
 
@@ -36,8 +36,8 @@ float elapsedTime (sortFunction function, int * array, int size) {
 void testSorting (int min, int max, int size) {
 	int * array = createArray(min, max, size);
 	
-	float diff = elapsedTime(bubbleSort, array, size);
-	float diff2 = elapsedTime(rbubbleSort, array, size);
+	double diff = elapsedTime(bubbleSort, array, size);
+	double diff2 = elapsedTime(rbubbleSort, array, size);
 
 	printf("Array Values: min: %d max: %d size: %d\n"
 	       "Bubble Sort:\t\t %lf ms\n"
