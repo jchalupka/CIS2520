@@ -50,7 +50,7 @@ void printPhoneList (Node * list) {
 		char * firstName = ((ContactInfo*)getFrontValue(tempList))->firstName;
 		char * phoneNumber = ((ContactInfo*)getFrontValue(tempList))->phoneNumber;
 
-		printf("%s, %s, %s\n", lastName, firstName, phoneNumber);
+		printf("Contact Found: %s, %s, %s\n", lastName, firstName, phoneNumber);
 		tempList = tempList->next;
 	}
 
@@ -81,10 +81,12 @@ void lookUpName (Node * list) {
 
 	void * data = hashLook(hashTable, input);
 	if (data == NULL) {
+		printf("Number not found\n");
 		return;
 	}
 	char * lastName = ((ContactInfo*)getFrontValue(data))->lastName;
-	printf("%s\n",lastName);
+	char * firstName = ((ContactInfo*)getFrontValue(data))->firstName;
+	printf("%s, %s\n",lastName, firstName);
 	return;
 }
 
