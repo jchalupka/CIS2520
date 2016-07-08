@@ -46,26 +46,14 @@ int main (void) {
 
 	// Binary Sort
 	printf("Sorting Binary Numbers\n");
-	testSorting(0, 1, 1000);
-
-	// Binary Sort Big
-	printf("Sorting Lots of Binary Numbers\n");
 	testSorting(0, 1, 10000);
 
 	// Medium Gap Sort
 	printf("Sorting Medium Sized Numbers\n");
-	testSorting(0,100, 1000);
-
-	// Medium Gap Sort Big
-	printf("Sorting Lots of Medium Sized Numbers\n");
 	testSorting(0, 100, 10000);
 
 	// Large Gap Sort
 	printf("Sorting Large Sized Numbers\n");
-	testSorting(0, 10000,1000);
-
-	// Large Gap Sort Big
-	printf("Sorting Lots of Large Sized Numbers\n");
 	testSorting(0, 10000,10000);
 
 	// Test Largest Size Handleable
