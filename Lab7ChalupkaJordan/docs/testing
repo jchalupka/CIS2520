@@ -1,0 +1,52 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 7
+July 8, 2016
+***********************************
+
+*******
+Testing
+*******
+
+Below are the different tests used to test the two sorting algorithms:
+
+1. Sorting Binary Numbers (1 and 0)
+Bubble Sort:		274.5 ms
+Recursive Bubble Sort:	122.9 ms
+
+2. Sorting Medium Sized Numbers (0 - 100)
+Bubble Sort:		339.3 ms
+Recursive Bubble Sort:	133.1 ms
+
+3. Sorting Large Sized Numbers (0 - 10,000)
+Bubble Sort:		345.6 ms
+Recursive Bubble Sort:	124.3 ms
+
+4. Sorting a Wide Range of Numbers (-100,000 - 100,000)
+Bubble Sort:		343.6 ms
+Recursive Bubble Sort:	128.4 ms
+
+5. Sorting a very large array (100,000 integers)
+Bubble Sort:		38215.3 ms
+Recursive Bubble Sort:	13345.2 ms
+
+*Tests 1-4 were conducted using arrays of size 10,000.
+
+**********
+Conclusion
+**********
+
+The tests concluded that the Recursive Bubble Sort is more efficient.
+In every test conducted the recursive bubble sort was roughly twice as
+fast as the bubble sort.
+
+Another note is that as the size of the integers increased, there was
+no sizeable increase in the time it took to sort the integer array.
+Likewise a large range in integers showed small effect in speed increase
+when compared to a medium range.
+
+It wa noticed that when the range of numbers decreased dramatically,
+sorting the integer arrays became faster.  This finding can be attributed to 
+less range meaning less switch operations need to be performed, as there
+is a greater change the two numbers beside each other are the same 
+(for example the binary sort).

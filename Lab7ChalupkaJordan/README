@@ -1,0 +1,46 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 7
+July 8, 2016
+***********************************
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the Lab7ChalupkaJordan folder use the command: 
+
+make
+
+You will now have an executable in bin/ called test.
+
+*****
+Usage
+*****
+
+test: 
+    This program is used test the two sorting functions.
+    Use ./bin/test to run the test.
+
+*******
+Testing
+*******
+
+Testing was conducted using several different types of arrays.
+
+For more information on testing, read the testing document for at:
+    doc/testing
+
+*****************
+Known Limitations
+*****************
+
+The last test case uses an array that is 100,000 integers in size and may cause issues 
+running on some computers.  Testing has been done to ensure this test case will run 
+on the computers in the University Computer Lab.
+
+**********
+References
+**********
+
+Sorting algorithms were used from the courselink Lab 7 instructions.
