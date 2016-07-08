@@ -1,5 +1,5 @@
 // Jordan Chalupka 0928258
-
+#include "testing.h"
 int * createArray (int min, int max, int size) {
 	//Generate random number arrays
 	int * array = malloc(sizeof(int)*size);
