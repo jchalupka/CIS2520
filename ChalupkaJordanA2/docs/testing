@@ -1,0 +1,25 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Assignment 2
+July 8, 2016
+***********************************
+
+*********
+Testing
+*********
+
+*************
+Hash Function
+*************
+My hashing function works by repeating a loop for the strlen output of the data. Even if the data is not a string, as long as the data is not equal to NULL, the loop will run until it reaches a null terminator. For each ‘character’ of the data, the absolute value of that ‘character’ will be added to the value of all previous characters multiplied by the prime 33. Lastly, the remainder of the sum and the size of the table is used to create the hash value.The reason for adding the sum of previous characters to the new character is so that two strings with the same characters but in different order (“cat” vs “tac”) will not create the same hash value. A prime multiplier is used to avoid clustering where strings of the same length could only be different by the sum of the difference in characters (a relatively small amount). For larger tables, a larger multiplier may be needed, but I found that 33 worked well enough for the tests. Also, by using a prime as apposed to a more common multiple such as 2 or 10, I avoided having issues where the modulo of the table size and the sum would only fall on distinct multiples, e.g. even numbers.
+My hashing function is O(n).
+
+Testing of the hash function was done using randomly generated strings of length 10 as keys.  Testing revealed that the hashing function produced a fairly even distribution along the hash table to reduce collisions.
+
+**********
+Phone Book
+**********
+Testing of the phone book program (bin/run) was done using the text documents found in docs/testDocs. The first text document was used initially to test adding an entire document of names and numbers to the list.  The second text document was used to test adding more names onto the list at a later time.
+Further, individual names were added during testing and this functionality was revealing to be accurate.
+Sorting of the printing of the list was also revealed to be working with accuracy, with last names and first names.
+Name look ups was also revealed to be accurate. However, multiple names with the same number will not produce accurate results as it was assumed this could not happen in the project description.

@@ -1,0 +1,55 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Assignment 2
+July 8, 2016
+***********************************
+
+*****
+About
+*****
+
+This program uses a hash table to create a reverse lookup directory for phone numbers.
+Menu options for this program include loading a file, loading individual entries, printing the list in alphabetical order, and looking up names from phone numbers.
+There is also the option the exit the program, using exit.
+Note that a recursive function is used to sort the list, found in the src/tools.c file.
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the ChalupkaJordanA2 folder use the command: 
+
+make
+
+You will now have three executable files named run, in bin/.
+
+*****
+Usage
+*****
+
+run:
+	This program is used to run the phone book program.
+	To use this program enter:
+	./bin/run
+
+	Once using the program follow the directions in the application.
+
+*******
+Testing
+*******
+
+Testing was conducted to ensure the functionality of all of the menu options.
+For more in depth information on testing, see docs/testing.
+
+*****************
+Known Limitations
+*****************
+
+It is assumed that the same phone number will not be used for more than one person.
+Breaking this assumption will lead to unpredictable outcome when looking up the phone number.
+
+**********
+References
+**********
+
+  - - -
