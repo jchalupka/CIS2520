@@ -105,8 +105,8 @@ void printAArray (AArray * array) {
         for (int n = 0; n < length;n++){
         	char * lastName = ((ContactInfo*)getFrontValue(data))->lastName;
         	char * firstName = ((ContactInfo*)getFrontValue(data))->firstName;
-            printf("Key: %s Data: %s, %s\n",getFrontValue(key),lastName,firstName);
-            printf("%s %p\n",getFrontValue(key), getFrontValue(data));
+            printf("Key: %s Data: %s, %s\n",(char*)getFrontValue(key),lastName,firstName);
+            printf("%s %p\n",getFrontValue(key), (char*)getFrontValue(data));
             data = ((Node*)data)->next;
             key = ((Node*)key)->next;
         }
