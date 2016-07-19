@@ -70,7 +70,7 @@ int main (void) {
 	void (*destroyRestaurant)(void*) = destroyRestaurant;
 	void (*printData)(void * data) = printData;
 
-	Tree * tree = createBinTree(compareName, destroyRestaurant);
+	Tree * tree = createBinTree(compareName, &destroyRestaurant);
 	if (!tree) {
 		printf("ERROR CREATING TREE\n");
 
