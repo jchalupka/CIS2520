@@ -64,8 +64,12 @@ int main (void) {
 	void (*printData)(void * data) = printData;
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
+	if () {
+		printf();
+
+	}
 	collectFile(file, tree);
-	printInOrder(tree, &printData);
+	//printInOrder(tree, printData);
 
 
 
