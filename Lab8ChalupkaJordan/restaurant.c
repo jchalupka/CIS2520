@@ -76,7 +76,9 @@ int main (void) {
 
 	}
 	collectFile(file, tree);
-	printInOrder(tree, printData);
+
+	isTreeEmpty(tree);
+	//printInOrder(tree, printData);
 
 
 
