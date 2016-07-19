@@ -77,8 +77,8 @@ int main (void) {
 	}
 	collectFile(file, tree);
 
-	int a = isTreeEmpty(tree);
-	printf("%d\n",a);
+	//int a = isTreeEmpty(tree);
+	//printf("%d\n",a);
 	//printInOrder(tree, printData);
 
 
