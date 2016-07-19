@@ -65,12 +65,12 @@ int main (void) {
 	FILE * file = openFile("data.txt");
 
 	// Function pointers
-	int (*compareName)(void *, void *) = compareName;
-	int (*compareOrder)(void *, void *) = compareOrder;
-	void (destroyRestaurant)(void*) = destroyRestaurant;
-	void (*printData)(void * data) = printData;
+	int (*compareName)(void *, void *) = &compareName;
+	int (*compareOrder)(void *, void *) = &compareOrder;
+	void (*destroyRestaurant)(void*) = &destroyRestaurant;
+	void (*printData)(void * data) = &printData;
 
-	Tree * tree = createBinTree(compareName, &destroyRestaurant);
+	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	if (!tree) {
 		printf("ERROR CREATING TREE\n");
 
