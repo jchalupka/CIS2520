@@ -47,6 +47,13 @@ int compareOrder (void * data1, void * data2) {
 	return order;
 }
 
+void printData (void * data) {
+	Restaurant * restPtr = (Restaurant*) data;
+
+	printf("%s %s %d", restPtr->name, restPtr->type, restPtr->rating);
+	return;
+}
+
 int main (void) {
 	FILE * file = openFile("data.txt");
 	int (*compareName)(void *, void*);
