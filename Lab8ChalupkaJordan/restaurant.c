@@ -65,7 +65,7 @@ int main (void) {
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	collectFile(file, tree);
-	printInOrder(tree, printData);
+	//printInOrder(tree, printData);
 
 
 
