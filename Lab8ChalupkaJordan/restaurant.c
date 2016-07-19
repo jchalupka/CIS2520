@@ -48,6 +48,7 @@ int compareOrder (void * data1, void * data2) {
 }
 
 void printData (void * data) {
+	/*
 	printf("HERE\n");
 	Restaurant * restPtr = (Restaurant*) data;
 
@@ -56,6 +57,7 @@ void printData (void * data) {
 	}
 
 	printf("%s %s %d\n", restPtr->name, restPtr->type, restPtr->rating);
+	*/
 	return;
 }
 
@@ -74,7 +76,6 @@ int main (void) {
 
 	}
 	collectFile(file, tree);
-	printf("Here\n");
 	printInOrder(tree, printData);
 
 
