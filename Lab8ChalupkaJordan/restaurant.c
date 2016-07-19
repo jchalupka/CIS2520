@@ -48,7 +48,7 @@ int compareOrder (void * data1, void * data2) {
 }
 
 void printData (void * data) {
-	Restaurant * restPtr = (Restaurant*) data;
+	//Restaurant * restPtr = (Restaurant*) data;
 
 	//printf("%s %s %d", restPtr->name, restPtr->type, restPtr->rating);
 	return;
