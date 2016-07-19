@@ -63,13 +63,14 @@ void printData (void * data) {
 int main (void) {
 	FILE * file = openFile("data.txt");
 
-	// Function pointers
 	
 	/*
-	int (*compareNamePtr)(void *, void *) = compareName;
-	int (*compareOrderPtr)(void *, void *) = compareOrder;
-	void (*destroyRestaurant)(void*) = destroyRestaurant;
-	void (*printDataPtr)(void * data) = printData;
+		This is not needed
+
+		int (*compareNamePtr)(void *, void *) = compareName;
+		int (*compareOrderPtr)(void *, void *) = compareOrder;
+		void (*destroyRestaurant)(void*) = destroyRestaurant;
+		void (*printDataPtr)(void * data) = printData;
 	*/
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
@@ -82,6 +83,8 @@ int main (void) {
 	//int a = isTreeEmpty(tree);
 	//printf("%d\n",a);
 	printInOrder(tree, printData);
+	printf("\n");
+	printPreOrder(tree, printData);
 
 
 
