@@ -79,7 +79,7 @@ int main (void) {
 
 	//int a = isTreeEmpty(tree);
 	//printf("%d\n",a);
-	//printInOrder(tree, printData);
+	printInOrder(tree, printData);
 
 
 
