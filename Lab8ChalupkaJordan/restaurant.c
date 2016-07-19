@@ -65,10 +65,12 @@ int main (void) {
 
 	// Function pointers
 	
+	/*
 	int (*compareNamePtr)(void *, void *) = compareName;
 	int (*compareOrderPtr)(void *, void *) = compareOrder;
 	void (*destroyRestaurant)(void*) = destroyRestaurant;
 	void (*printDataPtr)(void * data) = printData;
+	*/
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	if (!tree) {
