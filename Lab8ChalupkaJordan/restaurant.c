@@ -14,11 +14,12 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 	return restPtr;
 }
 
-void destroyRestaurant (Restaurant * toDestroy) {
-	free(toDestroy->name);
-	free(toDestroy->type);
-	free(toDestroy);
-	toDestroy = NULL;
+void destroyRestaurant (void * toDestroy) {
+	Restaurant * restPtr = toDestroy;
+	free(restPtr->name);
+	free(restPtr->type);
+	free(restPtr);
+	restPtr = NULL;
 
 	return;
 }
@@ -65,10 +66,11 @@ int main (void) {
 	FILE * file = openFile("data.txt");
 
 	// Function pointers
-	int (*compareName)(void *, void *) = &compareName;
-	int (*compareOrder)(void *, void *) = &compareOrder;
-	void (*destroyRestaurant)(void*) = &destroyRestaurant;
-	void (*printData)(void * data) = &printData;
+	
+	int (*compareNamePtr)(void *, void *) = compareName;
+	int (*compareOrderPtr)(void *, void *) = compareOrder;
+	void (*destroyRestaurant)(void*) = destroyRestaurant;
+	void (*printDataPtr)(void * data) = printData;
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	if (!tree) {
