@@ -56,10 +56,16 @@ void printData (void * data) {
 
 int main (void) {
 	FILE * file = openFile("data.txt");
-	int (*compareName)(void *, void*);
-	void (*destroyRestaurant)(void*);
+
+	// Function pointers
+	int (*compareName)(void *, void *) = compareName;
+	int (*compareOrder)(void *, void *) = compareOrder;
+	void (*destroyRestaurant)(void*) = destroyRestaurant;
+	void (*printData)(void * data) = printData;
+
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	collectFile(file, tree);
+	printInOrder(tree, printData);
 
 
 

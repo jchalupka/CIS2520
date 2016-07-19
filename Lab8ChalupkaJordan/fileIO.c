@@ -53,7 +53,8 @@ void collectFile (FILE * file, Tree * tree) {
 		int rating;
 		rating = atoi(token);
 
-		createRestaurant(name, foodtype, rating);
+		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
+		addToTree(tree, restPtr);
 
 	}
 
