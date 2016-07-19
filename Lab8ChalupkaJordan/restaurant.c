@@ -64,8 +64,8 @@ int main (void) {
 	void (*printData)(void * data) = printData;
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
-	if () {
-		printf();
+	if (!tree) {
+		printf("ERROR CREATING TREE\n");
 
 	}
 	collectFile(file, tree);
