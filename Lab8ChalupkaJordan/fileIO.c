@@ -55,7 +55,7 @@ void collectFile (FILE * file, Tree * tree) {
 
 		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
 		addToTree(tree, restPtr);
-		//printData(restPtr);
+		printData(restPtr);
 
 	}
 
