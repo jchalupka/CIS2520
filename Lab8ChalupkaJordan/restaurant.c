@@ -50,7 +50,7 @@ int compareOrder (void * data1, void * data2) {
 void printData (void * data) {
 	Restaurant * restPtr = (Restaurant*) data;
 
-	printf("%s %s %d", restPtr->name, restPtr->type, restPtr->rating);
+	printf("%s %s %d\n", restPtr->name, restPtr->type, restPtr->rating);
 	return;
 }
 
@@ -65,7 +65,7 @@ int main (void) {
 
 	Tree * tree = createBinTree(compareName, destroyRestaurant);
 	collectFile(file, tree);
-	//printInOrder(tree, printData);
+	printInOrder(tree, &printData);
 
 
 
