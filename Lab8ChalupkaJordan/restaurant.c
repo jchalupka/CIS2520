@@ -48,6 +48,7 @@ int compareOrder (void * data1, void * data2) {
 }
 
 void printData (void * data) {
+	printf("HERE\n");
 	Restaurant * restPtr = (Restaurant*) data;
 
 	if (data == NULL) {
