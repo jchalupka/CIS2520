@@ -74,6 +74,7 @@ int main (void) {
 
 	}
 	collectFile(file, tree);
+	printf("Here\n");
 	printInOrder(tree, printData);
 
 
