@@ -67,14 +67,14 @@ int compareRating (void * data1, void * data2) {
 int compareType (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
-
+printf("MATCH\n");
 	char * type1 = restPtr1->type;
 	char * type2 = restPtr2->type;
 
 	int order = strcmp(type1,type2);
 	// At this point, it is known that the names, and ratings are the same.
 	// So we can simply return the order (If the order is zero, they are the same restaurants)
-	printf("MATCH\n");
+	
 	return order	
 }
 
