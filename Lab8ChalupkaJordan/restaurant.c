@@ -44,8 +44,14 @@ int compareName (void * data1, void * data2) {
 	char * name2 = restPtr2->name;
 
 	int order = strcmp(name1,name2);
-
-	return order;
+	// If the names are not equal we are done.
+	if (order) {
+		return order;
+	}
+	order = compareRating (data1, data2);
+	if (order) {
+		return order;
+	}
 }
 
 int compareRating (void * data1, void * data2) {
@@ -56,8 +62,14 @@ int compareRating (void * data1, void * data2) {
 	int rating2 = restPtr2->rating;
 
 	int order = rating2 - rating1;
-
-	return order;
+	// If the ratings are not equal we are done
+	if (order) {
+		return order;
+	}
+	order = compareName (data1, data2);
+	if (order) {
+		return order;
+	}
 }
 
 void printData (void * data) {
@@ -85,7 +97,7 @@ int main (void) {
 
 	printf("In order for name:\n");
 	printInOrder(nameTree, printData);
-
+	printf("\n");
 	printf("In order for rating:\n");
 	printInOrder(ratingTree, printData);
 
