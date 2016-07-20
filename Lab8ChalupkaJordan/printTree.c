@@ -1,6 +1,6 @@
 #include "printTree.h"
 
 int main (void) {
-	printf("Hello World\n");
+	initscr();
 	return 0;
 }
