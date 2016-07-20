@@ -25,7 +25,7 @@ void destroyRestaurant (void * toDestroy);
 int compareName (void * data1, void * data2);
 
 // Compare by rating
-int compareOrder (void * data1, void * data2);
+int compareRating (void * data1, void * data2);
 
 void printData (void * data);
 
