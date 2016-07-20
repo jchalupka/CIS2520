@@ -52,6 +52,7 @@ int compareRating (void * data1, void * data2) {
 	int rating2 = restPtr2->rating;
 
 	int order = rating2 - rating1;
+	printf("MADE IT\n");
 	// If the ratings are not equal we are done
 	if (order) {
 		return order;
