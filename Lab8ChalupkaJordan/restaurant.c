@@ -40,7 +40,7 @@ int compareName (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-	
+
 	return compareType(data1, data2);
 }
 
@@ -75,7 +75,7 @@ printf("MATCH\n");
 	// At this point, it is known that the names, and ratings are the same.
 	// So we can simply return the order (If the order is zero, they are the same restaurants)
 	
-	return order	
+	return order;	
 }
 
 void printData (void * data) {
