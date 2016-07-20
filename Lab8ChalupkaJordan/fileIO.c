@@ -27,7 +27,7 @@ void removeNewLines (char input[255]) {
 }
 
 // Collect the relevent information from the FILE pointer
-void collectFile (FILE * file, Tree * tree) {
+void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	char input[255];
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
@@ -54,7 +54,8 @@ void collectFile (FILE * file, Tree * tree) {
 		rating = atoi(token);
 
 		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
-		addToTree(tree, restPtr);
+		addToTree(nameTree, restPtr);
+		addToTree(ratingTree,restPtr);
 		//printData(restPtr);
 
 	}
