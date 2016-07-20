@@ -24,18 +24,6 @@ void destroyRestaurant (void * toDestroy) {
 	return;
 }
 
-/* Compare functions
-
-the compare function must have following signature (but can be called anything you like)
-
-int compare (void * data1, void * data2);
-
-The compare function must return a number greater than zero if data1  is 'larger' than 
-data2,  a number less than zero of data2 is 'larger' than data1, and zero if the two are
-equal.  'larger' can be interpreted any way you like
-
-*/
-
 int compareName (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
@@ -52,6 +40,8 @@ int compareName (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
+	
+	return compareType(data1, data2);
 }
 
 int compareRating (void * data1, void * data2) {
@@ -70,6 +60,22 @@ int compareRating (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
+
+	return compareType(data1,data2);
+}
+
+int compareType (void * data1, void * data2) {
+	Restaurant * restPtr1 = (Restaurant*) data1;
+	Restaurant * restPtr2 = (Restaurant*) data2;
+
+	char * type1 = restPtr1->type;
+	char * type2 = restPtr2->type;
+
+	int order = strcmp(type1,type2);
+	// At this point, it is known that the names, and ratings are the same.
+	// So we can simply return the order (If the order is zero, they are the same restaurants)
+	printf("MATCH\n");
+	return order	
 }
 
 void printData (void * data) {
