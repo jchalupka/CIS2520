@@ -36,12 +36,16 @@ int compareName (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-	order = compareRating (data1, data2);
+
+	int rating1 = restPtr1->rating;
+	int rating2 = restPtr2->rating;
+
+	int order = rating2 - rating1;
 	if (order) {
 		return order;
 	}
+	return compareType(data1, data2);
 
-	return 1;
 }
 
 int compareRating (void * data1, void * data2) {
@@ -57,12 +61,16 @@ int compareRating (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-	order = compareName (data1, data2);
+	char * name1 = restPtr1->name;
+	char * name2 = restPtr2->name;
+
+	int order = strcmp(name1,name2);
+	// If the names are not equal we are done.
 	if (order) {
 		return order;
 	}
+	return compareType(data1, data2);
 
-	return 1;
 }
 
 int compareType (void * data1, void * data2) {
