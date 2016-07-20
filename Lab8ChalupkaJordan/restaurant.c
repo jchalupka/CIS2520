@@ -48,8 +48,14 @@ int compareName (void * data1, void * data2) {
 	return order;
 }
 
-int compareOrder (void * data1, void * data2) {
-	int order = 1;
+int compareRating (void * data1, void * data2) {
+	Restaurant * restPtr1 = (Restaurant*) data1;
+	Restaurant * restPtr2 = (Restaurant*) data2;
+
+	int rating1 = restPtr1->rating;
+	int rating2 = restPtr2->rating;
+
+	int order = rating1 - rating2;
 
 	return order;
 }
@@ -69,29 +75,20 @@ void printData (void * data) {
 int main (void) {
 	FILE * file = openFile("data.txt");
 
-	
-	/*
-		This is not needed
-
-		int (*compareNamePtr)(void *, void *) = compareName;
-		int (*compareOrderPtr)(void *, void *) = compareOrder;
-		void (*destroyRestaurant)(void*) = destroyRestaurant;
-		void (*printDataPtr)(void * data) = printData;
-	*/
-
-	Tree * tree = createBinTree(compareName, destroyRestaurant);
-	if (!tree) {
+	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
+	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);
+	if (!(nameTree && ratingTree)) {
 		printf("ERROR CREATING TREE\n");
 
 	}
-	collectFile(file, tree);
+	collectFile(file, nameTree);
+	collectFile(file, ratingTree);
 
-	//int a = isTreeEmpty(tree);
-	//printf("%d\n",a);
-	printInOrder(tree, printData);
-	printf("\n");
-	printPreOrder(tree, printData);
-	printPreOrder(tree, printData);
+	printf("In order for name:\n");
+	printInOrder(nameTree, printData);
+
+	printf("In order for rating:\n");
+	printInOrder(ratingTree, printData);
 
 
 
