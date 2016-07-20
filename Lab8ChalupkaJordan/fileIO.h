@@ -12,6 +12,6 @@
 
 FILE * openFile (char * fileName);
 void removeNewLines (char input[255]);
-void collectFile (FILE * file, Tree * tree);
+void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree);
 
 #endif

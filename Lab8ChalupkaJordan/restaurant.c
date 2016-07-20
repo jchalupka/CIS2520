@@ -81,8 +81,7 @@ int main (void) {
 		printf("ERROR CREATING TREE\n");
 
 	}
-	collectFile(file, nameTree);
-	collectFile(file, ratingTree);
+	collectFile(file, nameTree, ratingTree);
 
 	printf("In order for name:\n");
 	printInOrder(nameTree, printData);
