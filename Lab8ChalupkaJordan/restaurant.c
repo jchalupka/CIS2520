@@ -55,7 +55,7 @@ int compareRating (void * data1, void * data2) {
 	int rating1 = restPtr1->rating;
 	int rating2 = restPtr2->rating;
 
-	int order = rating1 - rating2;
+	int order = rating2 - rating1;
 
 	return order;
 }
