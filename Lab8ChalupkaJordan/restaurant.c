@@ -56,7 +56,6 @@ int compareRating (void * data1, void * data2) {
 	int rating2 = restPtr2->rating;
 
 	int order = rating2 - rating1;
-	printf("MADE IT %d\n", order);
 	// If the ratings are not equal we are done
 	if (order) {
 		return order;
@@ -74,7 +73,6 @@ int compareRating (void * data1, void * data2) {
 }
 
 int compareType (void * data1, void * data2) {
-	printf("MATCH\n");
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
 
