@@ -37,7 +37,13 @@ equal.  'larger' can be interpreted any way you like
 */
 
 int compareName (void * data1, void * data2) {
-	int order = 1;
+	Restaurant * restPtr1 = (Restaurant*) data1;
+	Restaurant * restPtr2 = (Restaurant*) data2;
+
+	char * name1 = restPtr1->name;
+	char * name2 = restPtr2->name;
+
+	int order = strcmp(name1,name2);
 
 	return order;
 }
