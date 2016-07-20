@@ -41,7 +41,7 @@ int compareName (void * data1, void * data2) {
 		return order;
 	}
 
-	return order;
+	return 1;
 }
 
 int compareRating (void * data1, void * data2) {
@@ -60,8 +60,8 @@ int compareRating (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-	
-	return order;
+
+	return 1;
 }
 
 int compareType (void * data1, void * data2) {
