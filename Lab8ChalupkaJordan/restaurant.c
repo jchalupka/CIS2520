@@ -85,6 +85,7 @@ int main (void) {
 	printInOrder(tree, printData);
 	printf("\n");
 	printPreOrder(tree, printData);
+	printPreOrder(tree, printData);
 
 
 
