@@ -66,9 +66,10 @@ int compareRating (void * data1, void * data2) {
 }
 
 int compareType (void * data1, void * data2) {
+	printf("MATCH\n");
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
-printf("MATCH\n");
+
 	char * type1 = restPtr1->type;
 	char * type2 = restPtr2->type;
 
