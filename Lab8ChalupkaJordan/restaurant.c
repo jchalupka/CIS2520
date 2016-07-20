@@ -113,11 +113,6 @@ int main (void) {
 
 	printf("In order for name:\n");
 	printInOrder(nameTree, printData);
-	printf("\n");
-	printf("In order for rating:\n");
-	printInOrder(ratingTree, printData);
-
-
 
 	return 0;
 }
