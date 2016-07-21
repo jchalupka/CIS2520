@@ -16,7 +16,7 @@ int main (void) {
 	// Get the size of the treee
 	int maxY, maxX;
 	getmaxyx(stdscr,maxY,maxX);
-	char * word = malloc(sizeof(char)*255));
+	char * word = malloc(sizeof(char)*255);
 	sprintf(word,"%d %d",maxY,maxX);
 	mvprintw(15,findMiddleX(maxX,word),word);
 
