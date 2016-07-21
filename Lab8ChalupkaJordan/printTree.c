@@ -1,7 +1,7 @@
 #include "printTree.h"
 
 int findMiddleX(int maxX, char * word) {
-	int pos = (maxX/2) - (strlen(word)/2)
+	int pos = (maxX/2) - (strlen(word)/2);
 
 	return pos;
 }
