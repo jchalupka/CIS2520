@@ -12,11 +12,11 @@ void printTree (int level, int startPos, int endPos) {
 		return;
 	}
 	
-	printTree (level + 2, startPos, (startPos + endPos)/2);
+	printTree (level, startPos, (startPos + endPos)/2);
 	mvprintw (level, (findMiddleX(endPos + startPos, "X")),"X");
 	getchar();
 	refresh();
-	printTree (level + 2, (startPos + endPos)/2, endPos);
+	printTree (level, (startPos + endPos)/2, endPos);
 	
 
 	
@@ -51,7 +51,7 @@ int main (void) {
 	// Print some trees
 	int endPos = maxX;
 	int startPos = 0;
-	printTree (0, startPos, endPos);
+	printTree (5, startPos, endPos);
 	refresh();
 	// Exit the program
 	getchar();
