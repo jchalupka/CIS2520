@@ -100,6 +100,9 @@ void printData (void * data) {
 
 // Traverse in order
 void traverseInOrder (Tree * tree) {
+	if (tree == NULL) {
+		return;
+	}
 	if (getLeftSubtree(tree) != NULL) {
 		printf("Left %p\n", tree);
 		traverseInOrder(getLeftSubtree(tree));
