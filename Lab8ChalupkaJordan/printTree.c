@@ -8,7 +8,7 @@ int findMiddleX(int maxX, char * word) {
 
 
 void printTree (int level, int startPos, int endPos) {
-	if (level == 50) {
+	if (level == 10) {
 		return;
 	}
 	
