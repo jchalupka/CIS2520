@@ -100,15 +100,15 @@ void printData (void * data) {
 
 // Traverse in order
 void traverseInOrder (Tree * tree) {
-	if (getLeftSubtree(tree)) {
+	if (getLeftSubtree(tree) != NULL) {
 		printf("Left %p\n", getLeftSubtree(tree));
 		traverseInOrder(getLeftSubtree(tree));
 	}
-	if (getRootData(tree)) {
+	if (getRootData(tree) != NULL) {
 		printf("Root %p\n", getRootData(tree));
 		traverseInOrder(getRootData(tree));
 	}
-	if (getRightSubtree(tree)) {
+	if (getRightSubtree(tree) != NULL) {
 		printf("Right %p\n", getRightSubtree(tree));
 		traverseInOrder(getRightSubtree(tree));
 	}
