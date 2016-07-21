@@ -33,7 +33,7 @@ int main (void) {
 	char * word = "name(rating)";
 	mvprintw(0, findMiddleX(maxX,word),word);
 	for (int i = 1; i <= 3; i++) {]
-		mvprintw(i, findMiddleX(maxX/(2*1),word),word);
+		mvprintw(i, findMiddleX(maxX/(2*i),word),word);
 		
 	}
 	refresh();
