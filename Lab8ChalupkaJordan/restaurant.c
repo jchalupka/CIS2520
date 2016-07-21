@@ -129,7 +129,7 @@ int main (void) {
 
 	printInOrder(nameTree, printData);
 	printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	traverseInOrder(nameTree);
+	traverseInOrder(ratingTree);
 
 
 	return 0;
