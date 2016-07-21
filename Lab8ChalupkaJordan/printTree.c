@@ -15,8 +15,6 @@ void printTree (int level, int startPos, int endPos) {
 	getchar();
 	refresh();
 	printTree (level + 1, startPos, (startPos + endPos)/2);
-	getchar();
-	refresh();
 	printTree (level + 1, (startPos + endPos)/2, endPos);
 	
 
