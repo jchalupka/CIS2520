@@ -16,14 +16,24 @@ int main (void) {
 	// Get the size of the treee
 	int maxY, maxX;
 	getmaxyx(stdscr,maxY,maxX);
+
+	/*
+	How to print a word
+
 	char * word = malloc(sizeof(char)*255);
 	sprintf(word,"%d %d",maxY,maxX);
+	
 	mvprintw(15,findMiddleX(maxX,word),word);
-
-	// Print hello world
-	mvaddstr(0,0,"Hello World");
-	vline('@',10);
 	refresh();
+	*/
+	// Print hello world
+	
+
+	// Print some trees
+	char * word = "name(rating)";
+	for (int i = 1; i <= 3; i++) {
+		mvprintw(i-1, findMiddleX(maxX,word),word)
+	}
 
 	// Exit the program
 	getchar();
