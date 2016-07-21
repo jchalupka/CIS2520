@@ -12,8 +12,8 @@ void printTree (int level, int startPos, int endPos) {
 		return;
 	}
 	mvprintw (level, (findMiddleX(endPos + startPos, "X")),"X");
-	printTree (level, startPos, (startPos + endPos)/2);
-	printTree (level, (startPos + endPos)/2, endPos);
+	printTree (level + 1, startPos, (startPos + endPos)/2);
+	printTree (level + 1, (startPos + endPos)/2, endPos);
 	
 	getchar();
 	refresh();
