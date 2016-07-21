@@ -126,7 +126,7 @@ int main (void) {
 
 	}
 	collectFile(file, nameTree, ratingTree);
-
+	printInOrder(nameTree, printData);
 	traverseInOrder(nameTree);
 
 
