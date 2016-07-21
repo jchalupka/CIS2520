@@ -100,7 +100,7 @@ void printData (void * data) {
 
 // Traverse in order
 void traverseInOrder (Tree * tree) {
-	
+	printf("Here\n");
 	if (!isTreeEmpty(getLeftSubtree(tree))) {
 		traverseInOrder(getLeftSubtree(tree));
 	}
