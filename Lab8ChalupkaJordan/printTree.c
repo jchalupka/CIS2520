@@ -10,12 +10,12 @@ void printTrees (int, level, int curWidth, int initWidth, int leftOrRight) {
 	// Recursive function to print trees
 
 	// Print the left tree
-	printTrees (level++, width/2, initWidth, 0);
+	printTrees (level++, curWidth/2, initWidth, 0);
 
-	
+
 
 	// Print the right tree
-	printTrees (level++, width/2, initWidth, 1)
+	printTrees (level++, curWidth/2, initWidth, 1)
 
 }
 
