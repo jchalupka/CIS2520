@@ -32,7 +32,7 @@ int main (void) {
 	// Print some trees
 	char * word = "name(rating)";
 	mvprintw(0, findMiddleX(maxX,word),word);
-	for (int i = 1; i <= 3; i++) {]
+	for (int i = 1; i <= 3; i++) {
 		mvprintw(i, findMiddleX(maxX/(2*i),word),word);
 		
 	}
