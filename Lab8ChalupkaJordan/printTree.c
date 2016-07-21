@@ -1,5 +1,11 @@
 #include "printTree.h"
 
+int findMiddleX(int maxX, char * word) {
+	int pos = (maxX/2) - (strlen(word)/2)
+
+	return pos;
+}
+
 int main (void) {
 	// Set up ncureses
 	initscr();
@@ -10,7 +16,7 @@ int main (void) {
 	// Get the size of the treee
 	int maxY, maxX;
 	getmaxyx(stdscr,maxY,maxX);
-	mvprintw(15,(maxX/2) - (10/2),"%d %d",maxY,maxX);
+	mvprintw(15,(findMiddle(maxX,10),"%d %d",maxY,maxX);
 
 	// Print hello world
 	mvaddstr(0,0,"Hello World");
