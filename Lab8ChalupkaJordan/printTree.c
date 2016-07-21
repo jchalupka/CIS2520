@@ -18,10 +18,7 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	if (leftOrRight) {
 		//right
 		mvprintw(level, findMiddleX(curWidth, "name(rating)"),"name(rating)");
-	} else if {
-		//left
-
-	}
+	} 
 
 	// Print the right tree
 	printTrees (level++, curWidth/2, initWidth, 1);
