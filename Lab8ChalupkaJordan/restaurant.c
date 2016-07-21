@@ -103,10 +103,12 @@ void traverseInOrder (Tree * tree) {
 	if (getLeftSubtree(tree)) {
 		printf("Left %p\n", getLeftSubtree(tree));
 		traverseInOrder(getLeftSubtree(tree));
-	} else if (getRootData(tree)) {
+	}
+	if (getRootData(tree)) {
 		printf("Root %p\n", getRootData(tree));
 		traverseInOrder(getRootData(tree));
-	} else if (getRightSubtree(tree)) {
+	}
+	if (getRightSubtree(tree)) {
 		printf("Right %p\n", getRightSubtree(tree));
 		traverseInOrder(getRightSubtree(tree));
 	}
