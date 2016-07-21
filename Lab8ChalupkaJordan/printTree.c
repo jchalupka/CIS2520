@@ -24,7 +24,7 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	//}
 
 	// Print the right tree
-	printTrees (level + 1, curWidth/2, initWidth, 0);
+	//printTrees (level + 1, curWidth/2, initWidth, 0);
 
 	return;
 }
