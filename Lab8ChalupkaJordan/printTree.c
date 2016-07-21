@@ -8,7 +8,7 @@ int findMiddleX(int maxX, char * word) {
 
 void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	// Recursive function to print trees
-	if (level == 3) {
+	if (level == 4) {
 		return;
 	}
 
