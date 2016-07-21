@@ -98,6 +98,21 @@ void printData (void * data) {
 	return;
 }
 
+// Traverse in order
+void traverseInOrder (Tree * tree) {
+	if (getLeftSubtree(tree)) {
+		traverseInOrder(getLeftSubtree(tree));
+	}
+	if (getRootData(tree)) {
+		traverseInOrder(getRootData(tree));
+	}
+	if (getRightSubtree(tree)) {
+		traverseInOrder(getRightSubtree(tree));
+	}
+	
+	return;
+}
+
 int main (void) {
 	FILE * file = openFile("data.txt");
 
@@ -109,8 +124,8 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	printf("In order for name:\n");
-	printInOrder(nameTree, printData);
+	traverseInOrder(nameTree);
+
 
 	return 0;
 }
