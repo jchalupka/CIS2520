@@ -35,7 +35,7 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 int main (void) {
 	// Set up ncureses
 	initscr();
-	noecho();
+	//noecho();
 	cbreak();
 	curs_set(0);
 
