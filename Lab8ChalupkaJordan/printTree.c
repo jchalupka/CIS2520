@@ -54,7 +54,7 @@ int main (void) {
 	
 
 	// Print some trees
-	printTrees(0, maxX, maxX, 1);
+	printTrees(0, maxX, maxX, 0);
 	refresh();
 	// Exit the program
 	getchar();
