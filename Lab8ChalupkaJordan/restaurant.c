@@ -130,6 +130,7 @@ int main (void) {
 
 	}
 	collectFile(file, nameTree, ratingTree);
+	printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	printInOrder(nameTree, printData);
 	traverseInOrder(nameTree);
 
