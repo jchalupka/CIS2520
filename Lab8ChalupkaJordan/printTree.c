@@ -5,6 +5,7 @@ int main (void) {
 	initscr();
 	noecho();
 	cbreak();
+	curs_set(0);
 
 	// Print hello world
 	mvaddstr(0,0,"Hello World");
