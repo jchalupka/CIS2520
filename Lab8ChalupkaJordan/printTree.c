@@ -15,13 +15,13 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	// Print the left tree
 	printTrees (level + 1, curWidth/2, initWidth, 1);
 
-	if (leftOrRight) {
+	//if (leftOrRight) {
 		//left
 		mvprintw(level, findMiddleX(curWidth, "X"),"X");
-	} else {
+	//} else {
 		// right
 		mvprintw(level, findMiddleX(curWidth, "X") + curWidth, "X");
-	}
+	//}
 
 	// Print the right tree
 	printTrees (level + 1, curWidth/2, initWidth, 0);
