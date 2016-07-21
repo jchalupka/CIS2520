@@ -14,10 +14,12 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	// Left Side
 	printTrees (level + 1, curWidth/2, initWidth, 1);
 
+	mvprintw(level, findMiddleX(curWidth, "X"),"X");
+
 	// Right Side
 	printTrees (level + 1, (curWidth/2)+curWidth, initWidth, 1);
 
-	mvprintw(level, findMiddleX(curWidth, "X"),"X");
+	
 
 	return;
 }
