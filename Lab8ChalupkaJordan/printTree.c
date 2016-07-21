@@ -16,7 +16,7 @@ int main (void) {
 	// Get the size of the treee
 	int maxY, maxX;
 	getmaxyx(stdscr,maxY,maxX);
-	mvprintw(15,(findMiddle(maxX,10),"%d %d",maxY,maxX);
+	mvprintw(15,findMiddle(maxX,10),"%d %d",maxY,maxX);
 
 	// Print hello world
 	mvaddstr(0,0,"Hello World");
