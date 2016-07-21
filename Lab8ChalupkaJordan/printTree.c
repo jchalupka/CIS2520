@@ -13,6 +13,7 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	}
 
 	// Print the left tree
+	getchar();
 	printTrees (level + 1, curWidth/2, initWidth, 1);
 
 	if (leftOrRight) {
@@ -24,6 +25,7 @@ void printTrees (int level, int curWidth, int initWidth, int leftOrRight) {
 	}
 
 	// Print the right tree
+	getchar();
 	printTrees (level + 1, curWidth/2, initWidth, 0);
 
 	return;
