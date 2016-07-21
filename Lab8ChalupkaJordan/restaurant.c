@@ -107,9 +107,8 @@ void traverseInOrder (Tree * tree) {
 	printData(getRootData(tree));
 	traverseInOrder(getLeftSubtree(tree));
 
-	printf("Root %p\n", getRootSubtree(tree));
+	printf("Root %p\n", tree);
 	printData(getRootData(tree));
-	traverseInOrder(getRootData(tree));
 
 	printf("Right %p\n", getRightSubtree(tree));
 	printData(getRootData(tree));
