@@ -6,6 +6,20 @@ int findMiddleX(int maxX, char * word) {
 	return pos;
 }
 
+void printTrees (int, level, int curWidth, int initWidth, int leftOrRight) {
+	// Recursive function to print trees
+
+	// Print the left tree
+	printTrees (level++, width/2, initWidth, 0);
+
+	
+
+	// Print the right tree
+	printTrees (level++, width/2, initWidth, 1)
+
+}
+
+
 int main (void) {
 	// Set up ncureses
 	initscr();
@@ -30,12 +44,7 @@ int main (void) {
 	
 
 	// Print some trees
-	char * word = "name(rating)";
-	mvprintw(0, findMiddleX(maxX,word),word);
-	for (int i = 1; i <= 3; i++) {
-		mvprintw(i, findMiddleX(maxX/(2*i),word),word);
-		
-	}
+
 	refresh();
 	// Exit the program
 	getchar();
