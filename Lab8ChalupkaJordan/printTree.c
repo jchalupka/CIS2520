@@ -50,7 +50,7 @@ int main (void) {
 
 	// Print some trees
 	int endPos = maxX;
-	int startPos = 5;
+	int startPos = 0;
 	printTree (startPos, startPos, endPos);
 	refresh();
 	// Exit the program
