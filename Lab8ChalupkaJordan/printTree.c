@@ -34,7 +34,7 @@ int main (void) {
 	for (int i = 1; i <= 3; i++) {
 		mvprintw(i-1, findMiddleX(maxX,word),word);
 	}
-
+	refresh();
 	// Exit the program
 	getchar();
 	clear();
