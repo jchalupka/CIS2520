@@ -11,7 +11,8 @@ void printTree (int level, int startPos, int endPos) {
 	if (level >= 16) {
 		return;
 	}
-
+	static int count = 0;
+	count ++;
 	int newSplit = (startPos + endPos)/2;
 	printTree (level + 4, startPos, newSplit);
 	
@@ -19,7 +20,9 @@ void printTree (int level, int startPos, int endPos) {
 	int midX = findMiddleX((endPos + startPos), "@");
 
 	mvvline(level-4, midX,'@',4);
-	mvhline(level-4, midX,'@',(startPos + endPos));
+	if (count) {
+		mvhline(level-4, midX,'@',(startPos + endPos));
+	}
 	mvprintw (level, wordX,"name(ranking)");
 
 	printTree (level + 4, newSplit, endPos);
