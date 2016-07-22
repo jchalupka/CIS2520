@@ -13,6 +13,9 @@ void printTree (int level, int startPos, int endPos) {
 	}
 	static int count = 0;
 	count++;
+	if (count % (2 * level) {
+		count = 0;
+	}
 	mvprintw(50,50,"%d",count);
 	int newSplit = (startPos + endPos)/2;
 	printTree (level + 4, startPos, newSplit);
