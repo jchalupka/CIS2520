@@ -14,8 +14,9 @@ void printTree (int level, int startPos, int endPos) {
 
 	int newSplit = (startPos + endPos)/2;
 	printTree (level + 4, startPos, newSplit);
-	hline('@',5);
-	mvprintw (level, (findMiddleX(endPos + startPos, "name(ranking)")),"name(ranking)");
+	mvvline(level, midX,'@',-5);
+	int midX = findMiddleX(endPos + startPos);
+	mvprintw (level, midX,"name(ranking)"),"name(ranking)");
 
 	printTree (level + 4, newSplit, endPos);
 }
