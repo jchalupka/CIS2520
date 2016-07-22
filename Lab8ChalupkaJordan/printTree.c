@@ -13,7 +13,7 @@ void printTree (int level, int startPos, int endPos) {
 	}
 	static int count = 0;
 	count ++;
-	printf("%d", count);
+	mvprintw(50,50,"%d",count);
 	int newSplit = (startPos + endPos)/2;
 	printTree (level + 4, startPos, newSplit);
 	
