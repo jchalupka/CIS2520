@@ -19,7 +19,7 @@ void printTree (int level, int startPos, int endPos) {
 	int midX = findMiddleX((endPos + startPos), "@");
 
 	mvvline(level-4, midX,'@',4);
-	mvhline(level-4, midX,'@',(startPos + endPos)/2);
+	mvhline(level-4, midX,'@',(startPos + endPos));
 	mvprintw (level, wordX,"name(ranking)");
 
 	printTree (level + 4, newSplit, endPos);
