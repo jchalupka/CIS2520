@@ -22,7 +22,7 @@ void printTree (int level, int startPos, int endPos) {
 
 	mvvline(level-4, midX,'@',4);
 	if (count) {
-		mvhline(level-4, midX,'@',(startPos + endPos));
+		mvhline(level-4, midX,'@',5;
 	}
 	mvprintw (level, wordX,"name(ranking)");
 
