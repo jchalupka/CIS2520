@@ -8,17 +8,17 @@ int findMiddleX(int maxX, char * word) {
 
 
 void printTree (int level, int startPos, int endPos) {
-	if (level == 3) {
+	if (level == 40) {
 		return;
 	}
 
-	//printTree (level += 4, startPos, (startPos + endPos)/2);
+	printTree (level += 4, startPos, (startPos + endPos)/2);
 
 	getchar();
 	refresh();
-	//mvprintw (level, (findMiddleX(endPos + startPos, "X")),"X");
+	mvprintw (level, (findMiddleX(endPos + startPos, "X")),"X");
 
-	//printTree (level += 4, (startPos + endPos)/2, endPos);
+	printTree (level += 4, (startPos + endPos)/2, endPos);
 }
 
 
