@@ -11,12 +11,12 @@ void printTree (int level, int startPos, int endPos) {
 	if (level >= 16) {
 		return;
 	}
-	static int count = 1;
-	count ++;
+	static int count = 0;
+	count++
 	mvprintw(50,50,"%d",count);
 	int newSplit = (startPos + endPos)/2;
 	printTree (level + 4, startPos, newSplit);
-	
+	count = 0;
 	int wordX = findMiddleX((endPos + startPos),"name(ranking)");
 	int midX = findMiddleX((endPos + startPos), "@");
 
