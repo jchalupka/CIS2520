@@ -118,9 +118,10 @@ void traverseInOrder (Tree * tree, int shift) {
 
 
 	if (getLeftSubtree(tree)) {
-		traverseInOrder(getLeftSubtree(tree), shift + 8);
 		for (int i = 0; i < shift; i++) printf(" ");
 		printf("Left\n");
+		traverseInOrder(getLeftSubtree(tree), shift + 8);
+
 	}
 
 	return;
