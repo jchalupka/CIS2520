@@ -116,7 +116,6 @@ void traverseInOrder (Tree * tree, int shift) {
 	getchar();
 	printData(getRootData(tree), shift);
 	printw("\n");
-	getchar();
 
 	if (getLeftSubtree(tree)) {
 		printw("left");
