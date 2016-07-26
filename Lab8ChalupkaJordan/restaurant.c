@@ -144,6 +144,7 @@ int main (void) {
 		printf("ERROR CREATING TREE\n");
 
 	}
+	printf("Made it\n");
 	collectFile(file, ratingTree, ratingTree);
 
 	initscr();
@@ -151,7 +152,7 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
-	printf("Made it\n");
+
 	traverseInOrder(nameTree, 0, layer);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
