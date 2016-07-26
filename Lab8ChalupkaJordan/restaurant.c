@@ -103,7 +103,7 @@ void printData (void * data, int shift) {
 }
 
 // Traverse in order
-void traverseInOrder (Tree * tree, int shift, int layer) {
+void traverseInOrder (Tree * tree, int shift, static int layer) {
 	if (tree == NULL) {
 		return;
 	}
