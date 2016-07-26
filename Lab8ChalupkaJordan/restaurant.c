@@ -101,15 +101,15 @@ void printData (void * data) {
 }
 
 // Traverse in order
-void traverseInOrder (Tree * tree, int shift = 0) {
+void traverseInOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	if (getLeftSubtree(tree)) traverseInOrder(getLeftSubtree(tree));
+	if (getLeftSubtree(tree)) traverseInOrder(getLeftSubtree(tree), 0);
 
 	printData(getRootData(tree));
 
-	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree));
+	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree), 0);
 	
 	
 	return;
@@ -138,7 +138,7 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	printInOrder(ratingTree, printData);
+	traverseInOrder(nameTree, 0);
 	//printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 
