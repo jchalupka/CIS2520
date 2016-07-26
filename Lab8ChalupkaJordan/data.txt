@@ -2,9 +2,9 @@ Name,Type,0
 Name,Fast Food,74
 Name,Fast Food,23
 Name,Bakery,80
-Name,Bakery,80
+Name,Bakery,100
 Name,Burgers,23
-Name,Burgers,23
+Name,Burgers,24
 Name,Coffee,54
 Name,Pizza,24
 Name,Chineese,65
