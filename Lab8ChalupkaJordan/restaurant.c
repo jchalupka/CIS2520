@@ -151,6 +151,7 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
+	printf("Made it\n");
 	traverseInOrder(nameTree, 0, layer);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
