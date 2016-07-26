@@ -112,7 +112,7 @@ void traverseInOrder (Tree * tree, int shift) {
 
 	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree), shift + 4);
 	
-	
+	printf("\n");
 	return;
 }
 
