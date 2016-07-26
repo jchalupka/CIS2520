@@ -95,6 +95,7 @@ void printData (void * data) {
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	printw("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
+	refresh();
 
 	return;
 }
