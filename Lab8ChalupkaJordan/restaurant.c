@@ -94,10 +94,8 @@ void printData (void * data, int shift) {
 	}
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
-	int y,x;
-	getyx(stdscr,y,x);
-	move(y,x + shift);
-	printw("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
+
+	printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
 	return;
@@ -125,12 +123,6 @@ void traverseInOrder (Tree * tree, int shift) {
 
 
 int main (void) {
-	// Set up ncurses
-	initscr();
-	noecho();
-	cbreak();
-	curs_set(0);
-
 	FILE * file = openFile("data.txt");
 
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
@@ -142,14 +134,9 @@ int main (void) {
 	collectFile(file, nameTree, ratingTree);
 
 	traverseInOrder(nameTree, 0);
-	//printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 
-
-	// Exit the program
-	getchar();
-	clear();
-	endwin();
 
 	return 0;
 }
