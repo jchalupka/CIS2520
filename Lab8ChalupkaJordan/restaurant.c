@@ -103,7 +103,7 @@ void printData (void * data, int shift) {
 }
 
 // Traverse in order
-void traverseInOrder (Tree * tree, int shift, static int layer) {
+void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
 		return;
 	}
@@ -149,7 +149,8 @@ int main (void) {
 	noecho();
 	cbreak();
 
-	traverseInOrder(ratingTree, 0, 0);
+	static int layer = 0;
+	traverseInOrder(ratingTree, 0, layer);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
