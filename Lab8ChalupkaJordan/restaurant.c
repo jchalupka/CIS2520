@@ -101,7 +101,7 @@ void printData (void * data) {
 }
 
 // Traverse in order
-void traverseInOrder (Tree * tree) {
+void traverseInOrder (Tree * tree, int shift = 0) {
 	if (tree == NULL) {
 		return;
 	}
@@ -138,9 +138,9 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	//printInOrder(ratingTree, printData);
+	printInOrder(ratingTree, printData);
 	//printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	traverseInOrder(ratingTree);
+	//traverseInOrder(ratingTree);
 
 
 	// Exit the program
