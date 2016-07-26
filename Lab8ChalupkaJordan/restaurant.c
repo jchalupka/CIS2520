@@ -114,6 +114,12 @@ void traverseInOrder (Tree * tree) {
 }
 
 int main (void) {
+	// Set up ncurses
+	initscr();
+	noecho();
+	cbreak();
+	curs_set(0);
+
 	FILE * file = openFile("data.txt");
 
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
@@ -128,6 +134,10 @@ int main (void) {
 	printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	traverseInOrder(ratingTree);
 
+	// Exit the program
+	getchar();
+	clear();
+	endwin();
 
 	return 0;
 }

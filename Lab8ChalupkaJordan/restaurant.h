@@ -5,6 +5,7 @@
 
 #include "fileIO.h"
 #include "treeInterface.h"
+#include <curses.h>
 
 // Struct for storing information about restaurants
 typedef struct restaurant {
