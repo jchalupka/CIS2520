@@ -96,7 +96,7 @@ void printData (void * data, int shift) {
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	for (int i = 0; i < shift; i++) printw("-");
 	//for (int j = 0; j < 4; j++) printw("-");
-	printw("%s %d", restPtr->name,restPtr->rating);
+	printw("%s %s %d", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
 	return;
@@ -144,14 +144,13 @@ int main (void) {
 		printf("ERROR CREATING TREE\n");
 
 	}
-	collectFile(file, ratingTree, ratingTree);
+	collectFile(file, nameTree, ratingTree);
 
 	initscr();
 	noecho();
 	cbreak();
 
 	static int layer = 0;
-
 	traverseInOrder(nameTree, 0, layer);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
