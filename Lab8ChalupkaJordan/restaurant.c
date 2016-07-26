@@ -94,7 +94,7 @@ void printData (void * data, int shift) {
 	}
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
-	hline(" ",shift);
+	hline(' ',shift);
 	printw("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
