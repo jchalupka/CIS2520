@@ -144,7 +144,6 @@ int main (void) {
 		printf("ERROR CREATING TREE\n");
 
 	}
-	printf("Made it\n");
 	collectFile(file, ratingTree, ratingTree);
 
 	initscr();
