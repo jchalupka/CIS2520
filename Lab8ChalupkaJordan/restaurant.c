@@ -105,15 +105,21 @@ void traverseInOrder (Tree * tree) {
 	if (tree == NULL) {
 		return;
 	}
-	traverseInOrder(getLeftSubtree(tree));
+	if (getLeftSubtree(tree)) traverseInOrder(getLeftSubtree(tree));
 
 	printData(getRootData(tree));
 
-	traverseInOrder(getRightSubtree(tree));
+	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree));
 	
 	
 	return;
 }
+
+
+
+
+
+
 
 int main (void) {
 	// Set up ncurses
@@ -133,8 +139,9 @@ int main (void) {
 	collectFile(file, nameTree, ratingTree);
 
 	printInOrder(ratingTree, printData);
-	printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	traverseInOrder(ratingTree);
+	//printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+	//traverseInOrder(ratingTree);
+
 
 	// Exit the program
 	getchar();
