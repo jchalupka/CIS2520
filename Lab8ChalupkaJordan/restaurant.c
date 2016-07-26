@@ -94,7 +94,7 @@ void printData (void * data, int shift) {
 	}
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
-	for (int i = 0; i < shift; i++) printw("-");
+	for (int i = 0; i < shift; i++) printw(" ");
 	//for (int j = 0; j < 4; j++) printw("-");
 	printw("%s %d", restPtr->name, restPtr->rating);
 	refresh();
@@ -117,7 +117,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	
 	printw("\n");
 	printData(getRootData(tree), shift);
-	printw("%d", layer);
+	printw(" %d", layer);
 	
 
 	if (getLeftSubtree(tree)) {
@@ -152,7 +152,7 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
-	traverseInOrder(nameTree, 0, layer);
+	traverseInOrder(ratingTree, 0, layer);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
