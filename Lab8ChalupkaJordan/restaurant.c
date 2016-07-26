@@ -93,8 +93,9 @@ void printData (void * data) {
 		printf("ERROR\n");
 	}
 
-	printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
-	
+	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
+	printw("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
+
 	return;
 }
 
