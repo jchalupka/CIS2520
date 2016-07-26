@@ -95,7 +95,7 @@ void printData (void * data, int shift) {
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	for (int i = 0; i < shift-8; i++) printw(" ");
-	for (int j = 0; j < 8; j++) printw("-");
+	for (int j = 0; j < 4; j++) printw("-");
 	printw("%s %s %d\n", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
