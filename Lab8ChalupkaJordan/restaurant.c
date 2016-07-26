@@ -138,9 +138,9 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	printInOrder(ratingTree, printData);
+	//printInOrder(ratingTree, printData);
 	//printw("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	//traverseInOrder(ratingTree);
+	traverseInOrder(ratingTree);
 
 
 	// Exit the program
