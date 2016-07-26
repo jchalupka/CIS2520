@@ -103,22 +103,22 @@ void printData (void * data, int shift) {
 }
 
 // Traverse in order
-void traverseInOrder (Tree * tree, int shift) {
+void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
 		return;
 	}
 
 	if (getRightSubtree(tree)) {
 
-		traverseInOrder(getRightSubtree(tree), shift + 8);
-		printw("rigth");
+		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
+		printw("Right %d", layer);
 	}
 	printData(getRootData(tree), shift);
 	printw("\n");
 
 	if (getLeftSubtree(tree)) {
-		printw("left");
-		traverseInOrder(getLeftSubtree(tree), shift + 8);
+		printw("Left %d", layer);
+		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 
 
 	}
@@ -147,7 +147,7 @@ int main (void) {
 	noecho();
 	cbreak();
 
-	traverseInOrder(ratingTree, 0);
+	traverseInOrder(ratingTree, 0, 0);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
