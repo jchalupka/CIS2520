@@ -86,7 +86,7 @@ int compareType (void * data1, void * data2) {
 	return order;	
 }
 
-void printData (void * data) {
+void printData (void * data, int shift) {
 	Restaurant * restPtr = (Restaurant*) data;
 
 	if (data == NULL) {
@@ -94,6 +94,7 @@ void printData (void * data) {
 	}
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
+	hline(" ",shift);
 	printw("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
@@ -105,11 +106,11 @@ void traverseInOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	if (getLeftSubtree(tree)) traverseInOrder(getLeftSubtree(tree), 0);
+	if (getLeftSubtree(tree)) traverseInOrder(getLeftSubtree(tree), shift + 4);
 
-	printData(getRootData(tree));
+	printData(getRootData(tree), shift);
 
-	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree), 0);
+	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree), shift + 4);
 	
 	
 	return;
