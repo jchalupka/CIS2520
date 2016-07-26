@@ -31,6 +31,6 @@ int compareRating (void * data1, void * data2);
 // Compare by type
 int compareType (void * data1, void * data2);
 
-void printData (void * data);
+void printData (void * data, int shift);
 
 #endif
