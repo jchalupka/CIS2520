@@ -109,11 +109,11 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	if (getRightSubtree(tree)) {
-
+		printw("Left %d", layer);
 		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 	}
 
-	printw("Left %d", layer);
+	
 	printw("\n");
 	printData(getRootData(tree), shift);
 	
@@ -121,7 +121,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (getLeftSubtree(tree)) {
 		
 		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
-
+		printw("Left %d", layer);
 
 	}
 
