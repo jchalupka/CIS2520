@@ -95,7 +95,7 @@ void printData (void * data, int shift) {
 
 	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	for (int i = 0; i < shift; i++) printf(" ");
-	printf("%s %s %d\n", restPtr->name, restPtr->type, restPtr->rating);
+	printw("%s %s %d\n", restPtr->name, restPtr->type, restPtr->rating);
 	refresh();
 
 	return;
@@ -113,7 +113,7 @@ void traverseInOrder (Tree * tree, int shift) {
 	
 	getchar();
 	printData(getRootData(tree), shift);
-	printf("\n");
+	printw("\n");
 	getchar();
 
 	if (getLeftSubtree(tree)) {
@@ -141,9 +141,17 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
+	initscr();
+	noecho();
+	cbreak();
+
 	traverseInOrder(ratingTree, 0);
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
+	refresh();
+	getchar();
+	clear();
+	endwin();
 
 
 	return 0;
