@@ -106,10 +106,10 @@ void traverseInOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	getchar();
+	
 	if (getRightSubtree(tree)) traverseInOrder(getRightSubtree(tree), shift + 8);
 	
-
+	getchar();
 	printData(getRootData(tree), shift);
 	printf("\n");
 
