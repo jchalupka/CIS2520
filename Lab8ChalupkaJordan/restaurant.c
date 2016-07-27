@@ -102,13 +102,29 @@ void printData (void * data, int shift) {
 	return;
 }
 
+int height (Tree * tree) {
+	if (tree == NULL) {
+		return 0;
+	}
+	// Get the height of the tree
+	int leftTree = height (getLeftSubtree(tree));
+	int rightTree = height (getRightSubtree(tree));
+
+	if (leftTree > rightTree) {
+		return leftTree + 1;
+	} else {
+		return rightTree + 1;
+	}
+
+}
+
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
 		return;
 	}
 	printData(getRootData(tree), shift);
-	printw(" %d \n", layer);
+	printw(" %d \n", height(tree));
 	getchar();
 	
 
@@ -131,21 +147,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	return;
 }
 
-int height (Tree * tree) {
-	if (tree == NULL) {
-		return 0;
-	}
-	// Get the height of the tree
-	int leftTree = height (getLeftSubtree(tree));
-	int rightTree = height (getRightSubtree(tree));
 
-	if (leftTree > rightTree) {
-		return leftTree + 1;
-	} else {
-		return rightTree + 1;
-	}
-
-}
 
 void printLevel(Tree * tree, int height, int shift) {
 	if (tree == NULL) return;
