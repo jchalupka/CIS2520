@@ -158,7 +158,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	printData(getRootData(tree), shift);
-	vline('$', numLinesDown(tree));
+	vline('$', numLinesDown(tree) + 1);
 	
 
 	printw("\n");
