@@ -107,14 +107,14 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
 		return;
 	}
-	printData(getRootData(tree), shift);
-	printw(" %d \n", layer);
-	getchar();
+
 	
 
 	if (getRightSubtree(tree)) {
 		// Draw the connection
-
+			printData(getRootData(tree), shift);
+	printw(" %d \n", layer);
+	getchar();
 		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 		
 	}
@@ -122,7 +122,9 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 
 
 	if (getLeftSubtree(tree)) {
-
+	printData(getRootData(tree), shift);
+	printw(" %d \n", layer);
+	getchar();
 		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 		
 
