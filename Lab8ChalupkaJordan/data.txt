@@ -25,4 +25,4 @@ Happy Home,Chineese,60
 Subway,Submarines,18
 A&W,Burgers,22
 Wendys,Burgers,20
-Steven’s,Salad,10
+Stevens,Salad,10
