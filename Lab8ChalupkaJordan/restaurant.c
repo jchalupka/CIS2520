@@ -141,7 +141,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 	if (getLeftSubtree(tree)) {
 		printw("Has Left");
-		hline('$',5);
+		vline('$',5);
 	}
 
 	printw("\n");
