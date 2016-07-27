@@ -188,7 +188,7 @@ int main (void) {
 	static int layer = 0;
 	traverseInOrder(nameTree, 0, layer);
 	//BFT(ratingTree);
-	printw("This is the height: %d",height(ratingTree));
+	
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
