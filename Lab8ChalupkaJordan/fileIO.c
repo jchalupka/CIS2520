@@ -59,9 +59,9 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		//printData(restPtr);
 		free(name);
 		free(foodtype);
-
+		free(token);
 	}
-	free(token);
 	
+
 	return;
 }
