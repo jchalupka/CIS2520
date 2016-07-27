@@ -100,83 +100,15 @@ void printData (void * data, int shift) {
 	move(cury,curx + shift);
 	
 	printw("%s", word);
+
+	drawConnection(tree);
+
+	move(cury+1,0);
+
 	refresh();
 
 	return;
 }
-
-int getNumRoots (Tree * tree) {
-	if (tree == NULL) {
-		return 0;
-	}
-	return 1 + getNumRoots(getLeftSubtree(tree)) + getNumRoots(getRightSubtree(tree));
-}
-
-int numLinesDown (Tree * tree) {
-	Tree * leftSub = getLeftSubtree(tree);
-	if (leftSub == NULL) {
-		return 0;
-	}
-	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(rightSub);
-
-	return numRoots + 2;
-}
-
-int numLinesUp (Tree * tree) {
-	Tree * rightSub = getRightSubtree(tree);
-	if (rightSub == NULL) {
-		return 0;
-	}
-	Tree * leftSub = getLeftSubtree(rightSub);
-	int numRoots = getNumRoots(leftSub);
-
-	return numRoots + 2;
-}
-
-int wordStrlen (Tree * tree) {
-	Restaurant * restPtr = (Restaurant*) getRootData(tree);
-	char word[255];
-	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
-
-	return strlen(word);
-}
-
-// Traverse in order
-void traverseInOrder (Tree * tree, int shift, int layer) {
-
-	if (tree == NULL) {
-		return;
-	}
-
-	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1, layer + 1);
-		
-	printData(getRootData(tree), shift);
-
-	int cury,curx;
-	getyx(stdscr,cury,curx);
-
-	if (getRightSubtree(tree)) {
-		move(cury - (numLinesUp(tree)-1), curx);
-		vline('+',numLinesUp(tree));
-		move(cury,curx);
-	}
-	if (getLeftSubtree(tree)) {
-		vline('+', numLinesDown(tree));
-	}
-	
-	move(cury+1,0);
-
-
-	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1, layer + 1);
-
-	return;
-}
-
-
-
-
-
 
 int main (void) {
 	FILE * file = openFile("data.txt");
@@ -194,11 +126,8 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
-	traverseInOrder(nameTree, 0, layer);
-	//BFT(ratingTree);
-	
-	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	//traverseInOrder(ratingTree);
+	traverseInOrder(nameTree, 0);
+
 	refresh();
 	getchar();
 	clear();
