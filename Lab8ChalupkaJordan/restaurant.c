@@ -161,7 +161,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		
 	}
 	if (getLeftSubtree(tree)) {
-		vline('$', getLinesDown(tree));
+		vline('$', numLinesDown(tree));
 	}
 
 	printw("\n");
