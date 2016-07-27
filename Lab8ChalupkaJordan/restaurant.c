@@ -131,23 +131,17 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 
 		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 		
-	} else {
-			printData(getRootData(tree), shift);
-	printw(" %d \n", height(tree));
-	getchar();
 	}
 
-
+	printData(getRootData(tree), shift);
+	printw(" %d \n", height(tree));
+	getchar();
 
 	if (getLeftSubtree(tree)) {
 
 		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 		
 
-	} else {
-			printData(getRootData(tree), shift);
-	printw(" %d \n", height(tree));
-	getchar();
 	}
 
 	return;
