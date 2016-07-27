@@ -144,7 +144,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	
-
+vline('$', numLinesDown(tree));
 
 	if (getRightSubtree(tree)) {
 		// Draw the connection
@@ -159,7 +159,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		
 	}
 	if (getLeftSubtree(tree)) {
-		vline('$', numLinesDown(tree));
+		
 	}
 
 	printw("\n");
