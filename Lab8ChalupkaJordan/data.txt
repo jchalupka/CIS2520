@@ -10,7 +10,7 @@ Four Sisters,Pizza,24
 Happy Home,Chineese,65
 Subway,Submarines,13
 A&W,Burgers,89
-Wendy’s,Burgers,2
+Wendys,Burgers,2
 Stevens,Salad,100
 Name,Type,10
 McDonalds,Fast Food,80
