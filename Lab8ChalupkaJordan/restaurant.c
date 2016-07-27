@@ -133,7 +133,7 @@ int numLinesDown (Tree * tree) {
 	if (leftSub == NULL) {
 		return 0;
 	}
-	rightSub = getRightSubtree(leftSub);
+	Tree * rightSub = getRightSubtree(leftSub);
 	int numRoots = getNumRoots(rightSub);
 
 	return numRoots;
