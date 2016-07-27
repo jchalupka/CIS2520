@@ -134,7 +134,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 
 int height (Tree * tree) {
 	if (tree == NULL) {
-		return -1;
+		return 0;
 	}
 	// Get the height of the tree
 	int leftTree = height (getLeftSubtree(tree));
