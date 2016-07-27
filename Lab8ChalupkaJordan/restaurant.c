@@ -148,7 +148,7 @@ int height (Tree * tree) {
 
 }
 
-void printLevel(Tree * tree, int height,shift) {
+void printLevel(Tree * tree, int height, int shift) {
 	if (tree == NULL) return;
 	if (height == 1) printData(getRootData(tree), height, shift);
 	else if (height > 1) {
