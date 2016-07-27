@@ -53,6 +53,9 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		int rating;
 		rating = atoi(token);
 
+		printf("%s\n", name);
+		getchar(
+
 		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
 		addToTree(nameTree, restPtr);
 		addToTree(ratingTree,restPtr);
