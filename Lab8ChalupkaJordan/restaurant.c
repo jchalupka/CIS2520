@@ -139,6 +139,16 @@ int numLinesDown (Tree * tree) {
 	return numRoots;
 }
 
+int numLinesUp (Tree * tree) {
+	Tree * rightSub = getRightSubtree(tree);
+	if (rightSub == NULL) {
+		return 0;
+	}
+	Tree * leftSub = getLeftSubtree(rightSub);
+	int numRoots = getNumRoots(leftSub);
+
+	return numRoots;
+}
 
 
 // Traverse in order
@@ -160,6 +170,11 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	printData(getRootData(tree), shift);
 	int cury,curx;
 	getyx(stdscr,cury,curx);
+	if (getRightSubtree) {
+		move(cury - numLinesUp, curx);
+		vline('$',numLinesUp(tree) + 2);
+		move(cury,curx);
+	}
 	if (getLeftSubtree(tree)) {
 		vline('$', numLinesDown(tree) + 2);
 	}
