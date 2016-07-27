@@ -161,7 +161,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
 	
-	vline('$', numLinesDown(tree));
+	vline('$', numLinesDown(tree) + 3);
 	move(cury+1,0);
 	getchar();
 
