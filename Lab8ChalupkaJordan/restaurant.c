@@ -99,7 +99,7 @@ void printData (void * data, int shift) {
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
 	printw("%s", word);
 
-	move(cury+1,0+ strlen(word));
+	move(cury+1,curx+ strlen(word));
 	
 	
 	refresh();
