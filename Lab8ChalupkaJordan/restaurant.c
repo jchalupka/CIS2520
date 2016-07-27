@@ -140,8 +140,8 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		printw("Has Right");
 	}
 	if (getLeftSubtree(tree)) {
-		printw("Has Left");
-		vline('$',5);
+		// This moves down
+		connectLeft();
 	}
 
 	printw("\n");
