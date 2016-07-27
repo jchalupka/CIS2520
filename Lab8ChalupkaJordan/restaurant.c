@@ -176,7 +176,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
-		//vline('$', numLinesDown(tree) + 2);
+		vline('$', numLinesDown(tree) + 2);
 	}
 	
 	move(cury+1,0);
@@ -201,27 +201,6 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 
 
 
-void printLevel(Tree * tree, int height, int shift) {
-	if (tree == NULL) return;
-	if (height == 1) printData(getRootData(tree), shift);
-	else if (height > 1) {
-		printLevel(getRightSubtree(tree), height - 1, shift + 1);
-		printLevel(getLeftSubtree(tree), height - 1, shift + 1);
-	}
-
-}
-
-void BFT (Tree * tree) {
-	int h = height(tree);
-	for (int i = 0; i <= h; i++) {
-		printLevel(tree, i, 0);
-	}
-
-
-	return;
-}
-
-
 
 
 
@@ -241,7 +220,7 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
-	traverseInOrder(ratingTree, 0, layer);
+	traverseInOrder(nameTree, 0, layer);
 	//BFT(ratingTree);
 	printw("This is the height: %d",height(ratingTree));
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
