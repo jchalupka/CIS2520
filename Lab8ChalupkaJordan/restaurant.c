@@ -160,12 +160,10 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	
 
 
-	if (getRightSubtree(tree)) {
-		// Draw the connection
-
-		traverseInOrder(getRightSubtree(tree), shift + 16, layer + 1);
+	
+	traverseInOrder(getRightSubtree(tree), shift + 16, layer + 1);
 		
-	}
+	
 
 	printData(getRootData(tree), shift);
 	int cury,curx;
@@ -188,12 +186,10 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	
 
 
-	if (getLeftSubtree(tree)) {
-
-		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
+	traverseInOrder(getLeftSubtree(tree), shift + 16, layer + 1);
 		
 
-	}
+	
 	
 
 	return;
