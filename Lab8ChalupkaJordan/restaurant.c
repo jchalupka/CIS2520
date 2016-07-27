@@ -130,7 +130,7 @@ int getNumRoots (Tree * tree) {
 
 int numLinesDown (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(tree);
-	int numRoots = getNumRoots(getLeftSubtree(leftSub));
+	int numRoots = getNumRoots(getLeftleftSub);
 
 	return numRoots;
 }
@@ -154,7 +154,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	printData(getRootData(tree), shift);
-	vline('$', numLinesDown(tree));
+	vline('$', numLinesDown(getLeftSubtree(tree)));
 	
 
 	printw("\n");
