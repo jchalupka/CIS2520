@@ -137,8 +137,8 @@ int height (Tree * tree) {
 		return -1;
 	}
 	// Get the height of the tree
-	static int leftTree = height (getLeftSubtree(tree));
-	static int rightTree = height (getRightSubtree(tree));
+	int leftTree = height (getLeftSubtree(tree));
+	int rightTree = height (getRightSubtree(tree));
 
 	if (leftTree > rightTree) {
 		return leftTree + 1;
@@ -159,7 +159,7 @@ void printLevel(Tree * tree, int height) {
 }
 
 void BFT (Tree * tree) {
-	int height = height(root);
+	int height = height(tree);
 	printLevel(tree, height);
 
 	return;
