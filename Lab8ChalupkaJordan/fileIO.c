@@ -29,13 +29,14 @@ void removeNewLines (char input[255]) {
 // Collect the relevent information from the FILE pointer
 void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	char input[255];
-	// Restaurant info will hold name, foodtype, and rating
-	token = malloc(sizeof(char)*255);
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
 		char * search, * token;
 		// Use commas as the deliminator
 		search = ",";
+
+		// Restaurant info will hold name, foodtype, and rating
+		token = malloc(sizeof(char)*255);
 
 		// Get the name
 		token = strtok(input, search);
@@ -61,6 +62,6 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 
 	}
 	free(token);
-
+	
 	return;
 }
