@@ -10,8 +10,25 @@
 #include "restaurant.h"
 #include "treeInterface.h"
 
+/*
+
+Pre:
+Post
+*/
 FILE * openFile (char * fileName);
+
+/*
+
+Pre:
+Post
+*/
 void removeNewLines (char input[255]);
+
+/*
+
+Pre:
+Post
+*/
 void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree);
 
 #endif

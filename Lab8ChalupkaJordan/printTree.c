@@ -1,72 +1,72 @@
+// Jordan Chalupka 0928258
+
 #include "printTree.h"
 
-int findMiddleX(int maxX, char * word) {
-	int pos = (maxX/2) - (strlen(word)/2);
+int getNumRoots (Tree * tree) {
+	if (tree == NULL) {
+		return 0;
+	}
+	return 1 + getNumRoots(getLeftSubtree(tree)) + getNumRoots(getRightSubtree(tree));
+}
 
-	return pos;
+int numLinesDown (Tree * tree) {
+	Tree * leftSub = getLeftSubtree(tree);
+	if (leftSub == NULL) {
+		return 0;
+	}
+	Tree * rightSub = getRightSubtree(leftSub);
+	int numRoots = getNumRoots(rightSub);
+
+	return numRoots + 2;
+}
+
+int numLinesUp (Tree * tree) {
+	Tree * rightSub = getRightSubtree(tree);
+	if (rightSub == NULL) {
+		return 0;
+	}
+	Tree * leftSub = getLeftSubtree(rightSub);
+	int numRoots = getNumRoots(leftSub);
+
+	return numRoots + 2;
+}
+
+int wordStrlen (Tree * tree) {
+	Restaurant * restPtr = (Restaurant*) getRootData(tree);
+	char word[255];
+	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
+
+	return strlen(word);
 }
 
 
-void printTree (int level, int startPos, int endPos) {
-	if (level >= 16) {
+void drawConnection (Tree * tree) {
+	int cury,curx;
+	getyx(stdscr,cury,curx);
+
+	if (getRightSubtree(tree)) {
+		move(cury - (numLinesUp(tree)-1), curx);
+		vline('+',numLinesUp(tree));
+		move(cury,curx);
+	}
+	if (getLeftSubtree(tree)) {
+		vline('+', numLinesDown(tree));
+	}
+}
+// Traverse in order
+void traverseInOrder (Tree * tree, int shift) {
+
+	if (tree == NULL) {
 		return;
 	}
-	static int count = 0;
-	count++;
-	if (count % (int)pow(2,level)) {
-		count = 0;
-	}
-	mvprintw(50,50,"%d",count);
-	int newSplit = (startPos + endPos)/2;
-	printTree (level + 4, startPos, newSplit);
-	
-	int wordX = findMiddleX((endPos + startPos),"name(ranking)");
-	int midX = findMiddleX((endPos + startPos), "@");
 
-	mvvline(level-4, midX,'@',4);
-	
-	if (count%2) {
-		mvhline(level-4, midX,'@',5);
-	}
-	
-	mvprintw (level, wordX,"name(ranking)");
+	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
+		
+	printData(getRootData(tree), shift);
 
-	printTree (level + 4, newSplit, endPos);
+
+	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
+
+	return;
 }
 
-
-int main (void) {
-	// Set up ncureses
-	initscr();
-	noecho();
-	cbreak();
-	curs_set(0);
-
-	// Get the size of the treee
-	int maxY, maxX;
-	getmaxyx(stdscr,maxY,maxX);
-
-	/*
-	How to print a word
-
-	char * word = malloc(sizeof(char)*255);
-	sprintf(word,"%d %d",maxY,maxX);
-	
-	mvprintw(15,findMiddleX(maxX,word),word);
-	refresh();
-	*/
-	// Print hello world
-	
-
-	// Print some trees
-	int endPos = maxX;
-	int startPos = 0;
-	printTree (startPos, startPos, endPos);
-	refresh();
-	// Exit the program
-	getchar();
-	clear();
-	endwin();
-
-	return 0;
-}

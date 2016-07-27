@@ -3,9 +3,11 @@
 #ifndef __JCHALUPKA_RESTAURANT__
 #define __JCHALUPKA_RESTAURANT__
 
+#include <curses.h>
 #include "fileIO.h"
 #include "treeInterface.h"
-#include <curses.h>
+#include "printTree.h"
+
 
 // Struct for storing information about restaurants
 typedef struct restaurant {
@@ -16,21 +18,46 @@ typedef struct restaurant {
 
 // Functionality for Restaurant struct
 
-// Create
+/*
+Create restourant struct and malloc associated members.
+Pre:
+Post
+*/
 Restaurant * createRestaurant (char * name, char * type, int rating);
 
-// Destroy
+/*
+
+Pre:
+Post
+*/
 void destroyRestaurant (void * toDestroy);
 
-// Compare by name
+/*
+
+Pre:
+Post
+*/
 int compareName (void * data1, void * data2);
 
-// Compare by rating
+/*
+
+Pre:
+Post
+*/
 int compareRating (void * data1, void * data2);
 
-// Compare by type
+/*
+
+Pre:
+Post
+*/
 int compareType (void * data1, void * data2);
 
+/*
+
+Pre:
+Post
+*/
 void printData (void * data, int shift);
 
 #endif
