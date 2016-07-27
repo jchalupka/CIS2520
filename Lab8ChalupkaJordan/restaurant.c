@@ -117,7 +117,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		// Draw the connection
 		int cury, curx;
 		getyx(stdscr,cury,curx);
-		vline('$',1);
+		vline(1, '$');
 		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 		
 	}
