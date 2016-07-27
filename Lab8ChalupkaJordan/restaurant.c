@@ -118,6 +118,11 @@ int height (Tree * tree) {
 
 }
 
+void connectLeft () {
+
+	return;
+}
+
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
@@ -141,7 +146,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 	if (getLeftSubtree(tree)) {
 		// This moves down
-		connectLeft();
+		//connectLeft();
 	}
 
 	printw("\n");
