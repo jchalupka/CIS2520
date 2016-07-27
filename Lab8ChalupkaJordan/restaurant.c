@@ -139,7 +139,7 @@ int wordStrlen (Tree * tree) {
 	char word[255];
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
 
-	return strlen(word) +1;
+	return strlen(word);
 }
 
 // Traverse in order
@@ -149,7 +149,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		return;
 	}
 
-	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree), layer + 1);
+	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1, layer + 1);
 		
 	printData(getRootData(tree), shift);
 
@@ -162,13 +162,13 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
-		//vline('$', numLinesDown(tree));
+		vline('$', numLinesDown(tree));
 	}
 	
 	move(cury+1,0);
 
 
-	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree), layer + 1);
+	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1, layer + 1);
 
 	return;
 }
