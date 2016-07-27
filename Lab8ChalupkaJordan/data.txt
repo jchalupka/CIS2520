@@ -17,30 +17,3 @@ McDonalds,Fast Food,80
 McDonalds,Fast Food,78
 Tim Hortons,Bakery,12
 Tim Hortonz,Bakery,14
-Harveys,Burgers,98
-Harveys,Burgers,29
-Starbucks,Coffee,50
-Four Sisters,Pizza,23
-Happy Home,Chineese,60
-Subway,Submarines,18
-A&W,Burgers,22
-Wendys,Burgers,20
-Stevens,Salad,10
-East Side Marios,Pizza,15
-Boston Pizza,Pizza,20
-Swiss Chalet,Chicken,90
-The Keg,Pub,10
-Mandarin,Chinese,66
-Arms Ale House,Beer,30
-Embassy,Fancy,50
-Happy Kitchen,Chinese,80
-Streets,Pizza,30
-Kentucky Fried Chicken,Chicken,10
-Montanas,Southern,90
-Pizza Hut,Pizza,50
-Kelseys,Pub,90
-Burger King,Burgers,90
-Arbys,Burgers,50
-Three Sisters,100
-Archies,Burgers,90
-River Stone,Pizza,0
