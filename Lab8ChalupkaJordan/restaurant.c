@@ -139,7 +139,7 @@ int wordStrlen (Tree * tree) {
 	char word[255];
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
 
-	return strlen(word);
+	return strlen(word) +1;
 }
 
 // Traverse in order
