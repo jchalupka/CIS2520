@@ -52,6 +52,8 @@ void drawConnection (Tree * tree) {
 	if (getLeftSubtree(tree)) {
 		vline('+', numLinesDown(tree));
 	}
+
+	move(cury+1,0);
 }
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift) {
@@ -63,7 +65,8 @@ void traverseInOrder (Tree * tree, int shift) {
 	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
 		
 	printData(getRootData(tree), shift);
-
+	
+	drawConnection(tree);
 
 	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
 

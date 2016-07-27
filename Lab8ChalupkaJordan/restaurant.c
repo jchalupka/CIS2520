@@ -101,10 +101,6 @@ void printData (void * data, int shift) {
 	
 	printw("%s", word);
 
-	drawConnection(tree);
-
-	move(cury+1,0);
-
 	refresh();
 
 	return;
