@@ -163,7 +163,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	vline('$', numLinesDown(tree) + 3);
 	
 	getchar();
-
+	printw("\n");
 	
 
 	
