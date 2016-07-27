@@ -99,7 +99,7 @@ void printData (void * data, int shift) {
 		/*if (i % 5 == 0) {
 			printw("$");
 		} else printw("+");*/
-			printf(" ");
+			printw(" ");
 	}
 	//for (int j = 0; j < 4; j++) printw("-");
 	printw("%s %d", restPtr->name, restPtr->rating);
