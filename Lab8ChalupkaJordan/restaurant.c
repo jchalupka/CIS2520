@@ -160,7 +160,7 @@ void printLevel(Tree * tree, int height) {
 
 void BFT (Tree * tree) {
 	int h = height(tree);
-	for (int i = 0; i < h; i++) {
+	for (int i = 0; i <= h; i++) {
 		printLevel(tree, i);
 	}
 
