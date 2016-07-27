@@ -60,6 +60,9 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		addToTree(nameTree, restPtr);
 		addToTree(ratingTree,restPtr);
 		//printData(restPtr);
+		free(name);
+		free(foodtype);
+		free(token)
 
 	}
 
