@@ -71,5 +71,5 @@ void traverseInOrder (Tree * tree, int shift) {
 	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
 
 	return;
-}
 
+}
