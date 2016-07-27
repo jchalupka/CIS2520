@@ -97,9 +97,11 @@ void printData (void * data, int shift) {
 	getyx(stdscr, cury, curx);
 	char word[255];
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
-	move(cury,curx + strlen(word));
-	
 	printw("%s", word);
+
+	move(cury+1,0+ strlen(word));
+	
+	
 	refresh();
 
 	return;
