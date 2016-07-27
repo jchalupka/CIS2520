@@ -129,7 +129,7 @@ int main (void) {
 	clear();
 	endwin();
 
-	//destroyBinTree(nameTree);
+	destroyBinTree(nameTree);
 	destroyBinTree(ratingTree);
 
 	return 0;
