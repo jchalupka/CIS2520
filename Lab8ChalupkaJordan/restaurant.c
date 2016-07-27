@@ -123,10 +123,20 @@ int height (Tree * tree) {
 
 }
 
-void connectLeft () {
-
-	return;
+int getNumRoots (Tree * tree) {
+	if (tree == NULL) {
+		return 0;
+	}
+	return 1 + getNumRoots(getLeftSubtree(tree)) + getNumRoots(getRightSubtree(tree));
 }
+
+int numLinesDown (Tree * tree) {
+	int leftSub = getLeftSubtree(tree);
+	int numRoots = getNumRoots(leftSub);
+
+}
+
+int numLinesUp
 
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift, int layer) {
