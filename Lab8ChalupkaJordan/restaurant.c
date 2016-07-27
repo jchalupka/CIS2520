@@ -134,6 +134,7 @@ int numLinesDown (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(tree);
 	int numRoots = getNumRoots(leftSub);
 
+	return numRoots;
 }
 
 
@@ -160,8 +161,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		
 	}
 	if (getLeftSubtree(tree)) {
-		// This moves down
-		//connectLeft();
+		vline('$', getLinesDown(tree));
 	}
 
 	printw("\n");
