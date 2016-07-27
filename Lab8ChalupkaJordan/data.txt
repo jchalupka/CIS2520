@@ -1,4 +1,4 @@
-Name,Type,0
+Antonios,Fish,0
 McDonalds,Fast Food,74
 McDonalds,Fast Food,23
 Tim Hortons,Bakery,80
@@ -12,7 +12,7 @@ Subway,Submarines,13
 A&W,Burgers,89
 Wendys,Burgers,2
 Stevens,Salad,100
-Name,Type,10
+Antonios,Type,100
 McDonalds,Fast Food,80
 McDonalds,Fast Food,78
 Tim Hortons,Bakery,12
