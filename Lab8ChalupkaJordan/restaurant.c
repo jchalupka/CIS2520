@@ -136,7 +136,7 @@ int numLinesDown (Tree * tree) {
 
 }
 
-int numLinesUp
+
 
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift, int layer) {
