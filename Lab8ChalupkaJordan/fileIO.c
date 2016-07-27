@@ -28,10 +28,10 @@ void removeNewLines (char input[255]) {
 
 // Collect the relevent information from the FILE pointer
 void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
-	char input[255];
+	char input[255], *token;
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
-		char * search, * token;
+		char * search;
 		// Use commas as the deliminator
 		search = ",";
 
@@ -59,7 +59,6 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		//printData(restPtr);
 		free(name);
 		free(foodtype);
-
 	}
 
 	return;
