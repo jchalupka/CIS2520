@@ -1,11 +1,12 @@
 Name,Type,0
-McDonalds,Fast Food,74
-McDonalds,Fast Food,23
-Tim Hortons,Bakery,80
-Tim Hortonz,Bakery,80
-Harveys,Burgers,23
-Harveys,Burgers,23
-Starbucks,Coffee,54
-Four Sisters,Pizza,24
-Happy Home,Chineese,65
-Subway,Submarines,13
+Name,Fast Food,74
+Name,Fast Food,23
+Name,Bakery,80
+Name,Bakery,80
+Name,Burgers,23
+Name,Burgers,23
+Name,Coffee,54
+Name,Pizza,24
+Name,Chineese,65
+Name,Submarines,13
+Name,This,14

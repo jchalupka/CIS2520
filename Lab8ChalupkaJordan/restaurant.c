@@ -150,8 +150,8 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 
 	if (getRightSubtree(tree)) {
 		move(cury - ((numLinesUp(tree) +1)), curx);
-		vline('$',numLinesUp(tree));
-	
+		vline('$',numLinesUp(tree)+2);
+
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
