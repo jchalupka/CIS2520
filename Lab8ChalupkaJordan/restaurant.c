@@ -144,7 +144,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	
-vline('$', numLinesDown(tree));
+
 
 	if (getRightSubtree(tree)) {
 		// Draw the connection
@@ -154,13 +154,8 @@ vline('$', numLinesDown(tree));
 	}
 
 	printData(getRootData(tree), shift);
-
-	if (getRightSubtree(tree)) {
-		
-	}
-	if (getLeftSubtree(tree)) {
-		
-	}
+	vline('$', numLinesDown(tree));
+	
 
 	printw("\n");
 
