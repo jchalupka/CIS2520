@@ -11,7 +11,7 @@ Happy Home,Chineese,65
 Subway,Submarines,13
 A&W,Burgers,89
 Wendy’s,Burgers,2
-Steven’s,Salad,100
+Stevens,Salad,100
 Name,Type,10
 McDonalds,Fast Food,80
 McDonalds,Fast Food,78
@@ -24,5 +24,5 @@ Four Sisters,Pizza,23
 Happy Home,Chineese,60
 Subway,Submarines,18
 A&W,Burgers,22
-Wendy’s,Burgers,20
+Wendys,Burgers,20
 Steven’s,Salad,10
