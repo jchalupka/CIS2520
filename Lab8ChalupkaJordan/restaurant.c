@@ -164,7 +164,7 @@ getchar();
 	
 	
 
-	
+	printw("\n");
 
 	
 
@@ -175,7 +175,7 @@ getchar();
 		
 
 	}
-	printw("\n");
+	
 
 	return;
 }
