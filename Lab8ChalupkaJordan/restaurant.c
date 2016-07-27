@@ -175,7 +175,7 @@ getchar();
 		
 
 	}
-
+	printw("\n");
 
 	return;
 }
