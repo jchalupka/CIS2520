@@ -136,7 +136,7 @@ int numLinesDown (Tree * tree) {
 	Tree * rightSub = getRightSubtree(leftSub);
 	int numRoots = getNumRoots(rightSub);
 
-	return numRoots;
+	return numRoots + 2;
 }
 
 int numLinesUp (Tree * tree) {
@@ -147,7 +147,7 @@ int numLinesUp (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(rightSub);
 	int numRoots = getNumRoots(leftSub);
 
-	return numRoots;
+	return numRoots + 2;
 }
 
 
@@ -163,7 +163,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (getRightSubtree(tree)) {
 		// Draw the connection
 
-		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
+		traverseInOrder(getRightSubtree(tree), shift + 16, layer + 1);
 		
 	}
 
@@ -176,7 +176,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
-		vline('$', numLinesDown(tree) + 2);
+		vline('$', numLinesDown(tree));
 	}
 	
 	move(cury+1,0);
