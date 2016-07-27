@@ -134,14 +134,22 @@ int numLinesUp (Tree * tree) {
 	return numRoots + 2;
 }
 
+int wordStrlen (Tree * tree) {
+	Restaurant * restPtr = (Restaurant*) getRootData(tree);
+	char word[255];
+	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
+
+	return strlen(word);
+}
 
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift, int layer) {
+
 	if (tree == NULL) {
 		return;
 	}
 
-	traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
+	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree), layer + 1);
 		
 	printData(getRootData(tree), shift);
 
@@ -160,7 +168,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	move(cury+1,0);
 
 
-	traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
+	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree), layer + 1);
 
 	return;
 }
