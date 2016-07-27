@@ -160,8 +160,10 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	printData(getRootData(tree), shift);
 	int cury,curx;
 	getyx(stdscr,cury,curx);
+	if (getLeftSubtree(tree)) {
+		vline('$', numLinesDown(tree) + 2);
+	}
 	
-	vline('$', numLinesDown(tree) + 3);
 	move(cury+1,0);
 	getchar();
 
