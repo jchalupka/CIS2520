@@ -107,26 +107,22 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (tree == NULL) {
 		return;
 	}
-
+	printData(getRootData(tree), shift);
+	printw(" %d", layer);
+	getchar();
 	
 
 	if (getRightSubtree(tree)) {
 		// Draw the connection
-		int cury, curx;
-		getyx(stdscr,cury,curx);
-		vline('$',5);
+
 		traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 		
 	}
 
-	printData(getRootData(tree), shift);
-	printw(" %d\n", layer);
-	getchar();
+
 
 	if (getLeftSubtree(tree)) {
-		int cury, curx;
-		getyx(stdscr,cury,curx);
-		vline('$',5);
+
 		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 		
 
