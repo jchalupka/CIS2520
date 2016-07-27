@@ -185,7 +185,8 @@ int main (void) {
 	cbreak();
 
 	static int layer = 0;
-	traverseInOrder(ratingTree, 0, layer);
+	//traverseInOrder(ratingTree, 0, layer);
+	BFT(ratingTree);
 	printw("This is the height: %d",height(ratingTree));
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
