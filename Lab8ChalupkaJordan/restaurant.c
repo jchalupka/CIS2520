@@ -172,11 +172,11 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	getyx(stdscr,cury,curx);
 	if (getRightSubtree) {
 		move(cury - (numLinesUp(tree)), curx);
-		vline('$',numLinesUp(tree)+3);
+		vline('$',numLinesUp(tree)+2);
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
-		vline('$', numLinesDown(tree) + 2);
+		//vline('$', numLinesDown(tree) + 2);
 	}
 	
 	move(cury+1,0);
