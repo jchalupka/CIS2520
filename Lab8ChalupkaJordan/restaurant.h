@@ -3,11 +3,11 @@
 #ifndef __JCHALUPKA_RESTAURANT__
 #define __JCHALUPKA_RESTAURANT__
 
-#include <curses.h>
+
 #include "fileIO.h"
 #include "treeInterface.h"
 #include "printTree.h"
-
+#include <curses.h>
 
 // Struct for storing information about restaurants
 typedef struct restaurant {

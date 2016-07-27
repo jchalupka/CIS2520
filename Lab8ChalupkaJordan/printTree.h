@@ -3,9 +3,10 @@
 #ifndef __JCHALUPKA_PRINTTREE__
 #define __JCHALUPKA_PRINTTREE__
 
-#include <curses.h>
+
 #include "restaurant.h"
 #include "treeInterface.h"
+#include <curses.h>
 
 int getNumRoots (Tree * tree);
 int numLinesDown (Tree * tree);
