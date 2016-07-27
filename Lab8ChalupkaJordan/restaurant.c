@@ -186,7 +186,7 @@ int main (void) {
 
 	static int layer = 0;
 	traverseInOrder(ratingTree, 0, layer);
-	printw("This is the height: %d",height(tree));
+	printw("This is the height: %d",height(ratingTree));
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
