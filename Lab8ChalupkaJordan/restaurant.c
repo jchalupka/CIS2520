@@ -159,8 +159,8 @@ void printLevel(Tree * tree, int height) {
 }
 
 void BFT (Tree * tree) {
-	int height = height(tree);
-	printLevel(tree, height);
+	int h = height(tree);
+	printLevel(tree, h);
 
 	return;
 }
