@@ -141,7 +141,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		return;
 	}
 
-	traverseInOrder(getRightSubtree(tree), shift + 16, layer + 1);
+	traverseInOrder(getRightSubtree(tree), shift + 8, layer + 1);
 		
 	printData(getRootData(tree), shift);
 
@@ -151,7 +151,6 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	if (getRightSubtree(tree)) {
 		move(cury - ((numLinesUp(tree) +1)), curx);
 		vline('$',numLinesUp(tree)+2);
-
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
@@ -161,7 +160,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	move(cury+1,0);
 
 
-	traverseInOrder(getLeftSubtree(tree), shift + 16, layer + 1);
+	traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 
 	return;
 }
