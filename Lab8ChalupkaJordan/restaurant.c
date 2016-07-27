@@ -131,7 +131,7 @@ int getNumRoots (Tree * tree) {
 }
 
 int numLinesDown (Tree * tree) {
-	int leftSub = getLeftSubtree(tree);
+	Tree * leftSub = getLeftSubtree(tree);
 	int numRoots = getNumRoots(leftSub);
 
 }
