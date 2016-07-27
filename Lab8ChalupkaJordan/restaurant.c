@@ -170,7 +170,7 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	printData(getRootData(tree), shift);
 	int cury,curx;
 	getyx(stdscr,cury,curx);
-	if (getRightSubtree) {
+	if (getRightSubtree(tree)) {
 		move(cury - (numLinesUp(tree)), curx);
 		vline('$',numLinesUp(tree)+2);
 		move(cury,curx);
