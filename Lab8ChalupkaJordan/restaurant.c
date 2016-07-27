@@ -150,7 +150,7 @@ int height (Tree * tree) {
 
 void printLevel(Tree * tree, int height, int shift) {
 	if (tree == NULL) return;
-	if (height == 1) printData(getRootData(tree), height, shift);
+	if (height == 1) printData(getRootData(tree), shift);
 	else if (height > 1) {
 		printLevel(getRightSubtree(tree), height - 1, shift + 1);
 		printLevel(getLeftSubtree(tree), height - 1, shift + 1);
