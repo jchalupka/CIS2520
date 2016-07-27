@@ -148,12 +148,12 @@ int height (Tree * tree) {
 
 }
 
-void printLevel(Tree * tree, int height) {
+void printLevel(Tree * tree, int height,shift) {
 	if (tree == NULL) return;
-	if (height == 1) printData(getRootData(tree), height);
+	if (height == 1) printData(getRootData(tree), height, shift);
 	else if (height > 1) {
-		printLevel(getRightSubtree(tree), height - 1);
-		printLevel(getLeftSubtree(tree), height - 1);
+		printLevel(getRightSubtree(tree), height - 1, shift + 1);
+		printLevel(getLeftSubtree(tree), height - 1, shift + 1);
 	}
 
 }
@@ -161,7 +161,7 @@ void printLevel(Tree * tree, int height) {
 void BFT (Tree * tree) {
 	int h = height(tree);
 	for (int i = 0; i <= h; i++) {
-		printLevel(tree, i);
+		printLevel(tree, i, 0);
 	}
 
 
