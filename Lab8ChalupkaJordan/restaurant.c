@@ -160,7 +160,7 @@ getchar();
 	printData(getRootData(tree), shift);
 	int cury,curx;
 	getyx(stdscr,cury,curx);
-	vline('$', numLinesDown(tree) + 3);
+	mvvline(cury-1,curx,'$', numLinesDown(tree) + 3);
 	
 	
 
