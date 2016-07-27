@@ -41,6 +41,5 @@ Pizza Hut,Pizza,50
 Kelseys,Pub,90
 Burger King,Burgers,90
 Arbys,Burgers,50
-Three Sisters,100
 Archies,Burgers,90
 River Stone,Pizza,0
