@@ -125,10 +125,8 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 
 	
-	printData(getRootData(tree), shift);
-	printw(" %d \n", height(tree));
-	getchar();
-	
+
+
 	if (getRightSubtree(tree)) {
 		// Draw the connection
 
@@ -144,6 +142,10 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		
 
 	}
+
+	printData(getRootData(tree), shift);
+	printw(" %d \n", height(tree));
+	getchar();
 
 	return;
 }
