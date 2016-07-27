@@ -93,32 +93,16 @@ void printData (void * data, int shift) {
 		printf("ERROR\n");
 	}
 
-	//printf("%s\n%s\n%d\n\n", restPtr->name, restPtr->type, restPtr->rating);
 	int cury,curx;
 	getyx(stdscr, cury, curx);
-	move(cury,curx + shift);
+	char word[255];
+	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
+	move(cury,curx + strlen(word));
 	
-	//for (int j = 0; j < 4; j++) printw("-");
-	printw("%s %d", restPtr->name, restPtr->rating);
+	printw("%s", word);
 	refresh();
 
 	return;
-}
-
-int height (Tree * tree) {
-	if (tree == NULL) {
-		return 0;
-	}
-	// Get the height of the tree
-	int leftTree = height (getLeftSubtree(tree));
-	int rightTree = height (getRightSubtree(tree));
-
-	if (leftTree > rightTree) {
-		return leftTree + 1;
-	} else {
-		return rightTree + 1;
-	}
-
 }
 
 int getNumRoots (Tree * tree) {
@@ -157,17 +141,13 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		return;
 	}
 
-	
-
-
-	
 	traverseInOrder(getRightSubtree(tree), shift + 16, layer + 1);
 		
-	
-
 	printData(getRootData(tree), shift);
+
 	int cury,curx;
 	getyx(stdscr,cury,curx);
+
 	if (getRightSubtree(tree)) {
 		move(cury - ((numLinesUp(tree) +1)), curx);
 		vline('$',numLinesUp(tree)+2);
@@ -178,19 +158,9 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	}
 	
 	move(cury+1,0);
-	getchar();
-
-
-	
-
-	
 
 
 	traverseInOrder(getLeftSubtree(tree), shift + 16, layer + 1);
-		
-
-	
-	
 
 	return;
 }
