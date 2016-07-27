@@ -132,6 +132,22 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 	return;
 }
 
+int height (Tree * tree) {
+	if (tree == NULL) {
+		return -1;
+	}
+	// Get the height of the tree
+	static int leftTree = height (getLeftSubtree(tree));
+	static int rightTree = height (getRightSubtree(tree));
+
+	if (leftTree > rightTree) {
+		return leftTree + 1;
+	} else {
+		return rightTree + 1;
+	}
+
+}
+
 void printLevel(Tree * tree, int height) {
 	if (tree == NULL) return;
 	if (height == 1) printData(getRootData(tree), height);
@@ -170,6 +186,7 @@ int main (void) {
 
 	static int layer = 0;
 	traverseInOrder(ratingTree, 0, layer);
+	printw("This is the height: %d",height(tree));
 	//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 	//traverseInOrder(ratingTree);
 	refresh();
