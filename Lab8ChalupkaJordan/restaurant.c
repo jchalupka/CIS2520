@@ -133,8 +133,8 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		
 	} else {
 			printData(getRootData(tree), shift);
-	printw(" %d \n", height(tree));
-	getchar();
+			printw(" %d \n", height(tree));
+			getchar();
 	}
 
 
@@ -144,6 +144,10 @@ void traverseInOrder (Tree * tree, int shift, int layer) {
 		traverseInOrder(getLeftSubtree(tree), shift + 8, layer + 1);
 		
 
+	} else {
+			printData(getRootData(tree), shift);
+	printw(" %d \n", height(tree));
+	getchar();
 	}
 
 	return;
