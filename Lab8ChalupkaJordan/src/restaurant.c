@@ -120,7 +120,7 @@ void simplePrint (void * data) {
 }
 
 int main (void) {
-	FILE * file = openFile("../testFiles/data.txt");
+	FILE * file = openFile("testFiles/data.txt");
 
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
 	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);

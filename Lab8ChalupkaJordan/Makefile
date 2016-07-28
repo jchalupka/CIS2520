@@ -5,7 +5,7 @@ CFLAGS      =	-std=c99 -Wall -g
 LDFLAGS     =
 
 #Directories where the compiler can find things
-INCLUDES    = -Iinclude
+INCLUDES    = -Iinclude -ItestFiles
 LIBDIRS     = lib/libbintree.a
 LIBS        = -lncurses
 
