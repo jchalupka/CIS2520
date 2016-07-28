@@ -108,13 +108,25 @@ int test_destroyRestaurant (void) {
 	Restaurant * rest = createRestaurant("Name","Type",60);
 	destroyRestaurant(rest);
 	if (rest == NULL) {
-		printf("Restaurant is NULL\n");
 		return 1;
 	}
 
 	return 0;
 }
 
+int test_compareName (void) {
+	printf("*** Testing compareName ***\n");
+
+	makeTest("In order\n")
+	Restaurant * rest1 = createRestaurant("ABCD","Type",60);
+	Restaurant * rest2 = createRestaurant("ABCE","Type",60);
+	if (compareName(rest1,rest2 > 0)) {
+		return 1;
+	}
+	printf("Order correct\n");
+
+	return 0;
+}
 // *************************************
 
 int main (void) {
@@ -125,6 +137,7 @@ int main (void) {
 	numIncorrect += checkError(test_collectFile());
 	numIncorrect += checkError(test_createRestaurant());
 	numIncorrect += checkError(test_destroyRestaurant());
+	numIncorrect += checkError(test_compareName());
 
 	reviewTests(numTests,numIncorrect);
 	return 0;
