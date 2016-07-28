@@ -29,6 +29,6 @@ Collect all of the information from the input FILE, and add it to both the nameT
 Pre: FILE points to a file, and the Tree structs have been created using createBinTree().
 Post: File is collected and all of the data is stored in the binary trees.
 */
-void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree);
+int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree);
 
 #endif
