@@ -14,9 +14,9 @@ int getOrderTree (char * fileName, int order) {
 
 
 	if (order == 0) {
-		printInOrder(ratingTree, simplePrint(ratingTree));
+		printInOrder(ratingTree, simplePrint);
 	} else {
-		printPreOrder(ratingTree, simplePrint(ratingTree));
+		printPreOrder(ratingTree, simplePrint);
 	}
 	
 		

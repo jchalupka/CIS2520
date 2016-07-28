@@ -20,12 +20,6 @@ int printTree (char * fileName, int treeType) {
 		traverseInOrder(nameTree,0);
 	}
 	
-	
-	
-	printInOrder(ratingTree, simplePrint);
-	printf("Here\n");
-
-	
 	getchar();
 	exitNCurses();
 
