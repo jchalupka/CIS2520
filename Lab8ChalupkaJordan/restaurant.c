@@ -87,7 +87,7 @@ int compareType (void * data1, void * data2) {
 	return order;	
 }
 
-void printDataInOrder (void * tree, int shift) {
+void printData(void * tree, int shift) {
 	Restaurant * restPtr = (Restaurant*) getRootData((Tree*)tree);
 
 	if (restPtr == NULL) {
@@ -102,26 +102,6 @@ void printDataInOrder (void * tree, int shift) {
 	
 	printw("%s", word);
 
-	refresh();
-
-	return;
-}
-
-void printDataPreOrder (void * tree, int shift) {
-	Restaurant * restPtr = (Restaurant*) getRootData((Tree*)tree);
-
-	if (restPtr == NULL) {
-		printf("ERROR\n");
-	}
-
-	int cury,curx;
-	getyx(stdscr, cury, curx);
-	char word[255];
-	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
-	int verticalshift = getNumRoots(tree);
-	move (cury,curx + shift);
-	printw("%s", word);
-	
 	refresh();
 
 	return;

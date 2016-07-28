@@ -20,51 +20,45 @@ typedef struct restaurant {
 
 /*
 Create restourant struct and malloc associated members.
-Pre:
-Post:
+Pre: None.
+Post: Inputs are malloced and stored in restaurant struct.
 */
 Restaurant * createRestaurant (char * name, char * type, int rating);
 
 /*
-
-Pre:
-Post:
+Destory restaurant struct.
+Pre: Restaurant struct is passed in to be destroyed.
+Post: Restaurant struct is destroyed, and associated memory free'd.
 */
 void destroyRestaurant (void * toDestroy);
 
 /*
-
-Pre:
-Post:
+Compare names, returns > 0 if data1 comes before data2.
+Pre: data1 and data2 are restaurant structs.
+Post: Integer is returned determining the order.
 */
 int compareName (void * data1, void * data2);
 
 /*
-
-Pre:
-Post:
+Compare rating, returns > 0 if data1 comes before data2.
+Pre: data1 and data2 are restaurant structs.
+Post: Integer is returned determining the order.
 */
 int compareRating (void * data1, void * data2);
 
 /*
-
-Pre:
-Post:
+Compare type, returns > 0 if data1 comes before data2.
+Pre: data1 and data2 are restaurant structs.
+Post: Integer is returned determining the order.
 */
 int compareType (void * data1, void * data2);
 
 /*
-
+Prints the data
 Pre:
 Post:
 */
-void printDataInOrder (void * data, int shift);
+void printData (void * data, int shift);
 
-/*
-
-Pre:
-Post:
-*/
-void printDataPreOrder (void * data, int shift);
 
 #endif

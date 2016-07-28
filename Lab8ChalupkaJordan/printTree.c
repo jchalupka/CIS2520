@@ -94,7 +94,7 @@ void traverseInOrder (Tree * tree, int shift) {
 
 	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
 		
-	printDataInOrder(tree, shift);
+	printData(tree, shift);
 	
 	drawConnectionInOrder(tree);
 
@@ -111,7 +111,7 @@ void traversePreOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	printDataPreOrder(tree, shift);
+	printData(tree, shift);
 	
 	drawConnectionPreOrder(tree);
 
