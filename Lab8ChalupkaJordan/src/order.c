@@ -18,11 +18,6 @@ int getOrderTree (char * fileName, int order) {
 	} else {
 		printPreOrder(ratingTree, simplePrint);
 	}
-	
-		
-	printf("\n");
-
-	fclose(file);
 	return 0;
 }
 
