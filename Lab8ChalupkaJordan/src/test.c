@@ -47,7 +47,7 @@ int checkError (int error) {
 void reviewTests (int numTests, int numIncorrect) {
 	int numCorrect = numTests-numIncorrect;
 
-	printf("Overview: %d/%d Tests Correct\n", numCorrect,numTests);
+	printf("Overview: %d/%d Function Tests Correct\n", numCorrect,numTests);
 }
 
 // *********** Test Functions ***********
@@ -121,6 +121,7 @@ int test_compareName (void) {
 	Restaurant * rest1 = createRestaurant("ABCD","Type",60);
 	Restaurant * rest2 = createRestaurant("ABCE","Type",60);
 	Restaurant * rest3 = createRestaurant("ABCD","Type",100);
+	Restaurant * rest4 = createRestaurant("ABCD","Fish",60);
 	if (compareName(rest1,rest2) > 0) {
 		return 1;
 	}
@@ -130,13 +131,18 @@ int test_compareName (void) {
 	if (compareName(rest2, rest1) < 0) {
 		return 1;
 	}
-	printf("Out of order\n");
+	else printf("Out of order\n");
 
 	makeTest("Sorting NULL value");
 	compareName(rest1, NULL);
 
 	makeTest("Same Name, sorted Ranking");
 	if(compareName(rest3,rest1) > 0) {
+		return 1;
+	} else printf("In order\n");
+
+	makeTest("Same Name, same ranking, unsorted type");
+	if (compareName(rest1) < 0) {
 		return 1;
 	}
 
