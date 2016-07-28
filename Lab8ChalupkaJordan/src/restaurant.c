@@ -31,7 +31,7 @@ void destroyRestaurant (void * toDestroy) {
 	free(restPtr->type);
 	free(restPtr);
 
-	restPtr = NULL;
+	toDestroy = NULL;
 
 	return;
 }
