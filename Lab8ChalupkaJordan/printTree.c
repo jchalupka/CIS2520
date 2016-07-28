@@ -39,7 +39,7 @@ int wordStrlen (Tree * tree) {
 	return strlen(word);
 }
 
-
+/*
 void drawConnection (Tree * tree) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
@@ -51,6 +51,22 @@ void drawConnection (Tree * tree) {
 	}
 	if (getLeftSubtree(tree)) {
 		vline('+', getNumRoots(getRightSubtree(tree))+2);
+	}
+
+	move(cury+1,0);
+}*/
+
+void drawConnection (Tree * tree) {
+	int cury,curx;
+	getyx(stdscr,cury,curx);
+
+	if (getRightSubtree(tree)) {
+		move(cury - (numLinesUp(tree)-1), curx);
+		vline('+', numLinesUp(tree));
+		move(cury,curx);
+	}
+	if (getLeftSubtree(tree)) {
+		vline('+', numLinesDown(tree)+2);
 	}
 
 	move(cury+1,0);
