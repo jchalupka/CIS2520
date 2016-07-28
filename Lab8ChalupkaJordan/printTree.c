@@ -115,14 +115,15 @@ void traversePreOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	printData(getRootData(tree), shift);
-	
-	drawConnection(tree);
 
 	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
 
 	traversePreOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
 
+	printData(getRootData(tree), shift);
+	
+	drawConnection(tree);
+	
 	refresh();
 
 	return;
