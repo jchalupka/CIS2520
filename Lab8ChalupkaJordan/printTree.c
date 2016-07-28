@@ -111,7 +111,6 @@ void traversePreOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
 		return;
 	}
-	getchar();
 	printDataPreOrder(tree, shift);
 	
 	//drawConnectionPreOrder(tree);
