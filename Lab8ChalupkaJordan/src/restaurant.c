@@ -22,7 +22,7 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 
 int destroyRestaurant (void * toDestroy) {
 	if (toDestroy == NULL) {
-		printf("Pointer cannot be NULL\n")
+		printf("Pointer cannot be NULL\n");
 
 		return 1;
 	}
