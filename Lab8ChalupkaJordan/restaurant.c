@@ -118,13 +118,11 @@ void printDataPreOrder (void * tree, int shift) {
 	getyx(stdscr, cury, curx);
 	char word[255];
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
-	int verticalshift = getNumRoots() {
-
-	}
-	move(cury,curx + shift);
+	int verticalshift = getNumRoots(tree);
+	move(cury + verticalshift,curx + shift);
 	
 	printw("%s", word);
-
+	move (cury,curx + shift);
 	refresh();
 
 	return;
