@@ -14,10 +14,10 @@ int getOrderTree (char * fileName, int order) {
 
 	initNCurses();
 
-	if (treeType == 0) {
-		traverseInOrder(ratingTree,0);
+	if (order == 0) {
+		printInOrder(ratingTree, simplePrint(nameTree));
 	} else {
-		traverseInOrder(nameTree,0);
+		printPreOrder(nameTree, simplePrint(nameTree));
 	}
 	
 	
