@@ -35,6 +35,7 @@ int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 
 		return 1;
 	}
+	printf("Here\n");
 	if (isTreeEmpty(nameTree) || isTreeEmpty(ratingTree)) {
 		printf("One or more trees does not exist\n");
 
