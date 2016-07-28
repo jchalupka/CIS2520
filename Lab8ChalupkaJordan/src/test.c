@@ -90,7 +90,7 @@ int test_createRestaurant (void) {
 	if (createRestaurant("Hello",NULL,5) == NULL) {
 		return 1;
 	}
-	printf("%p",createRestaurant("Hello",NULL,5);
+	printf("%p",createRestaurant("Hello",NULL,5));
 	return 0;
 }
 // *************************************
