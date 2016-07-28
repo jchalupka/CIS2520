@@ -114,13 +114,9 @@ void simplePrint (void * data) {
 		printf("ERROR\n");
 	}
 
-	int cury,curx;
-	char word[255];
 	printf("%s %d\n",restPtr->name, restPtr->rating);
 
-
 	return;
-
 }
 
 int main (void) {
