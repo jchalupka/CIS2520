@@ -44,6 +44,6 @@ int main (void) {
 	int numTests = 1;
 	int numIncorrect = 0;
 
-	numCorrect += test_openFile();
+	numIncorrect += test_openFile();
 	return 0;
 }
