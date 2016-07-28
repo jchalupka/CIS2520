@@ -47,7 +47,7 @@ int checkError (int error) {
 void reviewTests (int numTests, int numIncorrect) {
 	int numCorrect = numTests-numIncorrect;
 
-	printf("Overview: %d/%d Tests Correct\n", numCorrect,numTests);
+	printf("Overview: %d/%d Function Tests Correct\n", numCorrect,numTests);
 }
 
 // *********** Test Functions ***********
