@@ -85,6 +85,26 @@ int exitNCurses () {
 	return 0;
 }
 
+void printData(void * tree, int shift) {
+	Restaurant * restPtr = (Restaurant*) getRootData((Tree*)tree);
+
+	if (restPtr == NULL) {
+		printf("ERROR\n");
+	}
+
+	int cury,curx;
+	getyx(stdscr, cury, curx);
+	char word[255];
+	sprintf(word, "%s (%d)",restPtr->name, restPtr->rating);
+	move(cury,curx + shift);
+	
+	printw("%s", word);
+
+	refresh();
+
+	return;
+}
+
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift) {
 	if (tree == NULL) {
