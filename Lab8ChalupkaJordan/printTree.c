@@ -15,7 +15,7 @@ int numLinesDown (Tree * tree) {
 		return 0;
 	}
 	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(leftSub);
+	int numRoots = getNumRoots(rightSub);
 
 	return numRoots + 2;
 }
@@ -49,7 +49,7 @@ void drawConnection (Tree * tree) {
 		vline('+',numLinesUp(tree));
 		move(cury,curx);
 	}
-	if (getRightSubtree(tree)) {
+	if (getLeftSubtree(tree)) {
 		vline('+', numLinesDown(tree));
 	}
 
@@ -111,3 +111,4 @@ void traversePreOrder (Tree * tree, int shift) {
 	return;
 
 }
+
