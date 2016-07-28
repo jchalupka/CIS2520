@@ -22,7 +22,7 @@ int getOrderTree (char * fileName, int order) {
 		
 	printf("\n");
 
-	//fclose(file);
+	fclose(file);
 
 	return 0;
 }
