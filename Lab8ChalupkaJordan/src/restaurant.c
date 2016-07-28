@@ -3,7 +3,7 @@
 #include "restaurant.h"
 
 Restaurant * createRestaurant (char * name, char * type, int rating) {
-	if (!(name && type)) {
+	if (name == NULL|| type == NULL) {
 		printf("Incorrect name and or type pointer\n");
 
 		return NULL;
