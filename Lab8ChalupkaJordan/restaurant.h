@@ -21,42 +21,42 @@ typedef struct restaurant {
 /*
 Create restourant struct and malloc associated members.
 Pre:
-Post
+Post:
 */
 Restaurant * createRestaurant (char * name, char * type, int rating);
 
 /*
 
 Pre:
-Post
+Post:
 */
 void destroyRestaurant (void * toDestroy);
 
 /*
 
 Pre:
-Post
+Post:
 */
 int compareName (void * data1, void * data2);
 
 /*
 
 Pre:
-Post
+Post:
 */
 int compareRating (void * data1, void * data2);
 
 /*
 
 Pre:
-Post
+Post:
 */
 int compareType (void * data1, void * data2);
 
 /*
 
 Pre:
-Post
+Post:
 */
 void printData (void * data, int shift);
 
