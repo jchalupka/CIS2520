@@ -118,7 +118,7 @@ void traversePreOrder (Tree * tree, int shift) {
 	printData(getRootData(tree), shift);
 	
 	//drawConnection(tree);
-
+	printw("\n");
 	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
 
 	traversePreOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
