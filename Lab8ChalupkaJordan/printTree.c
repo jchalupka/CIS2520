@@ -15,7 +15,7 @@ int numLinesDown (Tree * tree) {
 		return 0;
 	}
 	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(rightSub);
+	int numRoots = getNumRoots(leftSub);
 
 	return numRoots + 2;
 }
