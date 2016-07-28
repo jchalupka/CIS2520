@@ -65,6 +65,6 @@ Prints the data using printf.
 Pre: None.
 Post: Data is printed to the screen.
 */
-void simplePrint (void * data)
+void simplePrint (void * data);
 
 #endif
