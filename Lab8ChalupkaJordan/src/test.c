@@ -136,7 +136,7 @@ int test_compareName (void) {
 	compareName(rest1, NULL);
 
 	makeTest("Same Name, sorted Ranking");
-	if(compareName(rest3,rest1) < 0) {
+	if(compareName(rest3,rest1) > 0) {
 		return 1;
 	}
 
