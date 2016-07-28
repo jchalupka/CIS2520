@@ -35,8 +35,9 @@ int printTree (char * fileName, int treeType) {
 }
 
 int main () {
-
+	printTree("testFiles/data2.txt", 0);
 	printTree("testFiles/data.txt", 0);
 	printTree("testFiles/data.txt", 1);
+	printTree("testFiles/data3.txt",1)
 	return 0;
 }
