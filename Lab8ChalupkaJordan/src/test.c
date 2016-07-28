@@ -38,7 +38,7 @@ void makeTest (char * testName) {
 }
 
 int test_openFile (void) {
-	makeTest("File does not exist")
+	makeTest("File does not exist");
 	if (openFile("ThisFileDoesNotExist.txt")) return 1;
 	else return 0;
 
