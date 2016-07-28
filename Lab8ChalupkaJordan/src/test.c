@@ -44,9 +44,9 @@ int checkError (int error) {
 	return error;
 }
 
-
-
+// *********** Test Functions ***********
 int test_openFile (void) {
+	printf("Testing openFile\n");
 	makeTest("File does not exist");
 	if (openFile("ThisFileDoesNotExist.txt")) {
 		return 1;
@@ -56,10 +56,50 @@ int test_openFile (void) {
 	}
 }
 
+int test_collectFile (void) {
+	printf("Testing collectFile");
+	FILE * file = openFile("testFiles/data.txt");
+	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
+	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);
+
+
+	makeTest("File does not exist");
+
+	if (!collectFile(NULL, nameTree, ratingTree)) {
+		return 1;
+	}
+
+	
+	return 0;
+}
+// *************************************
+
 int main (void) {
 	int numTests = 1;
 	int numIncorrect = 0;
 
 	numIncorrect += checkError(test_openFile());
+	numIncorrect += checkError(test_collectFile());
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
