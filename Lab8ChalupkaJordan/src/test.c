@@ -132,7 +132,7 @@ int test_compareName (void) {
 	printf("Out of order\n");
 
 	makeTest("Sorting NULL value");
-
+	compareName(rest1, NULL);
 	return 0;
 }
 // *************************************
