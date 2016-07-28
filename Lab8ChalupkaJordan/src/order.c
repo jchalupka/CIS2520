@@ -7,12 +7,13 @@ int getOrderTree (char * fileName, int order) {
 
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
 	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);
-	
+
 	if (!(nameTree && ratingTree)) {
 		printf("ERROR CREATING TREE\n");
 	}
+	printf("Here\n");
 	collectFile(file, nameTree, ratingTree);
-printf("Here\n");
+
 
 	if (order == 0) {
 		printInOrder(ratingTree, simplePrint);
