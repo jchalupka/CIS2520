@@ -137,8 +137,9 @@ int main (void) {
 
 	
 	printInOrder(ratingTree, simplePrint);
-	redrawwin(stdscr);
 	printf("Here\n");
+	redrawwin(stdscr);
+
 	wrefresh(stdscr);
 
 	exitNCurses();
