@@ -32,9 +32,15 @@ int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	char * token = malloc(sizeof(char)*255);
 	if (!file) {
 		printf("The file does not exist\n");
-		
-		return -1;
+
+		return 1;
 	}
+	if (isTreeEmpty(nameTree) || isTreeEmpty(ratingTree)) {
+		printf("One or more trees does not exist\n");
+
+		return 1;
+	}
+
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
 		char * search;
@@ -58,6 +64,12 @@ int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		token = strtok(NULL, search);
 		int rating;
 		rating = atoi(token);
+
+		if (name == NULL || foodtype == NULL) {
+			printf("Error reading tokens\n");
+
+			return 1;
+		}
 
 		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
 		addToTree(nameTree, restPtr);
