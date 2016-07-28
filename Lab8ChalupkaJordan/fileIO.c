@@ -63,5 +63,6 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	}
 	printf("Here\n");
 	free(token);
+	printf("Here\n");
 	return;
 }
