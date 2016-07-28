@@ -24,7 +24,7 @@ void destroyRestaurant (void * toDestroy) {
 	if (toDestroy == NULL) {
 		printf("Pointer cannot be NULL\n");
 
-		return 1;
+		return;
 	}
 	Restaurant * restPtr = (Restaurant *)toDestroy;
 	free(restPtr->name);
@@ -33,7 +33,7 @@ void destroyRestaurant (void * toDestroy) {
 
 	restPtr = NULL;
 
-	return 0;
+	return;
 }
 
 int compareName (void * data1, void * data2) {
