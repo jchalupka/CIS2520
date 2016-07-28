@@ -15,9 +15,9 @@ int getOrderTree (char * fileName, int order) {
 	initNCurses();
 
 	if (order == 0) {
-		printInOrder(ratingTree, simplePrint(nameTree));
+		printInOrder(ratingTree, simplePrint());
 	} else {
-		printPreOrder(nameTree, simplePrint(nameTree));
+		printPreOrder(ratingTree, simplePrint());
 	}
 	
 	
