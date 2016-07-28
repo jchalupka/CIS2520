@@ -16,13 +16,13 @@ OBJDIR = obj/
 
 #Put the names of your source code file in the lines below.  
 
-SOURCE = $(SRCDIR)fileIO.c $(SRCDIR)printTree.c $(SRCDIR)restaurant.c 
+SOURCE = $(SRCDIR)fileIO.c $(SRCDIR)restaurant.c 
 
 #The list of object files is below.  The object file names here must match the file names of your source code 
 # except with .o instead of .c.   Make changes as appropriate
 
 
-OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)printTree.o $(OBJDIR)restaurant.o 
+OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)restaurant.o 
 
 #The names of the binary programs that will be produced.  
 #
@@ -33,17 +33,17 @@ ORDER_TEST	= $(BINDIR)test_o
 default : link_function_test link_tree_test link_order_test
 
 link_function_test: compile_function_test
-	$(CC) $(LDFLAGS) -o $(FUNCTION_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)test.o
+	$(CC) $(LDFLAGS) -o $(FUNCTION_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)test.o $(OBJDIR)printTree.o
 
 compile_function_test:
-	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)test.c
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)test.c $(SRCDIR)printTree.c
 	mv *.o obj/
 
 link_tree_test: compile_tree_test
-	$(CC) $(LDFLAGS) -o $(TREE_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)printTreeDiagram.o
+	$(CC) $(LDFLAGS) -o $(TREE_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)printTreeDiagram.o $(OBJDIR)printTree.o
 
 compile_tree_test:
-	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)printTreeDiagram.c
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)printTreeDiagram.c $(SRCDIR)printTree.c
 	mv *.o obj/
 
 link_order_test: compile_order_test
