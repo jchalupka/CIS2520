@@ -126,7 +126,7 @@ int test_compareName (void) {
 	printf("Order correct\n");
 
 	makeTest("Out of order");
-	if (compareName(rest2, rest1) > 0) {
+	if (compareName(rest2, rest1) < 0) {
 		return 1;
 	}
 	printf("Out of order\n");
