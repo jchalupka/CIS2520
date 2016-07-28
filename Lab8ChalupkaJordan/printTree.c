@@ -70,6 +70,7 @@ void drawConnection (Tree * tree) {
 	}
 
 	move(cury+1,0);
+	getchar();
 }
 
 int initNCurses () {
