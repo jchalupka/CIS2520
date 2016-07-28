@@ -137,7 +137,7 @@ int main (void) {
 	initNCurses();
 
 	//traversePreOrder(nameTree, 0);
-	traverseInOrder(ratingTree,0);
+	//traverseInOrder(ratingTree,0);
 	getchar();
 	printInOrder(ratingTree, simplePrint);
 	exitNCurses();
