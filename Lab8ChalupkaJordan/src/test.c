@@ -37,22 +37,21 @@ void makeTest (char * testName) {
 		   "Output: ", testName);
 }
 
-void correct (void) {
-	printf("CORRECT\n");
+int checkError (int error) {
+	if (error) printf("ERROR\n\n");
+	else printf("CORRECT\n\n");
+
+	return error;
 }
 
-void incorrect (void) {
-	printf("ERROR\n");
-}
+
 
 int test_openFile (void) {
 	makeTest("File does not exist");
 	if (openFile("ThisFileDoesNotExist.txt")) {
-		incorrect();
 		return 1;
 	}
 	else {
-		correct();
 		return 0;
 	}
 }
@@ -61,6 +60,6 @@ int main (void) {
 	int numTests = 1;
 	int numIncorrect = 0;
 
-	numIncorrect += test_openFile();
+	numIncorrect += checkError(test_openFile());
 	return 0;
 }
