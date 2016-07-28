@@ -40,7 +40,7 @@ int compareName (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
 
-	if (!(data1 && data2)) {
+	if (data1 == NULL || data2 == NULL) {
 		printf("Error, NULL value entered\n");
 
 		return -1;
