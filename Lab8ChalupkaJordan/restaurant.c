@@ -119,7 +119,6 @@ void printDataPreOrder (void * tree, int shift) {
 	char word[255];
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
 	int verticalshift = getNumRoots(tree);
-	//move(cury + verticalshift,curx + shift);
 	move (cury,curx + shift);
 	printw("%s", word);
 	
@@ -158,7 +157,7 @@ int main (void) {
 	initNCurses();
 
 	//traversePreOrder(nameTree, 0);
-	traversePreOrder(ratingTree,0);
+	traverseInOrder(ratingTree,0);
 	getchar();
 	//printPreOrder(ratingTree, simplePrint);
 	exitNCurses();
