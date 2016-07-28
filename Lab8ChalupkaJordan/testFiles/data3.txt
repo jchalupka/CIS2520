@@ -1,9 +1,10 @@
 Happy Home,Chineese,60
 Subway,Submarines,18
-THIS Very Very Very Very Very Very Very Very Very Long Name,Fries,23
+This Very Very Very Very Very Very Very Very Very Long Name,Fries,23
 A&W,Burgers,22
 Wendys,Burgers,20
 Stevens,Salad,10
+Short,Hamburgers,90
 East Side Marios,Pizza,15
 Boston Pizza,Pizza,20
 Swiss Chalet,Chicken,90
