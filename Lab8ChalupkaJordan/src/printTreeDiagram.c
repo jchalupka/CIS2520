@@ -2,7 +2,7 @@
 
 #include "printTreeDiagram.h"
 
-int printTree (char * fileName) {
+int printTree (char * fileName, int treeType) {
 	FILE * file = openFile(fileName);
 
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
@@ -14,9 +14,13 @@ int printTree (char * fileName) {
 
 	initNCurses();
 
+	if (treeType == 0) {
+		traverseInOrder(ratingTree,0);
+	} else {
+		traverseInOrder(nameTree,0);
+	}
 	
-	traverseInOrder(ratingTree,0);
-
+	
 	
 	printInOrder(ratingTree, simplePrint);
 	printf("Here\n");
@@ -35,7 +39,7 @@ int printTree (char * fileName) {
 
 int main () {
 
-	printTree("testFiles/data.txt");
-
+	printTree("testFiles/data.txt", 0);
+	print
 	return 0;
 }
