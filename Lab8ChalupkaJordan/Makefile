@@ -31,7 +31,7 @@ RUN_PROGNAME     = $(BINDIR)run
 default : link
 
 link: compile
-	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBS)
+	$(CC) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBDIRS) $(LIBS)
 
 compile:
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES)
