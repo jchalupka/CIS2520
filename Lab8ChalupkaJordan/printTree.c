@@ -49,7 +49,7 @@ void drawConnection (Tree * tree) {
 		vline('+',numLinesUp(tree));
 		move(cury,curx);
 	}
-	if (getLeftSubtree(tree)) {
+	if (getRightSubtree(tree)) {
 		vline('+', numLinesDown(tree));
 	}
 
