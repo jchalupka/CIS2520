@@ -141,7 +141,8 @@ int main (void) {
 	getchar();
 
 	exitNCurses();
-	printPreOrder(ratingTree, simplePrint);
+	//printPreOrder(ratingTree, simplePrint);
+	traversePreOrder(ratingTree,0);
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
 
