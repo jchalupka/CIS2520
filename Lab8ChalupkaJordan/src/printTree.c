@@ -87,18 +87,17 @@ int exitNCurses () {
 
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift) {
-
 	if (tree == NULL) {
 		return;
 	}
 
-	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
+	traverseInOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 2);
 		
 	printData(tree, shift);
 	
 	drawConnectionInOrder(tree);
 
-	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
+	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 2);
 
 	refresh();
 
