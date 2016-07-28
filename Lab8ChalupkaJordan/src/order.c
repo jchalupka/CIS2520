@@ -1,4 +1,7 @@
 // Jordan Chalupka 0928258
+
+#include "order.h"
+
 int getOrderTree (char * fileName, int order) {
 	FILE * file = openFile(fileName);
 
