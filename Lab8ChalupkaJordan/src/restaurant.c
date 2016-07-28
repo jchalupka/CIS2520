@@ -20,10 +20,10 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 	return restPtr;
 }
 
-int destroyRestaurant (void * toDestroy) {
+void destroyRestaurant (void * toDestroy) {
 	if (toDestroy == NULL) {
 		printf("Pointer cannot be NULL\n");
-		
+
 		return 1;
 	}
 	Restaurant * restPtr = (Restaurant *)toDestroy;
