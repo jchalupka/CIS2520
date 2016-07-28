@@ -113,7 +113,7 @@ void traversePreOrder (Tree * tree, int shift) {
 	}
 	printDataPreOrder(tree, shift);
 	
-	//drawConnectionPreOrder(tree);
+	drawConnectionPreOrder(tree);
 	printw("\n");
 
 	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
