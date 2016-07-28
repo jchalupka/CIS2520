@@ -90,6 +90,10 @@ int test_createRestaurant (void) {
 	if (createRestaurant("Hello", NULL,5)) {
 		return 1;
 	}
+	makeTest("Correct Input");
+	if (!createRestaurant("Name","Type",60)) {
+		return 1;
+	}
 	return 0;
 }
 // *************************************
