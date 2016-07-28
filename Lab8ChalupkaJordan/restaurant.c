@@ -19,7 +19,7 @@ void destroyRestaurant (void * toDestroy) {
 	free(restPtr->name);
 	free(restPtr->type);
 	free(restPtr);
-	free(toDestroy);
+
 	restPtr = NULL;
 
 	return;
