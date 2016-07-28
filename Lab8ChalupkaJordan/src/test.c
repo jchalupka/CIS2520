@@ -58,18 +58,19 @@ int test_openFile (void) {
 
 int test_collectFile (void) {
 	printf("Testing collectFile");
-	FILE * file = openFile("testFiles/data.txt");
+	FILE * badfile = NULL;
+	FILE * goodfile = openFile("testFiles/data.txt");
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
 	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);
 
 
 	makeTest("File does not exist");
 
-	if (!collectFile(NULL, nameTree, ratingTree)) {
+	if (!collectFile(badfile, nameTree, ratingTree)) {
 		return 1;
 	}
 
-	
+
 	return 0;
 }
 // *************************************
