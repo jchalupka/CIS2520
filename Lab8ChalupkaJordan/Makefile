@@ -28,7 +28,7 @@ OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)printTree.o $(OBJDIR)restaurant.o
 #
 FUNCTION_TEST	= $(BINDIR)test_f
 TREE_TEST	= $(BINDIR)test_t
-ORDER_TEST	= $(BINDER)test_o
+ORDER_TEST	= $(BINDIR)test_o
 
 default : link_function_test link_tree_test link_order_test
 
