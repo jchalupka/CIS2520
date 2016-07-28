@@ -12,7 +12,7 @@ Arms Ale House,Beer,30
 Embassy,Fancy,50
 Happy Kitchen,Chinese,80
 Streets,Pizza,30
-A Very Very Very Very Very Very Very Very Very Long Name,Fries,23
+THIS Very Very Very Very Very Very Very Very Very Long Name,Fries,23
 Kentucky Fried Chicken,Chicken,10
 Montanas,Southern,90
 Pizza Hut,Pizza,50
