@@ -55,11 +55,11 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		rating = atoi(token);
 
 		Restaurant * restPtr = createRestaurant(name, foodtype, rating);
-
 		addToTree(nameTree, restPtr);
+		// Use a new address for freeing purposes
 		restPtr = createRestaurant(name, foodtype, rating);
 		addToTree(ratingTree,restPtr);
-		//printData(restPtr);
+		
 		free(name);
 		free(foodtype);
 	}
