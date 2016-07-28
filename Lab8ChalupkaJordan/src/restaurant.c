@@ -137,7 +137,8 @@ int main (void) {
 
 	
 	printInOrder(ratingTree, simplePrint);
-	getchar();
+	redrawwin(dialog_window);
+	wrefresh(dialog_window);
 	exitNCurses();
 	
 
