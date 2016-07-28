@@ -28,8 +28,9 @@ OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)printTree.o $(OBJDIR)restaurant.o
 #
 FUNCTION_TEST	= $(BINDIR)test_f
 TREE_TEST	= $(BINDIR)test_t
+ORDER_TEST	= $(BINDER)test_o
 
-default : link_function_test link_tree_test
+default : link_function_test link_tree_test link_order_test
 
 link_function_test: compile_function_test
 	$(CC) $(LDFLAGS) -o $(FUNCTION_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)test.o
@@ -45,6 +46,12 @@ compile_tree_test:
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)printTreeDiagram.c
 	mv *.o obj/
 
+link_order_test: compile_order_test
+	$(CC) $(LDFLAGS) -o $(TREE_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)order.o
+
+compile_order_test:
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)order.c
+	mv *.o obj/
 
 clean:
 	rm obj/*.o
