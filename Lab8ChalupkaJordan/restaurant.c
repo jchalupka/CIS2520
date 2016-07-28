@@ -116,7 +116,7 @@ void simplePrint (void * data) {
 
 	int cury,curx;
 	char word[255];
-	sprintf(stdout, "%s %d\n",restPtr->name, restPtr->rating);
+	printf(stdout, "%s %d\n",restPtr->name, restPtr->rating);
 
 
 	return;
