@@ -122,7 +122,6 @@ int main (void) {
 	noecho();
 	cbreak();
 
-	static int layer = 0;
 	traverseInOrder(nameTree, 0);
 
 	refresh();
@@ -130,11 +129,9 @@ int main (void) {
 	clear();
 	endwin();
 
-	destroyBinTree(nameTree);
-	nameTree = NULL;
+	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
-	//ratingTree = NULL;
-	printf("%d\n",isTreeEmpty(nameTree));
+
 
 	return 0;
 }
