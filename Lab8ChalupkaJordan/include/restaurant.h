@@ -30,7 +30,7 @@ Destory restaurant struct.
 Pre: Restaurant struct is passed in to be destroyed.
 Post: Restaurant struct is destroyed, and associated memory free'd.
 */
-int destroyRestaurant (void * toDestroy);
+void destroyRestaurant (void * toDestroy);
 
 /*
 Compare names, returns > 0 if data1 comes before data2.
