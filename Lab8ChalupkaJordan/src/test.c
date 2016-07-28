@@ -107,7 +107,7 @@ int test_destroyRestaurant (void) {
 	}
 
 	makeTest("Destroying Restaurant");
-	Restaurant * rest = createRestaurant();
+	Restaurant * rest = createRestaurant("Name","Type",60);
 	if (!destroyRestaurant(rest)) {
 		return 1;
 	}
