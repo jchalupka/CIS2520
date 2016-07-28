@@ -3,12 +3,12 @@
 #include "restaurant.h"
 
 Restaurant * createRestaurant (char * name, char * type, int rating) {
-	if (name == NULL|| type == NULL) {
+	if (name == NULL || type == NULL) {
 		printf("Incorrect name and or type pointer\n");
 
 		return NULL;
 	}
-	
+
 	Restaurant * restPtr = malloc(sizeof(Restaurant));
 	restPtr->name = malloc(sizeof(char)*255);
 	restPtr->type = malloc(sizeof(char)*255);
