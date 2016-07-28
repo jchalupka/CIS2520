@@ -11,8 +11,8 @@ FILE * openFile (char * fileName) {
 		printf("The file does not exist\n");
 		return NULL;
 	}
-	fclose();
-	
+	fclose(fileName);
+
 	return file;
 }
 
