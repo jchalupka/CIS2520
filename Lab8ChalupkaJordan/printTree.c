@@ -65,7 +65,7 @@ void drawConnection (Tree * tree) {
 		vline('+',numLinesUp(tree));
 		move(cury,curx);
 	}*/
-	if (getLeftSubtree(tree)) {
+	if (tree) {
 		vline('+', numLinesDown(tree));
 	}
 
