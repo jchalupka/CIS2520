@@ -8,17 +8,6 @@ int getNumRoots (Tree * tree) {
 	}
 	return 1 + getNumRoots(getLeftSubtree(tree)) + getNumRoots(getRightSubtree(tree));
 }
-/*
-int numLinesDown (Tree * tree) {
-	Tree * leftSub = getLeftSubtree(tree);
-	if (leftSub == NULL) {
-		return 0;
-	}
-	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(rightSub);
-
-	return numRoots + 2;
-}*/
 
 int numLinesDown (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(tree);
