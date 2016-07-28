@@ -92,7 +92,7 @@ void traverseInOrder (Tree * tree, int shift) {
 
 }
 
-// Traverse in order
+// Traverse pre order
 void traversePreOrder (Tree * tree, int shift) {
 
 	if (tree == NULL) {
@@ -111,4 +111,3 @@ void traversePreOrder (Tree * tree, int shift) {
 	return;
 
 }
-
