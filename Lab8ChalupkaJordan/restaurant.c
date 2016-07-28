@@ -130,7 +130,9 @@ int main (void) {
 	endwin();
 
 	destroyBinTree(nameTree);
+	free(nameTree);
 	destroyBinTree(ratingTree);
+	free(ratingTree);
 	printf("%d\n",isTreeEmpty(nameTree));
 
 	return 0;
