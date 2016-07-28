@@ -101,7 +101,7 @@ int test_createRestaurant (void) {
 int test_destroyRestaurant (void) {
 	printf("***  Testing destroyRestaurant ***\n");
 
-	makeTest("Destroying NULL")
+	makeTest("Destroying NULL");
 	if (destroyRestaurant(NULL)) {
 		return 1;
 	}
