@@ -120,12 +120,12 @@ int main (void) {
 
 	initNCurses();
 
-	traversePreOrder(nameTree, 0);
+	//traversePreOrder(nameTree, 0);
 
 	getchar();
 
 	exitNCurses();
-
+	printPreeOrder(nameTree,printData);
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
 
