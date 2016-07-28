@@ -57,7 +57,7 @@ int test_openFile (void) {
 }
 
 int test_collectFile (void) {
-	printf("Testing collectFile");
+	printf("Testing collectFile\n");
 	FILE * badfile = NULL;
 	FILE * goodfile = openFile("testFiles/data.txt");
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
