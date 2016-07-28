@@ -40,3 +40,6 @@ compile:
 clean:
 	rm obj/*.o
 	rm bin/*
+
+run:
+	./bin/run
