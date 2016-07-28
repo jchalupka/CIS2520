@@ -29,7 +29,7 @@ void removeNewLines (char input[255]) {
 // Collect the relevent information from the FILE pointer
 void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	char input[255], *token;
-	token = malloc(sizeof(char)*255);
+	char * token = malloc(sizeof(char)*255);
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
 		char * search;
@@ -63,5 +63,6 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	}
 	printf("Here\n");
 	free(token);
+	printf("Here\n");
 	return;
 }
