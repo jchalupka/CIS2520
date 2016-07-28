@@ -107,6 +107,16 @@ void printData (void * data, int shift) {
 	return;
 }
 
+void initNCurses () {
+	initscr();
+	noecho();
+	cbreak();
+}
+
+void exitNCurses () {
+	endwin();
+}
+
 int main (void) {
 	FILE * file = openFile("data.txt");
 
@@ -118,16 +128,13 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	initscr();
-	noecho();
-	cbreak();
+
 
 	traverseInOrder(nameTree, 0);
 
 	refresh();
 	getchar();
-	clear();
-	endwin();
+
 
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
