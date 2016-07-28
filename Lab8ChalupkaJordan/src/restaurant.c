@@ -5,7 +5,7 @@
 Restaurant * createRestaurant (char * name, char * type, int rating) {
 	if (name == NULL || type == NULL) {
 		printf("Incorrect name and or type pointer\n");
-		printf("Returning NULL");
+		
 		return NULL;
 	}
 
