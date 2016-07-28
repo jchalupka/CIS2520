@@ -16,13 +16,13 @@ OBJDIR = obj/
 
 #Put the names of your source code file in the lines below.  
 
-SOURCE = $(SRCDIR)fileIO.c $(SRCDIR)printTree.c $(SRCDIR)restaurant.c
+SOURCE = $(SRCDIR)fileIO.c $(SRCDIR)printTree.c $(SRCDIR)restaurant.c $(SRCDIR)test.c
 
 #The list of object files is below.  The object file names here must match the file names of your source code 
 # except with .o instead of .c.   Make changes as appropriate
 
 
-OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)printTree.o $(OBJDIR)restaurant.o
+OBJ    = $(OBJDIR)fileIO.o $(OBJDIR)printTree.o $(OBJDIR)restaurant.o $(OBJDIR)test.o
 
 #The names of the binary programs that will be produced.  
 #
