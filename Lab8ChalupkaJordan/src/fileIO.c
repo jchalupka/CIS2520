@@ -9,7 +9,7 @@ FILE * openFile (char * fileName) {
 	file = fopen(fileName,"r");
 	if (file == NULL) {
 		printf("The file does not exist\n");
-		abort();
+		return NULL;
 	}
 
 	return file;
