@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "restaurant.h"
+#include "treeInterface.h"
 #include "fileIO.h"
 
 #endif
