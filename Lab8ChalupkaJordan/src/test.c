@@ -142,7 +142,7 @@ int test_compareName (void) {
 	} else printf("In order\n");
 
 	makeTest("Same Name, same ranking, unsorted type");
-	if (compareName(rest1) < 0) {
+	if (compareName(rest1,rest4) < 0) {
 		return 1;
 	}
 
