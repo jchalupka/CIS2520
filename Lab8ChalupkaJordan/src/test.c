@@ -108,6 +108,7 @@ int test_destroyRestaurant (void) {
 	Restaurant * rest = createRestaurant("Name","Type",60);
 	destroyRestaurant(rest);
 	if (rest == NULL) {
+		printf("Restaurant is NULL\n");
 		return 1;
 	}
 
