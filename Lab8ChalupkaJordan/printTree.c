@@ -55,6 +55,22 @@ void drawConnection (Tree * tree) {
 
 	move(cury+1,0);
 }
+
+void initNCurses () {
+	initscr();
+	noecho();
+	cbreak();
+
+	return;
+}
+
+void exitNCurses () {
+	clear();
+	endwin();
+
+	return;
+}
+
 // Traverse in order
 void traverseInOrder (Tree * tree, int shift) {
 

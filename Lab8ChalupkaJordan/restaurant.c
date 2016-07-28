@@ -107,17 +107,6 @@ void printData (void * data, int shift) {
 	return;
 }
 
-void initNCurses () {
-	initscr();
-	noecho();
-	cbreak();
-}
-
-void exitNCurses () {
-	clear();
-	endwin();
-}
-
 int main (void) {
 	FILE * file = openFile("data.txt");
 
