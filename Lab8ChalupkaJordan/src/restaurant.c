@@ -40,6 +40,12 @@ int compareName (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
 
+	if (!(data1 && data2)) {
+		printf("Error, NULL value entered\n");
+
+		return -1;
+	}
+
 	char * name1 = restPtr1->name;
 	char * name2 = restPtr2->name;
 
@@ -64,6 +70,12 @@ int compareRating (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
 
+	if (!(data1 && data2)) {
+		printf("Error, NULL value entered\n");
+
+		return -1;
+	}
+
 	int rating1 = restPtr1->rating;
 	int rating2 = restPtr2->rating;
 
@@ -87,6 +99,13 @@ int compareRating (void * data1, void * data2) {
 int compareType (void * data1, void * data2) {
 	Restaurant * restPtr1 = (Restaurant*) data1;
 	Restaurant * restPtr2 = (Restaurant*) data2;
+
+	if (!(data1 && data2)) {
+		printf("Error, NULL value entered\n");
+
+		return -1;
+	}
+
 
 	char * type1 = restPtr1->type;
 	char * type2 = restPtr2->type;
