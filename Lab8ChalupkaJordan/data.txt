@@ -1,4 +1,3 @@
-Antonios,Fish,0
 McDonalds,Fast Food,74
 McDonalds,Fast Food,23
 Tim Hortons,Bakery,80
