@@ -5,8 +5,8 @@
 Restaurant * createRestaurant (char * name, char * type, int rating) {
 	if (!(name && type)) {
 		printf("Incorrect name and or type pointer\n");
-		
-		return NULL
+
+		return NULL;
 	}
 	Restaurant * restPtr = malloc(sizeof(Restaurant));
 	restPtr->name = malloc(sizeof(char)*255);
