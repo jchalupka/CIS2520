@@ -47,7 +47,7 @@ compile_tree_test:
 	mv *.o obj/
 
 link_order_test: compile_order_test
-	$(CC) $(LDFLAGS) -o $(ORDER_TEST) $(OBJ) $(LIBDIRS) $(OBJDIR)order.o
+	$(CC) $(LDFLAGS) -o $(ORDER_TEST) $(OBJ) $(LIBDIRS) $(LIBS) $(OBJDIR)order.o
 
 compile_order_test:
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(SRCDIR)order.c
