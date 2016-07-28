@@ -15,7 +15,7 @@ int numLinesDown (Tree * tree) {
 		return 0;
 	}
 	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(tree);
+	int numRoots = getNumRoots(rightSub);
 
 	return numRoots + 2;
 }
@@ -50,7 +50,7 @@ void drawConnection (Tree * tree) {
 		move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
-		vline('+', numLinesDown(getRightSubtree(tree)));
+		vline('+', getNumRoots(getRightSubtree));
 	}
 
 	move(cury+1,0);
