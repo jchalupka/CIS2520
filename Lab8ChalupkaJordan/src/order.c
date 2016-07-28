@@ -20,7 +20,7 @@ int getOrderTree (char * fileName, int order) {
 	}
 	
 		
-	getchar();
+	printf("\n");
 
 	fclose(file);
 
