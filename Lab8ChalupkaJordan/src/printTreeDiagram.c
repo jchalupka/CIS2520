@@ -21,9 +21,8 @@ int printTree (char * fileName) {
 	printInOrder(ratingTree, simplePrint);
 	printf("Here\n");
 
-	redrawwin(stdscr);
-	wrefresh(stdscr);
-
+	
+	getchar();
 	exitNCurses();
 
 
