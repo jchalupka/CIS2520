@@ -127,7 +127,7 @@ void printData(void * tree, int shift) {
 	int cury,curx;
 	getyx(stdscr, cury, curx);
 	char word[255];
-	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
+	sprintf(word, "%s (%d)",restPtr->name, restPtr->rating);
 	move(cury,curx + shift);
 	
 	printw("%s", word);
