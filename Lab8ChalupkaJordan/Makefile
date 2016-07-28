@@ -31,10 +31,10 @@ RUN_PROGNAME     = $(BINDIR)run
 default : link
 
 link: compile
-	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBS)
+	$(CC) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBS)
 
 compile:
-	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES)
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(LIBDIRS)
 	mv *.o obj/
 
 clean:
