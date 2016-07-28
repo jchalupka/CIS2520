@@ -2,6 +2,7 @@
 #define __JCHALUPK_ORDER__
 
 #include <stdio.h>
-#include "restaurant.c";
+#include "restaurant.h";
+#include "fileIO.h"
 
 #endif
