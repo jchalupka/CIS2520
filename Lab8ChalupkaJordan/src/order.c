@@ -31,6 +31,7 @@ int main (void) {
 	getOrderTree("testFiles/data.txt",0);
 	printf("Done\n");
 	getOrderTree("testFiles/data2.txt",0);
+	printf("Done\n");
 	getOrderTree("testFiles/data3.txt",0);
 	return 0;
 }
