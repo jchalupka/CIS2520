@@ -23,10 +23,10 @@ int numLinesDown (Tree * tree) {
 int numLinesDown (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(tree);
 	if (leftSub == NULL) {
-		//return 0;
+		return 0;
 	}
 	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(rightSub);
+	int numRoots = getNumRoots(leftSub);
 
 	return numRoots + 2;
 }
