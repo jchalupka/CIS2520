@@ -1,3 +1,7 @@
+// Jordan Chalupka 0928258
+
+#include "printTreeDiagram.h"
+
 int printTree (char * fileName) {
 	FILE * file = openFile(fileName);
 
