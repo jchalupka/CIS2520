@@ -61,6 +61,7 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		free(name);
 		free(foodtype);
 	}
+	printf("Here\n");
 	free(token);
 	return;
 }
