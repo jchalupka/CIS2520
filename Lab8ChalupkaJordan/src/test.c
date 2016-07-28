@@ -44,6 +44,12 @@ int checkError (int error) {
 	return error;
 }
 
+void reviewTests (int numTests, int numIncorrect) {
+	int numCorrect = numTests-numIncorrect;
+
+	printf("Overview: %d/%d\n", numCorrect,numIncorrect);
+}
+
 // *********** Test Functions ***********
 int test_openFile (void) {
 	printf("Testing openFile\n");
@@ -81,6 +87,8 @@ int main (void) {
 
 	numIncorrect += checkError(test_openFile());
 	numIncorrect += checkError(test_collectFile());
+
+	reviewTests(numTests,numIncorrect);
 	return 0;
 }
 
