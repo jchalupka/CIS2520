@@ -79,6 +79,7 @@ int initNCurses () {
 }
 
 int exitNCurses () {
+	clear();
 	endwin();
 
 	return 0;
