@@ -120,6 +120,7 @@ void printDataPreOrder (void * tree, int shift) {
 	sprintf(word, "%s %d",restPtr->name, restPtr->rating);
 	int verticalshift = getNumRoots(tree);
 	//move(cury + verticalshift,curx + shift);
+	printw("%d ",verticalshift);
 	move (cury,curx + shift);
 	printw("%s", word);
 	
