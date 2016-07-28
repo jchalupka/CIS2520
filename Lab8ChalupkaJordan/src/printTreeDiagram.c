@@ -30,8 +30,7 @@ int printTree (char * fileName, int treeType) {
 	exitNCurses();
 
 	fclose(file);
-	destroyBinTree(nameTree);	
-	destroyBinTree(ratingTree);
+
 
 
 	return 0;
