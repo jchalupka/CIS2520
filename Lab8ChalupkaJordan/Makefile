@@ -62,3 +62,6 @@ test_f:
 
 test_t:
 	$(TREE_TEST)
+
+test_o:
+	$(ORDER_TEST)
