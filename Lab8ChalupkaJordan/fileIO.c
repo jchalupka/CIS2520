@@ -63,6 +63,7 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		free(name);
 		free(foodtype);
 	}
+	free(token);
 
 	return;
 }
