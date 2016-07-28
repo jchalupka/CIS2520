@@ -32,9 +32,13 @@
 
 #include "test.h"
 
+void makeTest (char * testName) {
+	printf("Testing: %s\n"
+		   "Output: ");
+}
+
 int test_openFile (void) {
-	printf("Testing: File does not exist\n"
-		   "Outout: ");
+	makeTest("File does not exist")
 	if (openFile("ThisFileDoesNotExist.txt")) return 1;
 	else return 0;
 
