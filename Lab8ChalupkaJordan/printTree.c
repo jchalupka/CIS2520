@@ -39,24 +39,22 @@ int wordStrlen (Tree * tree) {
 	return strlen(word);
 }
 
-/*
-void drawConnection (Tree * tree) {
+
+void drawConnectionPreOrder (Tree * tree) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
 
 	if (getRightSubtree(tree)) {
-		//move(cury - (numLinesUp(tree)-1), curx);
 		vline('+',2);
-		//move(cury,curx);
 	}
 	if (getLeftSubtree(tree)) {
 		vline('+', getNumRoots(getRightSubtree(tree))+2);
 	}
 
 	move(cury+1,0);
-}*/
+}
 
-void drawConnection (Tree * tree) {
+void drawConnectionInOrder (Tree * tree) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
 
@@ -98,7 +96,7 @@ void traverseInOrder (Tree * tree, int shift) {
 		
 	printData(getRootData(tree), shift);
 	
-	drawConnection(tree);
+	drawConnectionInOrder(tree);
 
 	traverseInOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
 
@@ -116,7 +114,7 @@ void traversePreOrder (Tree * tree, int shift) {
 	getchar();
 	printData(getRootData(tree), shift);
 	
-	drawConnection(tree);
+	drawConnectionPreOrder(tree);
 
 	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
 
