@@ -92,3 +92,22 @@ void traverseInOrder (Tree * tree, int shift) {
 
 }
 
+// Traverse pre order
+void traversePreOrder (Tree * tree, int shift) {
+
+	if (tree == NULL) {
+		return;
+	}
+	printData(getRootData(tree), shift);
+	
+	drawConnection(tree);
+
+	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
+
+	traversePreOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
+
+	refresh();
+
+	return;
+
+}

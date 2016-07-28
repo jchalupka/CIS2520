@@ -69,6 +69,6 @@ Traverse the tree in pre order.
 Pre: Tree and ncurses environment are initialized.
 Post: The tree is traversed in order and printed to the screen.
 */
-void traversePreOrder (Tree * tree, int shift)
+void traversePreOrder (Tree * tree, int shift);
 
 #endif
