@@ -66,7 +66,7 @@ int test_collectFile (void) {
 
 	makeTest("File does not exist");
 
-	if (!collectFile(goodfile, nameTree, ratingTree)) {
+	if (!collectFile(badfile, nameTree, ratingTree)) {
 		return 1;
 	}
 
