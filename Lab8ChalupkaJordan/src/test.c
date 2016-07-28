@@ -117,7 +117,7 @@ int test_destroyRestaurant (void) {
 int test_compareName (void) {
 	printf("*** Testing compareName ***\n");
 
-	makeTest("In order\n");
+	makeTest("In order");
 	Restaurant * rest1 = createRestaurant("ABCD","Type",60);
 	Restaurant * rest2 = createRestaurant("ABCE","Type",60);
 	if (compareName(rest1,rest2) == 0) {
@@ -125,6 +125,11 @@ int test_compareName (void) {
 	}
 	printf("Order correct\n");
 
+	makeTest("Out of order");
+	if (compareName(rest2, rest1) != 0) {
+		return 1;
+	}
+	printf("Out of order\n");
 	return 0;
 }
 // *************************************
