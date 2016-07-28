@@ -130,6 +130,9 @@ int test_compareName (void) {
 		return 1;
 	}
 	printf("Out of order\n");
+
+	makeTest("Sorting NULL value");
+	
 	return 0;
 }
 // *************************************
