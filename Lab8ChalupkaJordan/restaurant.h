@@ -54,11 +54,17 @@ Post: Integer is returned determining the order.
 int compareType (void * data1, void * data2);
 
 /*
-Prints the data
-Pre:
-Post:
+Prints the data using ncurses.
+Pre: Ncurses is initialized.
+Post: Data is printed to the screen.
 */
-void printData (void * data, int shift);
+void printData (void * tree, int shift);
 
+/*
+Prints the data using printf.
+Pre: None.
+Post: Data is printed to the screen.
+*/
+void simplePrint (void * data)
 
 #endif
