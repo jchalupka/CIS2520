@@ -14,7 +14,7 @@ int printTree (char * fileName) {
 
 	initNCurses();
 
-	traversePreOrder(nameTree, 0);
+	
 	traverseInOrder(ratingTree,0);
 
 	
