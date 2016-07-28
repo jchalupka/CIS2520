@@ -1,3 +1,5 @@
+// Jordan Chalupka 0928258
+
 #ifndef BINTREE_GUARD
 #define BINTREE_GUARD
 /**************************************
