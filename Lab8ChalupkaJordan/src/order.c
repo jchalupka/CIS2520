@@ -12,7 +12,6 @@ int getOrderTree (char * fileName, int order) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	initNCurses();
 
 	if (order == 0) {
 		printInOrder(ratingTree, simplePrint());
@@ -20,14 +19,8 @@ int getOrderTree (char * fileName, int order) {
 		printPreOrder(ratingTree, simplePrint());
 	}
 	
-	
-	
-	printInOrder(ratingTree, simplePrint);
-	printf("Here\n");
-
-	
+		
 	getchar();
-	exitNCurses();
 
 	fclose(file);
 
