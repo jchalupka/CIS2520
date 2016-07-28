@@ -130,15 +130,17 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	//initNCurses();
+	initNCurses();
 
-	//traversePreOrder(nameTree, 0);
-	//traverseInOrder(ratingTree,0);
+	traversePreOrder(nameTree, 0);
+	traverseInOrder(ratingTree,0);
 
 	
 	printInOrder(ratingTree, simplePrint);
+	printf("Here\n");
+	redrawwin(stdscr);
 
-
+	wrefresh(stdscr);
 
 	exitNCurses();
 	
