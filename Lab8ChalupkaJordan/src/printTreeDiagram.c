@@ -40,6 +40,6 @@ int printTree (char * fileName, int treeType) {
 int main () {
 
 	printTree("testFiles/data.txt", 0);
-	print
+	printTree("testFiles/data.txt", 1);
 	return 0;
 }
