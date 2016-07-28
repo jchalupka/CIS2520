@@ -131,6 +131,7 @@ int main (void) {
 
 	destroyBinTree(nameTree);
 	destroyBinTree(ratingTree);
+	printf("%d\n",isTreeEmpty(nameTree));
 
 	return 0;
 }
