@@ -11,11 +11,11 @@ int getNumRoots (Tree * tree) {
 
 int numLinesDown (Tree * tree) {
 	Tree * leftSub = getLeftSubtree(tree);
-	if (tree == NULL) {
+	if (leftSub == NULL) {
 		return 0;
 	}
 	Tree * rightSub = getRightSubtree(leftSub);
-	int numRoots = getNumRoots(tree);
+	int numRoots = getNumRoots(rightSub);
 
 	return numRoots + 2;
 }
@@ -39,7 +39,7 @@ int wordStrlen (Tree * tree) {
 	return strlen(word);
 }
 
-/*
+
 void drawConnection (Tree * tree) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
@@ -54,23 +54,6 @@ void drawConnection (Tree * tree) {
 	}
 
 	move(cury+1,0);
-}
-*/
-void drawConnection (Tree * tree) {
-	int cury,curx;
-	getyx(stdscr,cury,curx);
-
-	/*if (getRightSubtree(tree)) {
-		move(cury - (numLinesUp(tree)-1), curx);
-		vline('+',numLinesUp(tree));
-		move(cury,curx);
-	}*/
-	if (getLeftSubtree(tree)) {
-		vline('+', numLinesDown(getLeftSubtree(tree)));
-	}
-
-	move(cury+1,0);
-	getchar();
 }
 
 int initNCurses () {
@@ -118,10 +101,9 @@ void traversePreOrder (Tree * tree, int shift) {
 	printData(getRootData(tree), shift);
 	
 	drawConnection(tree);
-	
+
 	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
-	
-	
+
 	traversePreOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
 
 	refresh();
