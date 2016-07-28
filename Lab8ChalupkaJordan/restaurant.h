@@ -58,6 +58,13 @@ int compareType (void * data1, void * data2);
 Pre:
 Post:
 */
-void printData (void * data, int shift);
+void printDataInOrder (void * data, int shift);
+
+/*
+
+Pre:
+Post:
+*/
+void printDataPreOrder (void * data, int shift);
 
 #endif
