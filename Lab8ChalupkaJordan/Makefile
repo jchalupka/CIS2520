@@ -6,7 +6,7 @@ LDFLAGS     =
 
 #Directories where the compiler can find things
 INCLUDES    = -Iinclude
-LIBDIRS     = lib/alibbintree.a
+LIBDIRS     = lib/libbintree.a
 LIBS        = -lncurses
 
 # add directory names here if you want to separate files by directories
