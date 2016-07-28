@@ -114,6 +114,7 @@ void initNCurses () {
 }
 
 void exitNCurses () {
+	clear();
 	endwin();
 }
 
@@ -132,9 +133,8 @@ int main (void) {
 
 	traverseInOrder(nameTree, 0);
 
-	refresh();
 	getchar();
-	
+
 	exitNCurses();
 
 	destroyBinTree(nameTree);	
