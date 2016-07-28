@@ -71,11 +71,14 @@ int test_collectFile (void) {
 
 
 	makeTest("File does not exist");
-
 	if (!collectFile(NULL, nameTree, ratingTree)) {
 		return 1;
 	}
 
+	makeTest("Tree does not exist");
+	if (!collectFile(file, NULL, ratingTree)) {
+		return 1;
+	}
 
 	return 0;
 }
