@@ -120,7 +120,7 @@ int main (void) {
 
 	initNCurses();
 
-	traversePreOrder(nameTree, 0);
+	traverseInOrder(nameTree, 0);
 
 	getchar();
 
