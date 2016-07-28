@@ -38,8 +38,8 @@ void makeTest (char * testName) {
 }
 
 int checkError (int error) {
-	if (error) printf("ERROR\n\n");
-	else printf("CORRECT\n\n");
+	if (error) printf("ERROR IN TESTS\n\n");
+	else printf("ALL TESTS CORRECT\n\n");
 
 	return error;
 }
@@ -102,7 +102,13 @@ int test_destroyRestaurant (void) {
 	printf("***  Testing destroyRestaurant ***\n");
 
 	makeTest("Destroying NULL");
-	if (destroyRestaurant(NULL) == NULL) {
+	if (destroyRestaurant(NULL)) {
+		return 1;
+	}
+
+	makeTest("Destroying Restaurant");
+	Restaurant * rest = createRestaurant();
+	if (!destroyRestaurant(rest)) {
 		return 1;
 	}
 
