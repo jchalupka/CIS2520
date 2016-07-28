@@ -47,7 +47,7 @@ int checkError (int error) {
 void reviewTests (int numTests, int numIncorrect) {
 	int numCorrect = numTests-numIncorrect;
 
-	printf("Overview: %d/%d\n", numCorrect,numIncorrect);
+	printf("Overview: %d/%d Tests Correct\n", numCorrect,numIncorrect);
 }
 
 // *********** Test Functions ***********
@@ -82,7 +82,7 @@ int test_collectFile (void) {
 // *************************************
 
 int main (void) {
-	int numTests = 1;
+	int numTests = 2;
 	int numIncorrect = 0;
 
 	numIncorrect += checkError(test_openFile());
