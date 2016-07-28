@@ -107,6 +107,22 @@ void printData (void * data, int shift) {
 	return;
 }
 
+void simplePrint (void * data) {
+	Restaurant * restPtr = (Restaurant*) data;
+
+	if (data == NULL) {
+		printf("ERROR\n");
+	}
+
+	int cury,curx;
+	char word[255];
+	sprintf(stdout, "%s %d\n",restPtr->name, restPtr->rating);
+
+
+	return;
+
+}
+
 int main (void) {
 	FILE * file = openFile("data.txt");
 
@@ -125,7 +141,7 @@ int main (void) {
 	getchar();
 
 	exitNCurses();
-	printPreOrder(nameTree,printData);
+	printPreOrder(nameTree, printData);
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
 
