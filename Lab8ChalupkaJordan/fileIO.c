@@ -62,6 +62,7 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		
 		free(name);
 		free(foodtype);
+		destroyRestaurant(restPtr);
 	}
 
 	return;
