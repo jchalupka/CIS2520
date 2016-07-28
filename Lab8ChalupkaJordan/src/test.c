@@ -94,17 +94,31 @@ int test_createRestaurant (void) {
 	if (!createRestaurant("Name","Type",60)) {
 		return 1;
 	}
+
 	return 0;
 }
+
+int test_destroyRestaurant (void) {
+	printf("***  Testing destroyRestaurant ***\n");
+
+	makeTest("Destroying NULL")
+	if (destroyRestaurant(NULL)) {
+		return 1;
+	}
+
+	return 0;
+}
+
 // *************************************
 
 int main (void) {
-	int numTests = 3;
+	int numTests = 4;
 	int numIncorrect = 0;
 
 	numIncorrect += checkError(test_openFile());
 	numIncorrect += checkError(test_collectFile());
 	numIncorrect += checkError(test_createRestaurant());
+	numIncorrect += checkError(test_destroyRestaurant());
 
 	reviewTests(numTests,numIncorrect);
 	return 0;

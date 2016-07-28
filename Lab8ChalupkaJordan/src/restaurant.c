@@ -5,7 +5,7 @@
 Restaurant * createRestaurant (char * name, char * type, int rating) {
 	if (name == NULL || type == NULL) {
 		printf("Incorrect name and or type pointer\n");
-		
+
 		return NULL;
 	}
 
@@ -20,7 +20,12 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 	return restPtr;
 }
 
-void destroyRestaurant (void * toDestroy) {
+int destroyRestaurant (void * toDestroy) {
+	if (toDestroy == NULL) {
+		printf("Pointer cannot be NULL\n")
+
+		return 1;
+	}
 	Restaurant * restPtr = (Restaurant *)toDestroy;
 	free(restPtr->name);
 	free(restPtr->type);
@@ -28,7 +33,7 @@ void destroyRestaurant (void * toDestroy) {
 
 	restPtr = NULL;
 
-	return;
+	return 0;
 }
 
 int compareName (void * data1, void * data2) {
