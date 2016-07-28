@@ -8,6 +8,7 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 
 		return NULL;
 	}
+	printf("Here\n");
 	Restaurant * restPtr = malloc(sizeof(Restaurant));
 	restPtr->name = malloc(sizeof(char)*255);
 	restPtr->type = malloc(sizeof(char)*255);
