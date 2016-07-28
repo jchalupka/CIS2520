@@ -34,7 +34,7 @@
 
 void makeTest (char * testName) {
 	printf("Testing: %s\n"
-		   "Output: ");
+		   "Output: ", testName);
 }
 
 int test_openFile (void) {
