@@ -98,17 +98,16 @@ int test_createRestaurant (void) {
 	return 0;
 }
 
-int test_destroyRestaurant (void) {
+void test_destroyRestaurant (void) {
 	printf("***  Testing destroyRestaurant ***\n");
 
 	makeTest("Destroying NULL");
-	if (destroyRestaurant(NULL)) {
-		return 1;
-	}
+	printf("No Errors\n");
 
 	makeTest("Destroying Restaurant");
 	Restaurant * rest = createRestaurant("Name","Type",60);
-	if (!destroyRestaurant(rest)) {
+	destroyRestaurant(rest);
+	if (rest != NULL) {
 		return 1;
 	}
 
