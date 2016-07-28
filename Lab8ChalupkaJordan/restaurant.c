@@ -134,7 +134,7 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-	initNCurses();
+	//initNCurses();
 
 	//traversePreOrder(nameTree, 0);
 	//traverseInOrder(ratingTree,0);
