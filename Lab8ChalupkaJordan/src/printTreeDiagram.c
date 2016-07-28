@@ -31,8 +31,6 @@ int printTree (char * fileName, int treeType) {
 
 	fclose(file);
 
-
-
 	return 0;
 }
 
