@@ -22,13 +22,14 @@ int getOrderTree (char * fileName, int order) {
 		
 	printf("\n");
 
-	fclose(file);
+	//fclose(file);
 
 	return 0;
 }
 
 int main (void) {
 	getOrderTree("testFiles/data.txt",0);
+	printf("Done\n");
 	getOrderTree("testFiles/data2.txt",0);
 	getOrderTree("testFiles/data3.txt",0);
 	return 0;
