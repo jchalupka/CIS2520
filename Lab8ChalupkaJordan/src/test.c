@@ -120,6 +120,7 @@ int test_compareName (void) {
 	makeTest("In order");
 	Restaurant * rest1 = createRestaurant("ABCD","Type",60);
 	Restaurant * rest2 = createRestaurant("ABCE","Type",60);
+	Restaurant * rest3 = createRestaurant("ABCD","Type",100);
 	if (compareName(rest1,rest2) > 0) {
 		return 1;
 	}
@@ -133,12 +134,18 @@ int test_compareName (void) {
 
 	makeTest("Sorting NULL value");
 	compareName(rest1, NULL);
+
+	makeTest("Same Name, sorted Ranking");
+	if(compareName(rest3,rest1) < 0) {
+		return 1;
+	}
+
 	return 0;
 }
 // *************************************
 
 int main (void) {
-	int numTests = 4;
+	int numTests = 5;
 	int numIncorrect = 0;
 
 	numIncorrect += checkError(test_openFile());
