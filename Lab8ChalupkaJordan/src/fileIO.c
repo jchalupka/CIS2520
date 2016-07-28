@@ -27,9 +27,13 @@ void removeNewLines (char input[255]) {
 }
 
 // Collect the relevent information from the FILE pointer
-void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
+int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 	char input[255];
 	char * token = malloc(sizeof(char)*255);
+	if (!file) {
+		printf("The file does not exist\n");
+		return -1;
+	}
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
 		char * search;
@@ -64,5 +68,5 @@ void collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		free(foodtype);
 	}
 
-	return;
+	return 0;
 }
