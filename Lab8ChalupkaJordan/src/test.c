@@ -41,7 +41,8 @@ int test_openFile (void) {
 }
 
 int main (void) {
-	int numTests, numIncorrect;
+	int numTests = 1;
+	int numIncorrect = 0;
 
 	numCorrect += test_openFile();
 	return 0;
