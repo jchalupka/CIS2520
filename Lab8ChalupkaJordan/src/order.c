@@ -4,7 +4,7 @@
 
 int getOrderTree (char * fileName, int order) {
 	FILE * file = openFile(fileName);
-
+	printf("Here\n");
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
 	Tree * ratingTree = createBinTree(compareRating, destroyRestaurant);
 	if (!(nameTree && ratingTree)) {
