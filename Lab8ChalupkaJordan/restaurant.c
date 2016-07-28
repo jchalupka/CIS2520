@@ -88,9 +88,9 @@ int compareType (void * data1, void * data2) {
 }
 
 void printDataInOrder (void * tree, int shift) {
-	Restaurant * data = (Restaurant*) getRootData((Tree*)tree);
+	Restaurant * resPtr = (Restaurant*) getRootData((Tree*)tree);
 
-	if (data == NULL) {
+	if (restPtr == NULL) {
 		printf("ERROR\n");
 	}
 
@@ -108,9 +108,9 @@ void printDataInOrder (void * tree, int shift) {
 }
 
 void printDataPreOrder (void * tree, int shift) {
-	Restaurant * data = (Restaurant*) getRootData((Tree*)tree);
+	Restaurant * restPtr = (Restaurant*) getRootData((Tree*)tree);
 
-	if (data == NULL) {
+	if (restPtr == NULL) {
 		printf("ERROR\n");
 	}
 
