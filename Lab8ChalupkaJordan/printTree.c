@@ -44,11 +44,11 @@ void drawConnection (Tree * tree) {
 	int cury,curx;
 	getyx(stdscr,cury,curx);
 
-	/*if (getRightSubtree(tree)) {
-		move(cury - (numLinesUp(tree)-1), curx);
-		vline('+',numLinesUp(tree));
-		move(cury,curx);
-	}*/
+	if (getRightSubtree(tree)) {
+		//move(cury - (numLinesUp(tree)-1), curx);
+		vline('+',2);
+		//move(cury,curx);
+	}
 	if (getLeftSubtree(tree)) {
 		vline('+', getNumRoots(getRightSubtree(tree))+2);
 	}
