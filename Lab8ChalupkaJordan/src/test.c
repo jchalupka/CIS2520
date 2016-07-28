@@ -52,7 +52,7 @@ void reviewTests (int numTests, int numIncorrect) {
 
 // *********** Test Functions ***********
 int test_openFile (void) {
-	printf("Testing openFile\n");
+	printf("*** Testing openFile ***\n");
 	makeTest("File does not exist");
 	if (openFile("ThisFileDoesNotExist.txt")) {
 		return 1;
@@ -63,7 +63,7 @@ int test_openFile (void) {
 }
 
 int test_collectFile (void) {
-	printf("Testing collectFile\n");
+	printf("*** Testing collectFile ***\n");
 
 	FILE * file = openFile("testFiles/data.txt");
 	Tree * nameTree = createBinTree(compareName, destroyRestaurant);
@@ -82,14 +82,25 @@ int test_collectFile (void) {
 
 	return 0;
 }
+
+int test_createRestaurant (void) {
+	printf("***  Testing createRestaurant ***");
+
+	makeTest("Incorrect pointer input");
+	if (!createRestaurant("Hello",NULL,5)) {
+		return 1;
+	}
+	return 0;
+}
 // *************************************
 
 int main (void) {
-	int numTests = 2;
+	int numTests = 3;
 	int numIncorrect = 0;
 
 	numIncorrect += checkError(test_openFile());
 	numIncorrect += checkError(test_collectFile());
+	numIncorrect += checkError(test_createRestaurant());
 
 	reviewTests(numTests,numIncorrect);
 	return 0;
