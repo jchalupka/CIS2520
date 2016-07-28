@@ -74,7 +74,7 @@ int test_collectFile (void) {
 	if (!collectFile(NULL, nameTree, ratingTree)) {
 		return 1;
 	}
-	printf("Here\n");
+
 	makeTest("Tree does not exist");
 	if (!collectFile(file, NULL, ratingTree)) {
 		return 1;
