@@ -87,7 +87,7 @@ int test_createRestaurant (void) {
 	printf("***  Testing createRestaurant ***\n");
 
 	makeTest("Incorrect pointer input");
-	if (createRestaurant("Hello","NULL",5)) {
+	if (createRestaurant("Hello", NULL,5)) {
 		return 1;
 	}
 	return 0;
