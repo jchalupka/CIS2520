@@ -19,6 +19,7 @@ void destroyRestaurant (void * toDestroy) {
 	free(restPtr->name);
 	free(restPtr->type);
 	free(restPtr);
+	free(toDestroy);
 	restPtr = NULL;
 
 	return;
@@ -130,9 +131,7 @@ int main (void) {
 	endwin();
 
 	destroyBinTree(nameTree);
-	free(nameTree);
 	destroyBinTree(ratingTree);
-	free(ratingTree);
 	printf("%d\n",isTreeEmpty(nameTree));
 
 	return 0;
