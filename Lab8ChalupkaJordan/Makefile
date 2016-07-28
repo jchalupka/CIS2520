@@ -6,7 +6,7 @@ LDFLAGS     =
 
 #Directories where the compiler can find things
 INCLUDES    = -Iinclude
-LIBDIRS     = -Ilib
+LIBDIRS     = lib/alibbintree.a
 LIBS        = -lncurses
 
 # add directory names here if you want to separate files by directories
@@ -31,10 +31,10 @@ RUN_PROGNAME     = $(BINDIR)run
 default : link
 
 link: compile
-	$(CC) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBS)
+	$(CC) $(LIBDIRS) $(LDFLAGS) -o $(RUN_PROGNAME) $(OBJ) $(LIBS)
 
 compile:
-	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES) $(LIBDIRS)
+	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES)
 	mv *.o obj/
 
 clean:
