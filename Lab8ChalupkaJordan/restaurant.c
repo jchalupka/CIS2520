@@ -16,7 +16,6 @@ Restaurant * createRestaurant (char * name, char * type, int rating) {
 
 void destroyRestaurant (void * toDestroy) {
 	Restaurant * restPtr = (Restaurant *)toDestroy;
-	printf("Hello\n");
 	free(restPtr->name);
 	free(restPtr->type);
 	free(restPtr);
