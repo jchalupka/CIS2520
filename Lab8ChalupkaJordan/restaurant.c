@@ -128,13 +128,14 @@ int main (void) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-
+	initNCurses();
 
 	traverseInOrder(nameTree, 0);
 
 	refresh();
 	getchar();
-
+	
+	exitNCurses();
 
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
