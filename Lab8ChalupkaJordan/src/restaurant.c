@@ -139,11 +139,11 @@ int main (void) {
 	printInOrder(ratingTree, simplePrint);
 	printf("Here\n");
 
-
-
-	exitNCurses();
 	redrawwin(stdscr);
 	wrefresh(stdscr);
+
+	exitNCurses();
+
 
 	destroyBinTree(nameTree);	
 	destroyBinTree(ratingTree);
