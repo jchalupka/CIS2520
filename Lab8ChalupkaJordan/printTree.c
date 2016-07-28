@@ -56,19 +56,19 @@ void drawConnection (Tree * tree) {
 	move(cury+1,0);
 }
 
-void initNCurses () {
+int initNCurses () {
 	initscr();
 	noecho();
 	cbreak();
 
-	return;
+	return 0;
 }
 
-void exitNCurses () {
+int exitNCurses () {
 	clear();
 	endwin();
 
-	return;
+	return 0;
 }
 
 // Traverse in order
@@ -91,3 +91,24 @@ void traverseInOrder (Tree * tree, int shift) {
 	return;
 
 }
+
+// Traverse in order
+void traversePreOrder (Tree * tree, int shift) {
+
+	if (tree == NULL) {
+		return;
+	}
+	printData(getRootData(tree), shift);
+	
+	drawConnection(tree);
+
+	traversePreOrder(getRightSubtree(tree), shift + wordStrlen(tree) + 1);
+
+	traversePreOrder(getLeftSubtree(tree), shift + wordStrlen(tree) + 1);
+
+	refresh();
+
+	return;
+
+}
+
