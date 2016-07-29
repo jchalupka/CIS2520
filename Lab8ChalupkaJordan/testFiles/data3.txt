@@ -1,6 +1,6 @@
 Happy Home,Chineese,60
 Subway,Submarines,18
-This Very Very Very Very Very Very Very Very Very Long Name,Fries,23
+Ikea,Fries,23
 A&W,Burgers,22
 Wendys,Burgers,20
 Stevens,Salad,10
