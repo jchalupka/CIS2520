@@ -3,7 +3,6 @@
 #ifndef __JCHALUPKA_RESTAURANT__
 #define __JCHALUPKA_RESTAURANT__
 
-
 #include "fileIO.h"
 #include "treeInterface.h"
 #include "printTree.h"

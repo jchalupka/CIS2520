@@ -8,4 +8,11 @@
 #include "treeInterface.h"
 #include "fileIO.h"
 
+/*
+Prints the tree in order onto the screen.
+Pre: Filename is known.
+Post: Tree is printed onto the screen in order.
+*/
+int getOrderTree (char * fileName, int order);
+
 #endif
