@@ -62,7 +62,7 @@ int compareName (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-	
+
 	return compareType(data1, data2);
 }
 
@@ -124,7 +124,7 @@ void simplePrint (void * data) {
 		printf("ERROR\n");
 	}
 
-	printf("Name: %s, Type: %s, Rating: %d\n",restPtr->name, restPtr->type, restPtr->rating);
+	printf("Name: %s,\tType: %s,\tRating: %d\n",restPtr->name, restPtr->type, restPtr->rating);
 
 	return;
 }
