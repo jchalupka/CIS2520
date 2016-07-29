@@ -124,7 +124,7 @@ void simplePrint (void * data) {
 		printf("ERROR\n");
 	}
 
-	printf("Name: %15s, Type: %15s, Rating: %15d\n",restPtr->name, restPtr->type, restPtr->rating);
+	printf("Name: %20s, Type: %20s, Rating: %10d\n",restPtr->name, restPtr->type, restPtr->rating);
 
 	return;
 }
