@@ -28,7 +28,7 @@ int main (int argc, char * argv[]) {
 		printf("Error, please enter the directory of the data file you would like to use.\n");
 	}
 
-	getOrderTree(argv[1]);
+	getOrderTree(argv[1], 0);
 
 	return 0;
 }
