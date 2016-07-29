@@ -41,12 +41,13 @@ int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		
 		return 1;
 	}
+	printf("Here\n");
 	while (fgets(input, 254, file) != NULL) {
 		removeNewLines(input);
 		char * search;
 		// Use commas as the deliminator
 		search = ",";
-		printf("Here\n");
+
 		// Restaurant info will hold name, foodtype, and rating
 		
 
