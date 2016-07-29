@@ -1,0 +1,81 @@
+************************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 8
+July 28, 2016
+************************************
+
+*****
+About
+*****
+
+This file contains three programs which make use of a binary tree library to store restaurant data.  The three programs contained in this file are responsible for: 
+  i) Displaying the information in the tree sorted by either name or rating
+     as a list.
+ ii) Displaying the information in the tree sorted by either name or rating
+     in a tree.
+iii) Testing the program’s main functions.
+
+***********
+Compilation
+***********
+
+In order to compile the program when inside the Lab8ChalupkaJordan folder use the command: 
+
+make
+
+You will now have three executable files named test_f, test_c, and test_o in bin/.
+
+*****
+Usage
+*****
+
+test_f:	This program is designed to test the programs core functions. To run this
+ 	program simply type, “./bin/test_f”
+
+test_t:	This program is designed to demonstrate the tree printing ability of the 
+	restaurant data.  To run this program simply type, “./bin/test_t”.
+	
+	Once running the program, press enter to cycle through several demonstration files,
+	demonstrating the tree printing ability.
+
+test_o: This program is designed to demonstrate the sorting mechanism of the restaurant data.
+	To  run this program simply type, “./bin/test_o <Name of test file>”.
+
+	Test files can be found in .testFiles/
+
+*******
+Testing
+*******
+
+Testing was conducted to ensure the functionality of the program. For more in depth information on testing, 
+see docs/testing.
+
+*****************
+Known Limitations
+*****************
+
+The screen must be large enough to fit the printed list diagram, or it will look distorted.
+Increase the terminal size or decrease the font size to fix this.
+
+**********
+References
+**********
+
+  - - -
+
+*******************************
+Academic Integrity Pledge
+*******************************
+
+I have exclusive control over this submission via my password.
+By including this file with my submitted files, I certify that:
+
+1) I have read and understood the University policy on academic integrity;
+2) I have completed the Computing with Integrity Tutorial on Moodle; and
+3) I have achieved at least 80% in the Computing with Integrity Self Test.
+
+I assert that this work is my own.
+
+I have appropriately acknowledged any and all material (data, images, ideas or
+words) that I have used, whether directly quoted or paraphrased.  Furthermore,
+I certify that this assignment was prepared by me specifically for this course
