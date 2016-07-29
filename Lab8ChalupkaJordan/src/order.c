@@ -11,7 +11,6 @@ int getOrderTree (char * fileName, int order) {
 	if (!(nameTree && ratingTree)) {
 		printf("ERROR CREATING TREE\n");
 	}
-	printf("Here\n");
 	collectFile(file, nameTree, ratingTree);
 
 

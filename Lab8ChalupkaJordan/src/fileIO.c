@@ -46,7 +46,7 @@ int collectFile (FILE * file, Tree * nameTree, Tree * ratingTree) {
 		char * search;
 		// Use commas as the deliminator
 		search = ",";
-
+		printf("Here\n");
 		// Restaurant info will hold name, foodtype, and rating
 		
 
