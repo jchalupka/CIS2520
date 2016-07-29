@@ -13,12 +13,13 @@ int getOrderTree (char * fileName, int order) {
 	}
 	collectFile(file, nameTree, ratingTree);
 
-
 	if (order == 0) {
 		printInOrder(ratingTree, simplePrint);
 	} else {
 		printPreOrder(ratingTree, simplePrint);
 	}
+	getchar();
+	fclose(file);
 	return 0;
 }
 
