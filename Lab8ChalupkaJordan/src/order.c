@@ -25,7 +25,7 @@ int getOrderTree (char * fileName, int order) {
 
 int main (int argc, char * argv[]) {
 	if (argc != 2) {
-		printf("%d\n");
+		printf("%d\n",argc);
 	}
 
 	return 0;
