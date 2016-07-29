@@ -62,7 +62,7 @@ int compareName (void * data1, void * data2) {
 	if (order) {
 		return order;
 	}
-
+	printf("Here\n");
 	return compareType(data1, data2);
 }
 
