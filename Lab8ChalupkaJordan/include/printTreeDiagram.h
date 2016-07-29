@@ -6,4 +6,11 @@
 #include "printTree.h"
 #include <stdio.h>
 
+/*
+Prints a tree, given a datafile and input for the tree type.
+Pre: Filename is known.
+Post: Tree is printed to screen.
+*/
+int printTree (char * fileName, int treeType);
+
 #endif

@@ -143,4 +143,3 @@ void traversePreOrder (Tree * tree, int shift) {
 	return;
 
 }
-

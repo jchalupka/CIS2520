@@ -28,10 +28,11 @@ int printTree (char * fileName, int treeType) {
 	return 0;
 }
 
-int main () {
+int main (void) {
 	printTree("testFiles/data2.txt", 0);
 	printTree("testFiles/data.txt", 0);
 	printTree("testFiles/data.txt", 1);
 	printTree("testFiles/data3.txt",1);
+
 	return 0;
 }
