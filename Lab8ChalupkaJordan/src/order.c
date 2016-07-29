@@ -5,6 +5,10 @@
 int getOrderTree (char * fileName, int order) {
 	FILE * file = openFile(fileName);
 
+	if (file == NULL) {
+		return -1;
+	}
+
 	Tree * nameTree = createBinTree(&compareName, destroyRestaurant);
 	Tree * ratingTree = createBinTree(&compareRating, destroyRestaurant);
 
