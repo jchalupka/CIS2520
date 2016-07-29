@@ -18,17 +18,15 @@ int getOrderTree (char * fileName, int order) {
 	} else {
 		printPreOrder(ratingTree, &simplePrint);
 	}
-	getchar();
+	
 	fclose(file);
 	return 0;
 }
 
-int main (void) {
-	getOrderTree("testFiles/data2.txt",0);
-	getOrderTree("testFiles/data.txt",0);
-	printf("Done\n");
-	
-	printf("Done\n");
-	getOrderTree("testFiles/data3.txt",0);
+int main (int argc, char * argv[]) {
+	if (argc != 2) {
+		printf("%d\n");
+	}
+
 	return 0;
 }
