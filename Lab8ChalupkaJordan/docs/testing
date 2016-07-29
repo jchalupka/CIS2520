@@ -1,0 +1,36 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Lab 8
+July 28, 2016
+***********************************
+
+*********
+Testing
+*********
+
+Testing was separated between the three programs in this file.
+
+******************
+Functions (test_f)
+******************
+The following core functions are tested:
+	openFile
+	collectFile
+	createRestaurant
+	destroyRestaurant
+	compareName
+By running the bin/test_f executable, unit tests can be performed on all of these functions.
+
+**********************
+Tree Printing (test_t)
+**********************
+The tree printing function has been tested using three different data files, each containing names, and foodtypes of different lengths.
+
+The tree printing program has also been tested to print the tree in order by name, and rating.  Also, the tree printing program has different functions to implement in-order, and post-order printing of the tree.
+
+***********************
+Order Printing (test_o)
+***********************
+The order printing program has been tested using three different data files.
+Sorting can be done using the name and the rating.
+In-order, and post-order printing are also available for this program (only the in-order prints in order).
