@@ -25,8 +25,10 @@ int getOrderTree (char * fileName, int order) {
 
 int main (int argc, char * argv[]) {
 	if (argc != 2) {
-		printf("%d\n",argc);
+		printf("Error, please enter the directory of the data file you would like to use.\n");
 	}
+
+	getOrderTree(argv[1]);
 
 	return 0;
 }
