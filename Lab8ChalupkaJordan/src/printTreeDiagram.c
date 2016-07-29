@@ -23,9 +23,6 @@ int printTree (char * fileName, int treeType) {
 	getchar();
 	exitNCurses();
 
-	free(nameTree);
-	free(ratingTree);
-
 	fclose(file);
 
 	return 0;
