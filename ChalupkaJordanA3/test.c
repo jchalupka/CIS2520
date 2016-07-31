@@ -87,7 +87,7 @@ int main (void) {
 	readPath(stream);
 
 	// Change the working directory
-	changePath("./..");
+	changePath("/temp");
 
 	// Open another dir?
 	DIR * newStream = openPath("..");
