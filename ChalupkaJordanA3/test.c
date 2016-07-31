@@ -85,6 +85,7 @@ int main (void) {
 
 	// Close the directory (maybe not)
 	closePath(stream);
+	closePath(newStream);
 
 	
 	return 0;
