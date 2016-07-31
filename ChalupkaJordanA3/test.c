@@ -68,6 +68,13 @@ void readPath (DIR *stream) {
 	return;
 }
 
+char * changePath (char * path) {
+	int changed = chdir(path);
+	if (changed == -1) REPORT_ERROR();
+
+	return path;
+}
+
 int main (void) {
 	// Get the file path of the current directory
 	char path[255];
@@ -78,6 +85,9 @@ int main (void) {
 
 	// Read the directory
 	readPath(stream);
+
+	// Change the working directory
+	changePath("..");
 
 	// Open another dir?
 	DIR * newStream = openPath("..");
