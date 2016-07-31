@@ -82,7 +82,7 @@ int main (void) {
 	// Open another dir?
 	DIR * newStream = openPath("..");
 	readPath(newStream);
-	printf("%s", path);
+	printf("%s\n", path);
 	// Close the directory (maybe not)
 	closePath(stream);
 	closePath(newStream);
