@@ -28,7 +28,7 @@ do { 															\
 // End of maco for error reporter
 
 char * getPath (void) {
-	char * path = getcwd(path, sizeof(char)*255));
+	char * path = getcwd(path, sizeof(char)*255);
 
 	if (path != NULL)
 		fprintf(stdout, "current dir %s\n", path);
