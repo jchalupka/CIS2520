@@ -27,15 +27,15 @@ do { 															\
 } while (0);  // Fixed issue with trailing semicollon & else statement
 // End of maco for error reporter
 
-char * getPath (void) {
-	char * path = getcwd(path, sizeof(char)*255);
+void getPath (char * path ) {
+	getcwd(path, sizeof(char)*255);
 
 	if (path != NULL)
 		fprintf(stdout, "current dir %s\n", path);
 	else
 		 REPORT_ERROR();
 	
-	return path;
+	return;
 }
 
 DIR * openPath (char * path) {
@@ -70,7 +70,8 @@ void readPath (DIR *stream) {
 
 int main (void) {
 	// Get the file path of the current directory
-	char * path = getPath();
+	char path[255];
+	getPath(path);
 
 	// Open the directory
 	DIR *stream = openPath(path);
