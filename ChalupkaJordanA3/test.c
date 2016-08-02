@@ -6,7 +6,6 @@
 
 // DIR struct
 #include <dirent.h>
-#include <dirent.h>
 
 // Get the path (current working directory)
 #include <unistd.h>
@@ -27,19 +26,18 @@ do { 															\
 } while (0);  // Fixed issue with trailing semicollon & else statement
 // End of maco for error reporter
 
-char * getPath (char * path ) {
+void getPath (char * path ) {
 	getcwd(path, sizeof(char)*255);
 
-	if (path != NULL)
-		fprintf(stdout, "current dir %s\n", path);
-	else
+	if (path == NULL)
 		 REPORT_ERROR();
 	
-	return path;
+	return;
 }
 
 DIR * openPath (char * path) {
 	DIR *stream = opendir(path);
+	
 	if (stream == NULL) REPORT_ERROR();
 
 	return stream;
@@ -60,7 +58,7 @@ void readPath (DIR *stream) {
 	do {
 		dp = readdir(stream);
 		if (dp != NULL) {
-			printf("%s\n", dp->d_name);
+			printf("%d %s\n", dp->d_type, dp->d_name); //d_name is name
 		}
 
 	} while (dp != NULL);
@@ -68,34 +66,62 @@ void readPath (DIR *stream) {
 	return;
 }
 
-char * changePath (char * path) {
+void changePath (char * path) {
 	int changed = chdir(path);
 	if (changed == -1) REPORT_ERROR();
 
-	return path;
+	return;
+}
+
+int getType () {
+
+	return 1;
+}
+
+void readDir (DIR *stream) {
+	struct dirent *dp;
+	do {
+		dp = readdir(stream);
+		if (dp != NULL && dp->d_type == DT_DIR)
+			printf("%s\n", dp->d_name);
+	} while (dp != NULL);
+	printf("\n");
+
+	return;
+}
+
+void recursivePart (DIR *stream) {
+
+
+	return;
+}
+
+void traverseDir(char * dir) {
+	DIR *stream = openPath(dir);
+	struct dirent *dp;
+	do {
+		dp = readdir(stream);
+		if (dp != NULL) {
+			if (dp->d_type == DT_DIR && strcmp(dp->d_name, ".") && strcmp(dp->d_name, "..")) {
+				
+				char newDir[255];
+				sprintf(newDir, "%s/%s",dir,dp->d_name);
+				printf("%s\n",newDir);
+				traverseDir(newDir);
+			}
+				
+			if (dp->d_type == DT_REG) 
+				printf("%s\n",dp->d_name);
+		}
+	} while (dp != NULL);
+
+	closePath(stream);
+
+	return;
 }
 
 int main (void) {
-	// Get the file path of the current directory
-	char path[255];
-	getPath(path);
-	printf("%s\n", path);
-	// Open the directory
-	DIR *stream = openPath(path);
-
-	// Read the directory
-	readPath(stream);
-
-	// Change the working directory
-	changePath("/temp");
-
-	// Open another dir?
-	DIR * newStream = openPath("..");
-	readPath(newStream);
-	printf("%s\n", path);
-	// Close the directory (maybe not)
-	closePath(stream);
-	closePath(newStream);
+	traverseDir(".");
 
 	
 	return 0;
