@@ -95,8 +95,6 @@ void insertBinTree (BinTree *tree, void *data) {
 	rootToAdd = calloc(1, sizeof(BinNode));
 	rootToAdd->left = NULL;
 	rootToAdd->right = NULL;
-	void * dataPtr = &(rootToAdd->data);
-	dataPtr = calloc(1,sizeof(data));
 	rootToAdd->data = data;
 
 
