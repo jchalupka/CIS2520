@@ -96,7 +96,7 @@ void insertBinTree (BinTree *tree, void *data) {
 	rootToAdd->left = NULL;
 	rootToAdd->right = NULL;
 	rootToAdd->data = calloc(1,sizeof(data));
-	rootToAdd->data = data;
+	strcpy(rootToAdd->data,data);
 
 
 	// Fix here
