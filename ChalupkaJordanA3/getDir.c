@@ -45,6 +45,14 @@ DIR* openDirectory (char * dir) {
 	return stream;
 }
 
+void closeDirectory (DIR *stream) {
+	int closed = closedir(stream);
+
+	// Will return -1 on Error
+	if (closed == -1) REPORT_ERROR();
+
+	return;
+}
 
 void traverseDir (char * dir, BinTree * tree) {
 	DIR *stream = openDirectory(dir);
@@ -70,6 +78,9 @@ void traverseDir (char * dir, BinTree * tree) {
 			
 	} while (currentDir != NULL);
 
+	closeDirectory(stream);
+	
+	return;
 }
 
 int main (int argc, char * argv[]) {
