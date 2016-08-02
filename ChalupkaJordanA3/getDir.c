@@ -79,7 +79,7 @@ void traverseDir (char * dir, BinTree * tree) {
 	} while (currentDir != NULL);
 
 	closeDirectory(stream);
-	
+
 	return;
 }
 

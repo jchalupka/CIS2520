@@ -95,6 +95,7 @@ void insertBinTree (BinTree *tree, void *data) {
 	rootToAdd = calloc(1, sizeof(BinNode));
 	rootToAdd->left = NULL;
 	rootToAdd->right = NULL;
+	rootToAdd->data = calloc(1,sizeof(data));
 	rootToAdd->data = data;
 
 
@@ -110,6 +111,7 @@ BinNode* removeBinNode (BinNode *toDestroy) {
 		toDestroy->left = removeBinNode(toDestroy->left);
 		toDestroy->right = removeBinNode(toDestroy->right);
 
+		free(toDestroy->data);
 		free(toDestroy);
 		toDestroy = NULL;
 	}
