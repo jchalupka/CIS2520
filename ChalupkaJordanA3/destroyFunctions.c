@@ -69,12 +69,10 @@ BinNode* destroyNode (BinTree * tree, void * data) {
  */
 BinNode* rightMost (BinNode * node) {
 	node = node->right;
-	if (node == NULL) return node;
-		printf("This is Here\n");
+	if (node->right == NULL) return node;
+	rightMost(node);
 	
-	if (node->right) {
-		node = rightMost(node);
-	}
+	
 
 	return node;	
 }
@@ -85,8 +83,9 @@ BinNode* rightMost (BinNode * node) {
  *
  */
 BinNode* removeRightMost (BinNode * node) {	
+	;
 	if (node->right == NULL) {
-		node = NULL;  // When the last node is reached, delete it
+		// When the last node is reached, delete it
 		return node;
 	}
 	node = node->right;
@@ -110,17 +109,8 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 
 	BinNode * replacement;
 	if (toDestroy->right && toDestroy->left) { // Left and Right Children
-		
-		replacement = rightMost(toDestroy->left);
-		replacement->left = removeRightMost(toDestroy->left);
-		if (replacement == NULL) {
-			printf("Made it here\n");
-			replacement = toDestroy->left;
-		}
-		
-		printf("This is the replacement: %s\n", replacement->data);
-		replacement->left = toDestroy->left;
-		replacement->right = toDestroy->right;
+		replacement = rightMost(toDestroy->left); // This will replace toDestroy
+		if (replacement == NULL) printf("Error\n");		
 
 	} else if (toDestroy->left) { // Left Child
 		printf("Left Child\n");
