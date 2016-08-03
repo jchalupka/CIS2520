@@ -98,7 +98,7 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 		
 		replacement = rightMost(toDestroy->left);
 
-		printf("This is the data: %s\n", replacement->data);
+		//printf("This is the data: %s\n", replacement->data);
 		//replacement->left = removeLeftMost(replacement->right, replacement);
 		printf("Here\n");
 		
@@ -117,10 +117,10 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 	free(toDestroy->data);
 	free(toDestroy);
 
-	/*toDestroy = replacement;
+	toDestroy = replacement;
 	toDestroy->left = NULL;
 	toDestroy->right = NULL;
-	*/
+	
 
 	//avlBalance(tree);
 
