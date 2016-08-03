@@ -52,7 +52,7 @@ BinTree * createBinTree (int (*compareFunction) (void *d1, void *d2), void *(*de
 
 void * destroyBinTree (void *toDestroy) {
 	BinTree * tree = toDestroy;
-	if (toDestroy) {
+	if (tree && tree->root) {
 		tree->root = removeBinNode(tree, tree->root);
 
 		free(tree);
@@ -63,20 +63,66 @@ void * destroyBinTree (void *toDestroy) {
 	return tree;
 }
 
+BinNode* rightMost (BinNode * node) {
+	node = node->right;
+	if (node == NULL) return node;
+		printf("Here\n");
 
-BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
-	if (toDestroy) {
-		removeBinNode(tree, toDestroy->left);
-		printf("Destroying %s\n", toDestroy->data);
-
-		removeBinNode(tree, toDestroy->right);
-
-		free(toDestroy->data);
-		free(toDestroy);
-		toDestroy = NULL;
+	if (node->right) {
+		node = rightMost(node);
 	}
 
-	avlBalance(tree);
+	return node;
+
+	
+}
+
+BinNode* removeLeftMost (BinNode * node, BinNode * remove) {
+	if (node == remove) {
+		return node->right;
+	}
+	else {
+		node->left = removeLeftMost(node->left, remove);
+		return node;
+	}
+}
+
+BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
+	if (!toDestroy) return NULL;
+	//removeBinNode(tree, toDestroy->left);
+	printf("Destroying %s\n", toDestroy->data);
+
+	//removeBinNode(tree, toDestroy->right);
+	BinNode * replacement;
+	if (toDestroy->right && toDestroy->left) { // Left and Right Children
+		
+		replacement = rightMost(toDestroy->left);
+
+		printf("This is the data: %s\n", replacement->data);
+		//replacement->left = removeLeftMost(replacement->right, replacement);
+		printf("Here\n");
+		
+
+	} else if (toDestroy->left) { // Left Child
+		printf("Left Child\n");
+		replacement = toDestroy->left;
+	} else if (toDestroy->right) { // Right Children
+		printf("Right Child\n");
+		replacement = toDestroy->right;
+	} else { // No Children
+		printf("No Child");
+		replacement = NULL;
+
+	}
+	free(toDestroy->data);
+	free(toDestroy);
+
+	/*toDestroy = replacement;
+	toDestroy->left = NULL;
+	toDestroy->right = NULL;
+	*/
+
+	//avlBalance(tree);
 
 	return toDestroy;
 }
@@ -191,7 +237,7 @@ BinNode *avl_rotate_rightright( BinNode *node ) {
 
 BinNode* avlBalanceNode( BinNode *node ) {
 	BinNode *newroot = NULL;
-	if (node == NULL) return node;
+	//if (node == NULL || node->left == NULL || node->right == NULL) return node;
 	/* Balance our children, if they exist. */
 	if( node->left )
 		node->left  = avlBalanceNode( node->left  );
@@ -227,6 +273,7 @@ BinNode* avlBalanceNode( BinNode *node ) {
 
 void avlBalance(BinTree * tree) {
 	BinNode *newNode = NULL;
+	//printf("Here  %s\n", tree->root->data);
 	newNode = avlBalanceNode(tree->root);
 
 	if (newNode != tree->root) {
@@ -274,6 +321,7 @@ void printTree (BinNode * root) {
 	}
 	// Traverse
 	//traverseInOrder(printTree, printNode, root);
+	if (root == NULL) return;
 	printTree(root->left);
 	printNode(root);
 	printTree(root->right);
@@ -307,6 +355,69 @@ BinNode* searchTree (BinTree * tree, void * data) {
 		printf("Not found!\n");
 	}
 
+	return result;
+}
+
+BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2)) {
+	static BinNode *result = NULL;
+	int order = compareFunction(node->data,data);
+
+	int orderLeft = -1;
+	int orderRight = -1;
+
+	if (node->left) orderLeft = compareFunction(node->left->data, data);
+	if (node->right) orderRight = compareFunction(node->right->data, data);
+	
+	if (order == 0) {
+		printf("returning Root\n");
+		return node;
+	}
+
+	if (orderRight == 0  || orderLeft == 0/*|| orderLeft == 0 || orderRight == 0*/) {
+		result = node;
+	}
+	if (order > 0 && node->left != NULL) {
+		searchAndDestroy(node->left, data, compareFunction);
+	} else if (node->right != NULL){
+		searchAndDestroy (node->right, data, compareFunction);
+	}
+
+	return result;
+}
+
+BinNode* destroyNode (BinTree * tree, void * data) {
+	if (!(tree && tree->root)) {
+		fprintf(stderr, "Error, tree not created correctly\n");
+		return NULL;
+	}
+	BinNode *result = searchAndDestroy(tree->root, data, tree->compareFunction);
+	if (result == NULL) {
+		printf("Not found!\n");
+		return result;
+	}
+
+	int (*compareFunction) (void *, void *) = tree->compareFunction;
+	if (!compareFunction(data, result->data)) {
+	/*
+
+		Destroy the entire directory for now
+	*/
+		
+		destroyBinTree(tree);
+		return NULL;
+	}
+	else if (!compareFunction(data, result->left->data )) {
+		printf("Removed %s\n", result->left->data);
+		
+		result->left = removeBinNode(tree, result->left);
+	}
+	else {
+		
+		printf("Removed %s\n", result->right->data);
+		result->right = removeBinNode(tree, result->right);
+	}
+
+	avlBalance(tree);
 	return result;
 }
 

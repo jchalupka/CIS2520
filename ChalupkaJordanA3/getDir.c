@@ -101,17 +101,19 @@ int main (int argc, char * argv[]) {
 	insertBinTree(tree, dirName);
 	traverseDir(dir, tree);
 
-	BinNode* result = searchTree(tree, "testDir/testDir1");
+	
+	destroyNode(tree, "testDir/testDir3");
 
-	//result = removeBinNode(tree,&result);
+
+	initNCurses();
+	traverseInOrder(tree->root,0);
+	getchar();
+	exitNCurses();
 	
-	// initNCurses();
-	// traverseInOrder(tree->root,0);
-	// getchar();
-	// exitNCurses();
-	printTree(tree->root);
-	destroyBinTree(tree);
-	
+	//destroyBinTree(tree);
+	//qprintTree(tree->root);
+	//BinNode * node = rightMost(tree->root);
+	//printf("%s\n", node->data);
 	return 0;
 }
 

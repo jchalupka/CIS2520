@@ -45,4 +45,7 @@ BinNode *avl_rotate_rightleft( BinNode *node );
 BinNode *avl_rotate_leftright( BinNode *node );
 BinNode *avl_rotate_leftleft( BinNode *node );
 
+BinNode* destroyNode (BinTree * tree, void * data);
+BinNode* rightMost (BinNode * node);
+
 #endif
