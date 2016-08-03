@@ -191,7 +191,7 @@ BinNode *avl_rotate_rightright( BinNode *node ) {
 
 BinNode* avlBalanceNode( BinNode *node ) {
 	BinNode *newroot = NULL;
-	if (!node) return node;
+	if (node == NULL) return node;
 	/* Balance our children, if they exist. */
 	if( node->left )
 		node->left  = avlBalanceNode( node->left  );
