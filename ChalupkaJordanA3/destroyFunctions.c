@@ -68,12 +68,12 @@ BinNode* destroyNode (BinTree * tree, void * data) {
  *
  */
 BinNode* rightMost (BinNode * node) {
-	node = node->right;
+	
 	if (node->right == NULL) return node;
+	
+	
+	node = node->right;
 	rightMost(node);
-	
-	
-
 	return node;	
 }
 
