@@ -97,6 +97,7 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 	if (toDestroy->right && toDestroy->left) { // Left and Right Children
 		
 		replacement = rightMost(toDestroy->left);
+		rightMost(toDestroy->left) == NULL;
 		if (replacement == NULL) {
 			printf("Made it here\n");
 			replacement = toDestroy->left;
@@ -166,7 +167,7 @@ BinNode* destroyNode (BinTree * tree, void * data) {
 	}
 
 	avlBalance(tree);
-	
+
 	return result;
 }
 
