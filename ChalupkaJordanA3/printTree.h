@@ -4,6 +4,7 @@
 #define __JCHALUPKA_PRINTTREE__
 
 #include "BinaryTree.h"
+#include <stdlib.h>
 #include <curses.h>
 
 
@@ -69,5 +70,7 @@ Pre: Tree and ncurses environment are initialized.
 Post: The tree is traversed in order and printed to the screen.
 */
 void traversePreOrder (BinNode * tree, int shift);
+
+int balanceFactor (BinNode * tree);
 
 #endif

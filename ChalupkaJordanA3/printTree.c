@@ -2,6 +2,7 @@
 
 #include "printTree.h"
 
+
 int getNumRoots (BinNode * tree) {
 	if (tree == NULL) {
 		return 0;
@@ -91,10 +92,10 @@ int exitNCurses () {
 void printData(BinNode * tree, int shift) {
 	if (!(tree && tree->data)) fprintf(stderr, "Error\n"); 
 
-
 	int cury,curx;
 	getyx(stdscr, cury, curx);
 	char word[255];
+	//sprintf(word, "%d", balanceFactor(tree));
 	sprintf(word, "%s",tree->data);
 	move(cury,curx + shift);
 	
@@ -143,3 +144,14 @@ void traversePreOrder (BinNode * tree, int shift) {
 	return;
 
 }
+
+
+
+
+
+
+
+
+
+
+

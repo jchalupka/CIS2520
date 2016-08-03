@@ -13,16 +13,16 @@ typedef struct BinaryTreeNode {
 typedef struct BinaryTree {
 	BinNode * root;
 	int (*compareFunction) (void *d1, void *d2);
-	void (*destroyFunction) (void *toDestroy);
+	void *(*destroyFunction) (void *tree);
 } BinTree;
 
 #include "printTree.h"
 
 // User wrapper functions
-BinTree* createBinTree (int (*compareFunction) (void *d1, void *d2), void (*destroyFunction) (void *toDestroy));
-BinTree* destroyBinTree (BinTree *toDestroy);
+BinTree* createBinTree (int (*compareFunction) (void *d1, void *d2), void * (*destroyBinTree)(void * toDestroy) );
+void* destroyBinTree (void *toDestroy);
 void insertBinTree (BinTree *tree, void *data);
-BinNode* removeBinNode (BinNode *tree);
+BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy);
 BinNode* getLeftSubtree(BinNode *tree);
 BinNode* getRightSubtree(BinNode *tree);
 void printTree (BinNode * root);
@@ -38,6 +38,11 @@ BinNode* searchTree (BinTree * tree, void * data);
 BinNode* search (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2));
 // isFull
 
-
+void avlBalance(BinTree * tree);
+BinNode* avlBalanceNode( BinNode *node );
+BinNode *avl_rotate_rightright( BinNode *node );
+BinNode *avl_rotate_rightleft( BinNode *node );
+BinNode *avl_rotate_leftright( BinNode *node );
+BinNode *avl_rotate_leftleft( BinNode *node );
 
 #endif

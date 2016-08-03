@@ -65,13 +65,15 @@ void traverseDir (char * dir, BinTree * tree) {
 		currentDir = readdir(stream);
 		if (currentDir != NULL) {
 			if (currentDir->d_type == DT_DIR  && strcmp(currentDir->d_name, ".") && strcmp(currentDir->d_name, "..")) {
-				char newDir[255];
+				char * newDir = malloc(sizeof(char)*255);
 				sprintf(newDir, "%s/%s", dir, currentDir->d_name);
+				insertBinTree(tree, newDir);
 				traverseDir(newDir, tree);
 			} else if (currentDir->d_type == DT_REG) {
 				// Add to the tree here
 				char * path = malloc(sizeof(char)*255);
-				sprintf(path, "%s/%s\n", dir, currentDir->d_name);
+				sprintf(path, "%s/%s", dir, currentDir->d_name);
+				//sprintf(path, "%s", currentDir->d_name);
 				insertBinTree(tree, path);
 			}
 		}
@@ -88,14 +90,28 @@ int main (int argc, char * argv[]) {
 		fprintf(stdout, "Error, incorrect input\n");
 		return -1;
 	}
-	char dir[255];
-	strcpy(dir, argv[1]);
+	char *dirName = malloc(sizeof(char)*255);
+	char *dir = malloc(sizeof(char)*255);
+	sprintf(dir, "%s", argv[1]);
+	sprintf(dirName, "%s", argv[1]);
 
-	BinTree *tree = createBinTree(compareStrings, destroyStub);
+	printf("%p\n%p\n", dir, dirName);
+
+	BinTree *tree = createBinTree(compareStrings, destroyBinTree);
+	insertBinTree(tree, dirName);
 	traverseDir(dir, tree);
-	printTree(tree->root);
 
-	tree = destroyBinTree(tree);
+	BinNode* result = searchTree(tree, "testDir/testDir1");
+
+	//result = removeBinNode(tree,&result);
+	
+	// initNCurses();
+	// traverseInOrder(tree->root,0);
+	// getchar();
+	// exitNCurses();
+	printTree(tree->root);
+	destroyBinTree(tree);
+	
 	return 0;
 }
 

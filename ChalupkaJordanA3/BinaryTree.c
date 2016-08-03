@@ -40,32 +40,68 @@ int compareStrings (void *d1, void *d2) {
 	return order;
 }
 
-// Stub delete function
-void destroyStub (void *toDestroy) {
-
-	return;
-}
-
 // User functions
-BinTree * createBinTree (int (*compareFunction) (void *d1, void *d2), void (*destroyFunction) (void *toDestroy)) {
+BinTree * createBinTree (int (*compareFunction) (void *d1, void *d2), void *(*destroyBinTree) (void *tree)) {
 	BinTree *toCreate;
 	toCreate = calloc(1, sizeof(BinTree));
 	toCreate->compareFunction = compareFunction;
-	toCreate->destroyFunction = destroyFunction;
+	toCreate->destroyFunction = destroyBinTree;
 
 	return toCreate;
 }
 
-BinTree * destroyBinTree (BinTree *toDestroy) {
+void * destroyBinTree (void *toDestroy) {
+	BinTree * tree = toDestroy;
 	if (toDestroy) {
-		toDestroy->root = removeBinNode(toDestroy->root);
+		tree->root = removeBinNode(tree, tree->root);
 
+		free(tree);
+
+		tree = NULL;
+	}
+
+	return tree;
+}
+
+
+BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
+	if (toDestroy) {
+		removeBinNode(tree, toDestroy->left);
+		printf("Destroying %s\n", toDestroy->data);
+
+		removeBinNode(tree, toDestroy->right);
+
+		free(toDestroy->data);
 		free(toDestroy);
-
 		toDestroy = NULL;
 	}
 
+	avlBalance(tree);
+
 	return toDestroy;
+}
+
+
+BinNode * rotateRight (BinNode * tree) {
+	BinNode * node = tree->left;
+	BinNode * node2 = node->right;
+
+	// Rotation
+	node->right = tree;
+	tree->left = node2;
+
+	return node;
+}
+
+BinNode * rotateLeft (BinNode * tree) {
+	BinNode * node = tree->right;
+	BinNode * node2 = node->left;
+
+	// Rotation
+	node->left = tree;
+	tree->right = node2;
+
+	return node;
 }
 
 void insert (BinNode ** root, BinNode *rootToAdd, int (*compareFunction) (void *d1, void *d2)) {
@@ -80,6 +116,121 @@ void insert (BinNode ** root, BinNode *rootToAdd, int (*compareFunction) (void *
 	}
 	else {
 		insert(&((*root)->right), rootToAdd, compareFunction);
+	}
+}
+
+int max ( int a, int b ) { return a > b ? a : b; }
+
+int getHeight (BinNode * tree) {
+	if (tree == NULL) {
+		return -1;
+	}
+
+	return max(getHeight(tree->left),getHeight(tree->right)) + 1;
+}
+
+void AVLInsert () {
+
+}
+
+int balanceFactor (BinNode * tree) {
+	int bf = getHeight(tree->left) - getHeight(tree->right);
+
+	return bf;
+}
+
+/* Left Left Rotate */
+BinNode *avl_rotate_leftleft( BinNode *node ) {
+ 	BinNode *a = node;
+	BinNode *b = a->left;
+	
+	a->left = b->right;
+	b->right = a;
+
+	return( b );
+}
+
+/* Left Right Rotate */
+BinNode *avl_rotate_leftright( BinNode *node ) {
+	BinNode *a = node;
+	BinNode *b = a->left;
+	BinNode *c = b->right;
+	
+	a->left = c->right;
+	b->right = c->left; 
+	c->left = b;
+	c->right = a;
+
+	return( c );
+}
+
+/* Right Left Rotate */
+BinNode *avl_rotate_rightleft( BinNode *node ) {
+	BinNode *a = node;
+	BinNode *b = a->right;
+	BinNode *c = b->left;
+	
+	a->right = c->left;
+	b->left = c->right; 
+	c->right = b;
+	c->left = a;
+
+	return( c );
+}
+
+/* Right Right Rotate */
+BinNode *avl_rotate_rightright( BinNode *node ) {
+	BinNode *a = node;
+	BinNode *b = a->right;
+	
+	a->right = b->left;
+	b->left = a; 
+
+	return( b );
+}
+
+BinNode* avlBalanceNode( BinNode *node ) {
+	BinNode *newroot = NULL;
+
+	/* Balance our children, if they exist. */
+	if( node->left )
+		node->left  = avlBalanceNode( node->left  );
+	if( node->right ) 
+		node->right = avlBalanceNode( node->right );
+
+	int bf = balanceFactor( node );
+
+	if( bf >= 2 ) {
+		/* Left Heavy */	
+
+		if( balanceFactor( node->left ) <= -1 ) 
+			newroot = avl_rotate_leftright( node );
+		else 
+			newroot = avl_rotate_leftleft( node );
+
+	} else if( bf <= -2 ) {
+		/* Right Heavy */
+
+		if( balanceFactor( node->right ) >= 1 )
+			newroot = avl_rotate_rightleft( node );
+		else 
+			newroot = avl_rotate_rightright( node );
+
+	} else {
+		/* This node is balanced -- no change. */
+
+		newroot = node;
+	}
+
+	return( newroot );	
+}
+
+void avlBalance(BinTree * tree) {
+	BinNode *newNode = NULL;
+	newNode = avlBalanceNode(tree->root);
+
+	if (newNode != tree->root) {
+		tree->root = newNode;
 	}
 }
 
@@ -102,22 +253,10 @@ void insertBinTree (BinTree *tree, void *data) {
 	//tree->root = root;
 	insert(&tree->root, rootToAdd, tree->compareFunction);
 
+	avlBalance(tree);
+
 	return;
 }
-
-BinNode* removeBinNode (BinNode *toDestroy) {
-	if (toDestroy) {
-		toDestroy->left = removeBinNode(toDestroy->left);
-		toDestroy->right = removeBinNode(toDestroy->right);
-
-		free(toDestroy->data);
-		free(toDestroy);
-		toDestroy = NULL;
-	}
-
-	return toDestroy;
-}
-
 
 
 
@@ -125,7 +264,7 @@ void printNode (BinNode *node) {
 	if (!(node  && node->data)){
 		return;
 	}
-	fprintf(stdout, "%s",node->data);
+	fprintf(stdout, "%s\n",node->data);
 	return;
 }
 
@@ -177,6 +316,8 @@ BinNode* getLeftSubtree(BinNode *tree) {
 BinNode* getRightSubtree(BinNode *tree) {
 	return tree->right;
 }
+
+
 /*
 int main (void) {
 	
