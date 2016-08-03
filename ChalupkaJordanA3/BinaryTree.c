@@ -66,8 +66,8 @@ void * destroyBinTree (void *toDestroy) {
 BinNode* rightMost (BinNode * node) {
 	node = node->right;
 	if (node == NULL) return node;
-		printf("Here\n");
-
+		printf("This is Here\n");
+	
 	if (node->right) {
 		node = rightMost(node);
 	}
@@ -97,11 +97,15 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 	if (toDestroy->right && toDestroy->left) { // Left and Right Children
 		
 		replacement = rightMost(toDestroy->left);
-
+		if (replacement == NULL) {
+			printf("Made it here\n");
+			replacement = toDestroy->left;
+		}
 		//printf("This is the data: %s\n", replacement->data);
 		//replacement->left = removeLeftMost(replacement->right, replacement);
-		printf("Here\n");
-		
+		printf("This is the replacement: %s\n", replacement->data);
+		replacement->left = toDestroy->left;
+		replacement->right = toDestroy->right;
 
 	} else if (toDestroy->left) { // Left Child
 		printf("Left Child\n");
@@ -114,12 +118,14 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 		replacement = NULL;
 
 	}
+
+	
+	toDestroy = replacement;
 	free(toDestroy->data);
 	free(toDestroy);
-
-	toDestroy = replacement;
-	toDestroy->left = NULL;
-	toDestroy->right = NULL;
+	// toDestroy = replacement;
+	// toDestroy->left = NULL;
+	// toDestroy->right = NULL;
 	
 
 	//avlBalance(tree);
@@ -127,6 +133,42 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 	return toDestroy;
 }
 
+BinNode* destroyNode (BinTree * tree, void * data) {
+	if (!(tree && tree->root)) {
+		fprintf(stderr, "Error, tree not created correctly\n");
+		return NULL;
+	}
+	BinNode *result = searchAndDestroy(tree->root, data, tree->compareFunction);
+	if (result == NULL) {
+		printf("Not found!\n");
+		return result;
+	}
+
+	int (*compareFunction) (void *, void *) = tree->compareFunction;
+	if (!compareFunction(data, result->data)) {
+	/*
+
+		Destroy the entire directory for now
+	*/
+		
+		destroyBinTree(tree);
+		return NULL;
+	}
+	else if (!compareFunction(data, result->left->data )) {
+		printf("Removed %s\n", result->left->data);
+		
+		result->left = removeBinNode(tree, result->left);
+	}
+	else {
+		
+		printf("Removed %s\n", result->right->data);
+		result->right = removeBinNode(tree, result->right);
+	}
+
+	avlBalance(tree);
+	
+	return result;
+}
 
 BinNode * rotateRight (BinNode * tree) {
 	BinNode * node = tree->left;
@@ -385,41 +427,7 @@ BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (
 	return result;
 }
 
-BinNode* destroyNode (BinTree * tree, void * data) {
-	if (!(tree && tree->root)) {
-		fprintf(stderr, "Error, tree not created correctly\n");
-		return NULL;
-	}
-	BinNode *result = searchAndDestroy(tree->root, data, tree->compareFunction);
-	if (result == NULL) {
-		printf("Not found!\n");
-		return result;
-	}
 
-	int (*compareFunction) (void *, void *) = tree->compareFunction;
-	if (!compareFunction(data, result->data)) {
-	/*
-
-		Destroy the entire directory for now
-	*/
-		
-		destroyBinTree(tree);
-		return NULL;
-	}
-	else if (!compareFunction(data, result->left->data )) {
-		printf("Removed %s\n", result->left->data);
-		
-		result->left = removeBinNode(tree, result->left);
-	}
-	else {
-		
-		printf("Removed %s\n", result->right->data);
-		result->right = removeBinNode(tree, result->right);
-	}
-
-	avlBalance(tree);
-	return result;
-}
 
 BinNode* getLeftSubtree(BinNode *tree) {
 	return tree->left;
