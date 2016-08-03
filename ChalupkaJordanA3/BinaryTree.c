@@ -24,101 +24,6 @@ BinTree * createBinTree (int (*compareFunction) (void *d1, void *d2), void *(*de
 }
 
 
-BinNode* rightMost (BinNode * node) {
-	node = node->right;
-	if (node == NULL) return node;
-		printf("This is Here\n");
-	
-	if (node->right) {
-		node = rightMost(node);
-	}
-
-	return node;
-
-	
-}
-
-BinNode* removeRightMost (BinNode * node, BinNode * remove) {
-	if (node == remove) {
-		return node->right;
-	}
-	else {
-		node->right = removeRightMost(node->right, remove);
-		return node;
-	}
-}
-
-BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
-	if (!toDestroy) return NULL;
-	//removeBinNode(tree, toDestroy->left);
-	printf("Destroying %s\n", toDestroy->data);
-
-	//removeBinNode(tree, toDestroy->right);
-	BinNode * replacement;
-	if (toDestroy->right && toDestroy->left) { // Left and Right Children
-		
-		replacement = rightMost(toDestroy->left);
-		replacement->left = removeRightMost(toDestroy->left, replacement);
-		if (replacement == NULL) {
-			printf("Made it here\n");
-			replacement = toDestroy->left;
-		}
-		//printf("This is the data: %s\n", replacement->data);
-		//replacement->left = removeLeftMost(replacement->right, replacement);
-		printf("This is the replacement: %s\n", replacement->data);
-		replacement->left = toDestroy->left;
-		replacement->right = toDestroy->right;
-
-	} else if (toDestroy->left) { // Left Child
-		printf("Left Child\n");
-		replacement = toDestroy->left;
-	} else if (toDestroy->right) { // Right Children
-		printf("Right Child\n");
-		replacement = toDestroy->right;
-	} else { // No Children
-		printf("No Child");
-		replacement = NULL;
-
-	}
-
-	
-	toDestroy = replacement;
-	free(toDestroy->data);
-	free(toDestroy);
-	// toDestroy = replacement;
-	// toDestroy->left = NULL;
-	// toDestroy->right = NULL;
-	
-
-	//avlBalance(tree);
-
-	return toDestroy;
-}
-
-
-
-BinNode * rotateRight (BinNode * tree) {
-	BinNode * node = tree->left;
-	BinNode * node2 = node->right;
-
-	// Rotation
-	node->right = tree;
-	tree->left = node2;
-
-	return node;
-}
-
-BinNode * rotateLeft (BinNode * tree) {
-	BinNode * node = tree->right;
-	BinNode * node2 = node->left;
-
-	// Rotation
-	node->left = tree;
-	tree->right = node2;
-
-	return node;
-}
-
 void insert (BinNode ** root, BinNode *rootToAdd, int (*compareFunction) (void *d1, void *d2)) {
 	if (!*root) {
 		*root = rootToAdd;
@@ -143,9 +48,6 @@ int getHeight (BinNode * tree) {
 
 	return max(getHeight(tree->left),getHeight(tree->right)) + 1;
 }
-
-
-
 
 void insertBinTree (BinTree *tree, void *data) {
 	if (!tree) {

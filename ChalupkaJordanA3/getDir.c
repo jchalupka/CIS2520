@@ -102,7 +102,7 @@ int main (int argc, char * argv[]) {
 	traverseDir(dir, tree);
 
 	
-	//destroyNode(tree, "testDir/testDir2/math.txt");
+	destroyNode(tree, "testDir/testDir2/math.txt");
 
 
 	initNCurses();
