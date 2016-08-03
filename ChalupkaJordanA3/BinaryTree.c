@@ -23,18 +23,6 @@ BinTree * createBinTree (int (*compareFunction) (void *d1, void *d2), void *(*de
 	return toCreate;
 }
 
-void * destroyBinTree (void *toDestroy) {
-	BinTree * tree = toDestroy;
-	if (tree && tree->root) {
-		tree->root = removeBinNode(tree, tree->root);
-
-		free(tree);
-
-		tree = NULL;
-	}
-
-	return tree;
-}
 
 BinNode* rightMost (BinNode * node) {
 	node = node->right;
@@ -107,42 +95,7 @@ BinNode* removeBinNode (BinTree *tree, BinNode *toDestroy) {
 	return toDestroy;
 }
 
-BinNode* destroyNode (BinTree * tree, void * data) {
-	if (!(tree && tree->root)) {
-		fprintf(stderr, "Error, tree not created correctly\n");
-		return NULL;
-	}
-	BinNode *result = searchAndDestroy(tree->root, data, tree->compareFunction);
-	if (result == NULL) {
-		printf("Not found!\n");
-		return result;
-	}
 
-	int (*compareFunction) (void *, void *) = tree->compareFunction;
-	if (!compareFunction(data, result->data)) {
-	/*
-
-		Destroy the entire directory for now
-	*/
-		
-		destroyBinTree(tree);
-		return NULL;
-	}
-	else if (!compareFunction(data, result->left->data )) {
-		printf("Removed %s\n", result->left->data);
-		
-		result->left = removeBinNode(tree, result->left);
-	}
-	else {
-		
-		printf("Removed %s\n", result->right->data);
-		result->right = removeBinNode(tree, result->right);
-	}
-
-	avlBalance(tree);
-
-	return result;
-}
 
 BinNode * rotateRight (BinNode * tree) {
 	BinNode * node = tree->left;
@@ -266,33 +219,6 @@ BinNode* searchTree (BinTree * tree, void * data) {
 
 	if (result == NULL) {
 		printf("Not found!\n");
-	}
-
-	return result;
-}
-
-BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2)) {
-	static BinNode *result = NULL;
-	int order = compareFunction(node->data,data);
-
-	int orderLeft = -1;
-	int orderRight = -1;
-
-	if (node->left) orderLeft = compareFunction(node->left->data, data);
-	if (node->right) orderRight = compareFunction(node->right->data, data);
-	
-	if (order == 0) {
-		printf("returning Root\n");
-		return node;
-	}
-
-	if (orderRight == 0  || orderLeft == 0) {
-		result = node;
-	}
-	if (order > 0 && node->left != NULL) {
-		searchAndDestroy(node->left, data, compareFunction);
-	} else if (node->right != NULL){
-		searchAndDestroy (node->right, data, compareFunction);
 	}
 
 	return result;
