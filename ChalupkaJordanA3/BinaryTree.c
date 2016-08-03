@@ -79,7 +79,7 @@ BinNode* rightMost (BinNode * node) {
 
 BinNode* removeRightMost (BinNode * node, BinNode * remove) {
 	if (node == remove) {
-		return node->left;
+		return node->right;
 	}
 	else {
 		node->right = removeRightMost(node->right, remove);
