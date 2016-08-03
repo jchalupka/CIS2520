@@ -1,4 +1,4 @@
-#include "AVL.h"
+#include "avl.h"
 
 int balanceFactor (BinNode * tree) {
 	int bf = getHeight(tree->left) - getHeight(tree->right);
