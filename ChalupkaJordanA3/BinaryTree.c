@@ -1,32 +1,5 @@
 #include "BinaryTree.h"
 
-/*
-typedef struct BinaryTreeNode {
-	struct BinaryTreeNode *left;
-	struct BinaryTreeNode *right;
-	void *data;
-} BinNode;
-
-typedef struct BinaryTree {
-	BinNode * root;
-	int (*compareFunction) (void *d1, void *d2);
-	void (*destroyFunction) (void *toDestroy);
-} BinTree;
-
-// User wrapper functions
-void createBinTree (BinTree *toCreate, (*compareFunction) (void *d1, void *d2), (*destroyFunction) (void *toDestroy));
-void destroyBinTree (BinTree *toDestroy);
-void insertBinNode (BinTree *tree, void *data);
-void removeBinNode (BinTree *tree, void *data);
-
-// Internal helper functions
-void insert (BinTree *root, void *data);
-void delete (BinTree *root, void *data);
-int isEmpty (BinTree *root);
-// isFull
-
-*/
-
 // Stub compare function
 int compareStrings (void *d1, void *d2) {
 	char string1[255];
@@ -218,111 +191,8 @@ int getHeight (BinNode * tree) {
 	return max(getHeight(tree->left),getHeight(tree->right)) + 1;
 }
 
-void AVLInsert () {
 
-}
 
-int balanceFactor (BinNode * tree) {
-	int bf = getHeight(tree->left) - getHeight(tree->right);
-
-	return bf;
-}
-
-/* Left Left Rotate */
-BinNode *avl_rotate_leftleft( BinNode *node ) {
- 	BinNode *a = node;
-	BinNode *b = a->left;
-	
-	a->left = b->right;
-	b->right = a;
-
-	return( b );
-}
-
-/* Left Right Rotate */
-BinNode *avl_rotate_leftright( BinNode *node ) {
-	BinNode *a = node;
-	BinNode *b = a->left;
-	BinNode *c = b->right;
-	
-	a->left = c->right;
-	b->right = c->left; 
-	c->left = b;
-	c->right = a;
-
-	return( c );
-}
-
-/* Right Left Rotate */
-BinNode *avl_rotate_rightleft( BinNode *node ) {
-	BinNode *a = node;
-	BinNode *b = a->right;
-	BinNode *c = b->left;
-	
-	a->right = c->left;
-	b->left = c->right; 
-	c->right = b;
-	c->left = a;
-
-	return( c );
-}
-
-/* Right Right Rotate */
-BinNode *avl_rotate_rightright( BinNode *node ) {
-	BinNode *a = node;
-	BinNode *b = a->right;
-	
-	a->right = b->left;
-	b->left = a; 
-
-	return( b );
-}
-
-BinNode* avlBalanceNode( BinNode *node ) {
-	BinNode *newroot = NULL;
-	//if (node == NULL || node->left == NULL || node->right == NULL) return node;
-	/* Balance our children, if they exist. */
-	if( node->left )
-		node->left  = avlBalanceNode( node->left  );
-	if( node->right ) 
-		node->right = avlBalanceNode( node->right );
-
-	int bf = balanceFactor( node );
-
-	if( bf >= 2 ) {
-		/* Left Heavy */	
-
-		if( balanceFactor( node->left ) <= -1 ) 
-			newroot = avl_rotate_leftright( node );
-		else 
-			newroot = avl_rotate_leftleft( node );
-
-	} else if( bf <= -2 ) {
-		/* Right Heavy */
-
-		if( balanceFactor( node->right ) >= 1 )
-			newroot = avl_rotate_rightleft( node );
-		else 
-			newroot = avl_rotate_rightright( node );
-
-	} else {
-		/* This node is balanced -- no change. */
-
-		newroot = node;
-	}
-
-	return( newroot );	
-}
-
-void avlBalance(BinTree * tree) {
-	BinNode *newNode = NULL;
-	//printf("Here  %s\n", tree->root->data);
-	newNode = avlBalanceNode(tree->root);
-
-	if (newNode != tree->root) {
-		tree->root = newNode;
-	}
-}
 
 void insertBinTree (BinTree *tree, void *data) {
 	if (!tree) {
@@ -416,7 +286,7 @@ BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (
 		return node;
 	}
 
-	if (orderRight == 0  || orderLeft == 0/*|| orderLeft == 0 || orderRight == 0*/) {
+	if (orderRight == 0  || orderLeft == 0) {
 		result = node;
 	}
 	if (order > 0 && node->left != NULL) {
@@ -428,34 +298,12 @@ BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (
 	return result;
 }
 
-
-
 BinNode* getLeftSubtree(BinNode *tree) {
 	return tree->left;
 }
 BinNode* getRightSubtree(BinNode *tree) {
 	return tree->right;
 }
-
-
-/*
-int main (void) {
-	
-	insertBinTree(tree, "Data What is this");
-	insertBinTree(tree, "That");
-	insertBinTree(tree, "This");
-	insertBinTree(tree, "Here");
-
-	
-	initNCurses();
-	traverseInOrder(tree->root, 0);	
-	getchar();
-	exitNCurses();
-
-	return 0;
-}
-
-*/
 
 
 

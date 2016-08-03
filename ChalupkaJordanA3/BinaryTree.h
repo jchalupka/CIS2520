@@ -17,6 +17,7 @@ typedef struct BinaryTree {
 } BinTree;
 
 #include "printTree.h"
+#include "avl.h"
 
 // User wrapper functions
 BinTree* createBinTree (int (*compareFunction) (void *d1, void *d2), void * (*destroyBinTree)(void * toDestroy) );
@@ -37,14 +38,7 @@ void destroyStub (void *toDestroy);
 BinNode* searchTree (BinTree * tree, void * data);
 BinNode* search (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2));
 // isFull
-
-void avlBalance(BinTree * tree);
-BinNode* avlBalanceNode( BinNode *node );
-BinNode *avl_rotate_rightright( BinNode *node );
-BinNode *avl_rotate_rightleft( BinNode *node );
-BinNode *avl_rotate_leftright( BinNode *node );
-BinNode *avl_rotate_leftleft( BinNode *node );
-
+int getHeight (BinNode * tree);
 BinNode* destroyNode (BinTree * tree, void * data);
 BinNode* rightMost (BinNode * node);
 BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2));
