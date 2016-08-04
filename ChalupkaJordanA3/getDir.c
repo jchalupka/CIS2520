@@ -101,8 +101,9 @@ int main (int argc, char * argv[]) {
 	insertBinTree(tree, dirName);
 	traverseDir(dir, tree);
 
-	
-	destroyNode(tree, "testDir/testDir2/math.txt");
+	BinNode * node = rightMost(tree->root);
+	printf("%s\n", node->data);
+	tree->root = destroyNode(tree, tree->root, "testDir");
 
 
 	initNCurses();
@@ -111,7 +112,7 @@ int main (int argc, char * argv[]) {
 	exitNCurses();
 	
 	//destroyBinTree(tree);
-	//qprintTree(tree->root);
+	printTree(tree->root);
 	//BinNode * node = rightMost(tree->root);
 	//printf("%s\n", node->data);
 	return 0;

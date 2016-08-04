@@ -6,7 +6,7 @@
 void * destroyBinTree (void *toDestroy);
 
 
-BinNode* destroyNode (BinTree * tree, void * data);
+BinNode* destroyNode (BinTree * tree, BinNode * root, void * data);
 
 
 BinNode* searchAndDestroy (BinNode * node, void * data, int (*compareFunction) (void *d1, void *d2));
