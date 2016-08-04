@@ -65,12 +65,12 @@ BinTree* traverseDir (BinTree * tree, char * dir) {
 	do {
 		currentDir = readdir(stream);
 		if (currentDir != NULL) {
-			if (currentDir->d_type == DT_DIR  && strcmp(currentDir->d_name, ".") && strcmp(currentDir->d_name, "..")) {
+			if (currentDir->d_type == 4 /*DT_DIR*/  && strcmp(currentDir->d_name, ".") && strcmp(currentDir->d_name, "..")) {
 				char * newDir = malloc(sizeof(char)*255);
 				sprintf(newDir, "%s/%s", dir, currentDir->d_name);
 				insertBinTree(tree, newDir);
 				traverseDir(tree, newDir);
-			} else if (currentDir->d_type == DT_REG) {
+			} else if (currentDir->d_type == 8/*DT_REG*/) {
 				// Add to the tree here
 				char * path = malloc(sizeof(char)*255);
 				sprintf(path, "%s/%s", dir, currentDir->d_name);
