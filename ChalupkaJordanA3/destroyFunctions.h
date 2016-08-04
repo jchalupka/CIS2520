@@ -2,6 +2,7 @@
 #define __JCHALUPKA_DESTROYFUNCTIONS__
 
 #include "BinaryTree.h"
+#include "avl.h"
 
 void * destroyBinTree (void *toDestroy);
 

@@ -59,21 +59,21 @@ BinNode *avl_rotate_rightright(BinNode *node) {
 BinNode* avlBalanceNode(BinNode *node) {
 	BinNode *newroot = NULL;
 
-	if(node->left) node->left = avlBalanceNode(node->left );
+	if(node->left) node->left = avlBalanceNode(node->left);
 	if(node->right) node->right = avlBalanceNode(node->right);
 
 	int bf = balanceFactor(node);
 
 	if(bf >= 2) {
 		/* Left Side is Overloaded */	
-		if( balanceFactor(node->left) <= -1 ) 
+		if(balanceFactor(node->left) <= -1) 
 			newroot = avl_rotate_leftright(node);
 		else 
 			newroot = avl_rotate_leftleft(node);
 
-	} else if( bf <= -2 ) {
+	} else if(bf <= -2) {
 		/* Right Side is Overloaded */
-		if( balanceFactor(node->right) >= 1 )
+		if(balanceFactor(node->right) >= 1)
 			newroot = avl_rotate_rightleft(node);
 		else 
 			newroot = avl_rotate_rightright(node);
@@ -98,25 +98,5 @@ void avlBalance(BinTree * tree) {
 }
 
 
-BinNode * rotateRight (BinNode * tree) {
-	BinNode * node = tree->left;
-	BinNode * node2 = node->right;
 
-	// Rotation
-	node->right = tree;
-	tree->left = node2;
-
-	return node;
-}
-
-BinNode * rotateLeft (BinNode * tree) {
-	BinNode * node = tree->right;
-	BinNode * node2 = node->left;
-
-	// Rotation
-	node->left = tree;
-	tree->right = node2;
-
-	return node;
-}
 

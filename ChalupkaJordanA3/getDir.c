@@ -8,6 +8,7 @@
 
 #include "BinaryTree.h"
 #include "printTree.h"
+#include "rename.h"
 
 // Macro for error reporter
 #define REPORT_ERROR()											\
@@ -95,17 +96,15 @@ int main (int argc, char * argv[]) {
 	sprintf(dir, "%s", argv[1]);
 	sprintf(dirName, "%s", argv[1]);
 
-	printf("%p\n%p\n", dir, dirName);
-
 	BinTree *tree = createBinTree(compareStrings, destroyBinTree);
 	insertBinTree(tree, dirName);
 	traverseDir(dir, tree);
 
-	BinNode * node = rightMost(tree->root);
-	printf("%s\n", node->data);
-	tree->root = destroyNode(tree, tree->root, "testDir");
-
-
+	// BinNode * node = rightMost(tree->root);
+	// printf("%s\n", node->data);
+	
+	
+	moveNode(tree,"A","ThisIsAlot");
 	initNCurses();
 	traverseInOrder(tree->root,0);
 	getchar();

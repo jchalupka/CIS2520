@@ -1,56 +1,51 @@
 #include "destroyFunctions.h"
 
 BinNode* rightMost (BinNode * node) {
-	node = node->right;
-	if (node->right == NULL) return node;
+	while (node->right != NULL)
+		node = node->right;
 	
-	node = rightMost(node);
 	return node;	
 }
 
 BinNode* destroyNode (BinTree* tree, BinNode* root, void * data) {
-	if (!(tree && root)) {
+	if (root == NULL) {
+		printf("Not Found!\n");
 		return root;
 	}
-
 	int (*compareFunction) (void *d1, void *d2) = tree->compareFunction;
 	
-	if (compareFunction(data, root->data) > 0) destroyNode(tree, root->left, data);
-	else if (compareFunction(data,root) < 0) destroyNode(tree, root->right, data);
+	if (compareFunction(data, root->data) < 0) root->left = destroyNode(tree, root->left, data);
+	else if (compareFunction(root->data, data) < 0) root->right = destroyNode(tree, root->right, data);
 
 	// This is the node we want
 	else {
 		if (root->left && root->right) {
 			// Left and Right Subroots
-			printf("L&R\n");
 			BinNode *replacement = rightMost(root->left);
 
 			root->data = replacement->data;
 
-			root->left = destroyNode(tree, root->left, data);
+			root->left = destroyNode(tree, root->left, replacement->data);
 		}
 		else if (root->right) {
 			// Right Subroot
-			printf("R\n");
-			BinNode *replacement = root->left;
+			BinNode *replacement = root->right;
 			free(root);
 			return replacement;
 		}
 		else if (root->left){
 			// Left Subroot
-			printf("L\n");
-			BinNode *replacement = root->right;
+			BinNode *replacement = root->left;
 			free(root);
 			return replacement;
 		}
 		else {
 			// No Subroots
-			printf("None\n");
 			return NULL;
 		}
 
 	}
-
+	avlBalance(tree);
 	return root;
 }
 
