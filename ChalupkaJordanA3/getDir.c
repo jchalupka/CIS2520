@@ -35,7 +35,7 @@ DIR* openDirectory (char * dir) {
 				break;
 
 			case ENOENT:
-				fprintf(stdout, "This does not exist.\n");
+				fprintf(stdout, "Directory \"%s\" does not exist.\n",dir);
 				break;
 
 			default:
@@ -55,11 +55,11 @@ void closeDirectory (DIR *stream) {
 	return;
 }
 
-void traverseDir (char * dir, BinTree * tree) {
+BinTree* traverseDir (BinTree * tree, char * dir) {
 	DIR *stream = openDirectory(dir);
 	
 	if (stream == NULL) {
-		abort();
+		return NULL;
 	}
 	struct dirent *currentDir;
 	do {
@@ -69,7 +69,7 @@ void traverseDir (char * dir, BinTree * tree) {
 				char * newDir = malloc(sizeof(char)*255);
 				sprintf(newDir, "%s/%s", dir, currentDir->d_name);
 				insertBinTree(tree, newDir);
-				traverseDir(newDir, tree);
+				traverseDir(tree, newDir);
 			} else if (currentDir->d_type == DT_REG) {
 				// Add to the tree here
 				char * path = malloc(sizeof(char)*255);
@@ -83,39 +83,39 @@ void traverseDir (char * dir, BinTree * tree) {
 
 	closeDirectory(stream);
 
-	return;
+	return tree;
 }
 
-int main (int argc, char * argv[]) {
-	if (argc != 2) {
-		fprintf(stdout, "Error, incorrect input\n");
-		return -1;
-	}
-	char *dirName = malloc(sizeof(char)*255);
-	char *dir = malloc(sizeof(char)*255);
-	sprintf(dir, "%s", argv[1]);
-	sprintf(dirName, "%s", argv[1]);
+// int main (int argc, char * argv[]) {
+// 	if (argc != 2) {
+// 		fprintf(stdout, "Error, incorrect input\n");
+// 		return -1;
+// 	}
+// 	char *dirName = malloc(sizeof(char)*255);
+// 	char *dir = malloc(sizeof(char)*255);
+// 	sprintf(dir, "%s", argv[1]);
+// 	sprintf(dirName, "%s", argv[1]);
 
-	BinTree *tree = createBinTree(compareStrings, destroyBinTree);
-	insertBinTree(tree, dirName);
-	traverseDir(dir, tree);
+// 	BinTree *tree = createBinTree(compareStrings, destroyBinTree);
+// 	insertBinTree(tree, dirName);
+// 	traverseDir(dir, tree);
 
-	// BinNode * node = rightMost(tree->root);
-	// printf("%s\n", node->data);
+// 	// BinNode * node = rightMost(tree->root);
+// 	// printf("%s\n", node->data);
 	
 	
-	moveNode(tree,"A","ThisIsAlot");
-	initNCurses();
-	traverseInOrder(tree->root,0);
-	getchar();
-	exitNCurses();
+// 	moveNode(tree,"A/B/D","ThisIsAlot");
+// 	initNCurses();
+// 	traverseInOrder(tree->root,0);
+// 	getchar();
+// 	exitNCurses();
 	
-	//destroyBinTree(tree);
-	printTree(tree->root);
-	//BinNode * node = rightMost(tree->root);
-	//printf("%s\n", node->data);
-	return 0;
-}
+// 	//destroyBinTree(tree);
+// 	printTree(tree->root);
+// 	//BinNode * node = rightMost(tree->root);
+// 	//printf("%s\n", node->data);
+// 	return 0;
+// }
 
 
 

@@ -29,8 +29,9 @@ BinNode * moveNode (BinTree * tree, void * toMove, void * destinationPath) {
 	if (nodeToMove == NULL) return NULL;
 
 	// Get just the part after the last bracket
-	char * base = basename(nodeToMove->data);
-	char * newPath;
+	char * base = malloc(sizeof(char)*255);
+	strcpy(base, basename(nodeToMove->data));
+	char * newPath = malloc(sizeof(char)*255);
 	sprintf(newPath, "%s/%s", destinationPath, base);
 	printf("Moving to: %s\nName will now be: %s\n", destinationPath, newPath);
 

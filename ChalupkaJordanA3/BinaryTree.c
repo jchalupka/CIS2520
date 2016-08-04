@@ -103,7 +103,7 @@ BinNode* search (BinNode * node, void * data, int (*compareFunction) (void *d1, 
 	if (order == 0) {
 		result = node;
 	}
-	if (order > 0 && node->left != NULL) {
+	else if (order > 0 && node->left != NULL) {
 		search(node->left, data, compareFunction);
 	} else if (node->right != NULL){
 		search (node->right, data, compareFunction);
