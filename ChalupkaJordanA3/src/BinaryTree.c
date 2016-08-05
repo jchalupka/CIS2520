@@ -64,8 +64,6 @@ void insertBinTree (BinTree *tree, void *data) {
 	rootToAdd->data = data;
 
 
-	// Fix here
-	//tree->root = root;
 	insert(&tree->root, rootToAdd, tree->compareFunction);
 
 	avlBalance(tree);
@@ -75,12 +73,13 @@ void insertBinTree (BinTree *tree, void *data) {
 
 
 
-void printNode (BinNode *node) {
+char* printNode (BinNode *node) {
 	if (!(node  && node->data)){
-		return;
+		return NULL;
 	}
 	fprintf(stdout, "%s\n",(char*)node->data);
-	return;
+	
+	return (char*)node->data;
 }
 
 void printTree (BinNode * root) {
@@ -88,7 +87,6 @@ void printTree (BinNode * root) {
 		return;
 	}
 	// Traverse
-	//traverseInOrder(printTree, printNode, root);
 	if (root == NULL) return;
 	printTree(root->left);
 	printNode(root);
@@ -132,38 +130,3 @@ BinNode* getLeftSubtree(BinNode *tree) {
 BinNode* getRightSubtree(BinNode *tree) {
 	return tree->right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

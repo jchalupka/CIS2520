@@ -1,5 +1,5 @@
-// This program will take a directory as input and print out all
-// of the subdirectories and files.
+// Jordan Chalupka 0928528
+
 #include "getDir.h"
 
 DIR* openDirectory (char * dir) {

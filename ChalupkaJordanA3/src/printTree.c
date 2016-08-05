@@ -1,5 +1,4 @@
 // Jordan Chalupka 0928258
-
 #include "printTree.h"
 
 
@@ -145,14 +144,3 @@ void traversePreOrder (BinNode * tree, int shift) {
 	return;
 
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928528
 #include "avl.h"
 
 int balanceFactor (BinNode * tree) {
@@ -96,7 +97,3 @@ void avlBalance(BinTree * tree) {
 		tree->root = newNode;
 	}
 }
-
-
-
-

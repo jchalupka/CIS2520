@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928528
 #ifndef __JCHALUPKA_DESTROYFUNCTIONS__
 #define __JCHALUPKA_DESTROYFUNCTIONS__
 

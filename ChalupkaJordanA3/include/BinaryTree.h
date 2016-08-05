@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928528
 #ifndef __JCHALUPKA_BINARYTREE__
 #define __JCHALUPKA_BINARYTREE__
 
@@ -61,7 +62,7 @@ void insertBinTree (BinTree *tree, void *data);
  *Pre: Node is a node of the tree
  *Post: Node->data is printed
 */
-void printNode (BinNode *node);
+char* printNode (BinNode *node);
 
 /*Print an entire tree
  *Pre:Root is the root of the tree (if you would like to print the entire tree)

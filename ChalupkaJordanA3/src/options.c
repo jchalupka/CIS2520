@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928528
 #include "options.h"
 
 void moveOption () {
@@ -21,16 +22,19 @@ void renameOption (BinTree * tree, void * oldName, void * newName) {
 		printf("%s changed to %s\n", (char*)nodeToChange->data, (char*)newName);
 		nodeToChange->data = newName;
 	} 
+	
 	return;
 }
 
 void insertOption (BinTree * tree, void *toInsert, void * toInsertPath) {
 	insertBinTree(tree, toInsert);
 
+	return;
 }
 
 void cleanStding (void) {
 	while (getchar() != '\n');
+
 	return;
 }
 
@@ -47,6 +51,5 @@ void viewTreeOption (BinTree * tree) {
 	setvbuf(stdout, NULL, _IOLBF, 0);
  	setvbuf(stderr, NULL, _IONBF, 0);
 
-	
-	//cleanStding();
+ 	return;
 }

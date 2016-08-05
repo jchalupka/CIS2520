@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928258
 // Macro for error reporter
 #define REPORT_ERROR()											\
 do { 															\

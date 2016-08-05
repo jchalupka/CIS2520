@@ -1,3 +1,4 @@
+// Jordan Chalupka 0928528
 #include "destroyFunctions.h"
 
 BinNode* rightMost (BinNode * node) {
@@ -64,5 +65,3 @@ void * destroyBinTree (void *toDestroy) {
 
 	return tree;
 }
-
-
