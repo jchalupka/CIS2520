@@ -121,7 +121,7 @@ void traverseDir(char * dir) {
 }
 
 int main (void) {
-	traverseDir(".");
+
 
 	
 	return 0;

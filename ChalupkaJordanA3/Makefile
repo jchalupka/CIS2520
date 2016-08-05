@@ -28,7 +28,7 @@ OBJ    = $(OBJDIR)main.o $(OBJDIR)getDir.o $(OBJDIR)printTree.o $(OBJDIR)avl.o $
 
 FILE_MANAGER	= $(BINDIR)fileManager
 
-default : link_fileManager
+default : link_fileManager test_file
 
 link_fileManager: compile_fileManager
 	$(CC) $(LDFLAGS) -o $(FILE_MANAGER) $(OBJ) $(LIBDIRS) $(LIBS) 
@@ -36,6 +36,9 @@ link_fileManager: compile_fileManager
 compile_fileManager:
 	$(CC) $(CFLAGS) -c $(SOURCE) $(INCLUDES)
 	mv *.o obj/
+
+test_file: 
+	gcc tests/BinaryTree_tests.c src/BinaryTree.c src/avl.c src/destroyFunctions.c -I include -o bin/binaryTree_test
 
 clean:
 	rm obj/*.o

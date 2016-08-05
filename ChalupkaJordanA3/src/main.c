@@ -58,6 +58,7 @@ int main (int argc, char * argv[]) {
 	insertBinTree(tree, parentDir);
 	traverseDir(tree, parentDir);
 	changeParentDir(parentDir);
+	getPartentDir(parentDir);
 	// Menu here
 
 
@@ -67,8 +68,8 @@ int main (int argc, char * argv[]) {
 
 	char * choice[] = {"Move", "Delete", "Rename", "Insert", "View Tree [Diagram]", "View Tree [List]"};
 
-	printTree(tree->root);
 	while (start) {
+		fprintf(stdout, "PARENTDIR: %s\n", parentDir);
 		//fprintf(stdout, "Currently at: %s\n",getPartentDir(parentDir));
 		fprintf(stdout, "Would you like to:\n");
 		for (int i = 0; i < 6; i++) {
@@ -84,13 +85,24 @@ int main (int argc, char * argv[]) {
 				char * toMove = malloc(sizeof(char)*255);
 				printf("Where would you like to move?\n");
 				getStdin(toMove);
-				if (changeParentDir(toMove) != NULL)
-					printf("Current dir changed");
+				char * temp = malloc(sizeof(char)*255);
+				sprintf(temp, "./%s", toMove);
+				
+				
+				if (openDirectory(temp) != NULL) {
+					printf("This is what I said %s\n", temp);
+					//strcpy(toMove, temp);
+					printf("Current dir changed\n");
+					printf("Updating Tree\n");
+					tree = createBinTree(compareStrings,destroyBinTree);
+					insertBinTree(tree, temp);
+					traverseDir(tree, temp);
+					getPartentDir(temp);
+					
+
+				}
 				else printf("This is not a directory\n");
 
-				char * present = malloc(sizeof(char)*255);
-				getPartentDir(present);
-				printf("%s\n", present);
 
 				moveOption();
 				break;
@@ -151,8 +163,6 @@ int main (int argc, char * argv[]) {
 				printf("Invalid, this is not an option, try again.\n");	
 				continue;	
 		}
-		// Don't touch
-
 	}
 	
 
