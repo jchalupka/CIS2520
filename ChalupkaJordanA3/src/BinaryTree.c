@@ -79,7 +79,7 @@ void printNode (BinNode *node) {
 	if (!(node  && node->data)){
 		return;
 	}
-	fprintf(stdout, "%s\n",node->data);
+	fprintf(stdout, "%s\n",(char*)node->data);
 	return;
 }
 

@@ -7,7 +7,7 @@ void moveOption () {
 void deleteOption (BinTree * tree, void * toDelete) {
 	if ((tree->root = destroyNode(tree, tree->root, toDelete)) != NULL) {
 
-		printf("Succesfully deleted: %s\n", toDelete);
+		printf("Succesfully deleted: %s\n", (char*)toDelete);
 	} else {
 		printf("Nothing deleted.\n");
 	}
@@ -18,7 +18,7 @@ void deleteOption (BinTree * tree, void * toDelete) {
 void renameOption (BinTree * tree, void * oldName, void * newName) {
 	BinNode * nodeToChange = searchTree(tree, oldName);
 	if (nodeToChange != NULL) {
-		printf("%s changed to %s\n", nodeToChange->data, newName);
+		printf("%s changed to %s\n", (char*)nodeToChange->data, (char*)newName);
 		nodeToChange->data = newName;
 	} 
 	return;

@@ -38,7 +38,7 @@ int wordStrlen (BinNode * tree) {
 		return 0;
 	}
 	char word[255];
-	sprintf(word, "%s",tree->data);
+	sprintf(word, "%s",(char*)tree->data);
 
 	return strlen(word);
 }
@@ -97,7 +97,7 @@ void printData(BinNode * tree, int shift) {
 	getyx(stdscr, cury, curx);
 	char word[255];
 	//sprintf(word, "%d", balanceFactor(tree));
-	sprintf(word, "%s",tree->data);
+	sprintf(word, "%s",(char*)tree->data);
 	move(cury,curx + shift);
 	
 	printw("%s", word);
