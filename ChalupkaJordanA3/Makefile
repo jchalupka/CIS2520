@@ -42,4 +42,4 @@ clean:
 	rm bin/*
 
 run:
-	./bin/FILE_MANAGER
+	./bin/fileManager
