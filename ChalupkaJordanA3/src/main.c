@@ -22,7 +22,7 @@ char * getInitialDir (void) {
 char * changeParentDir (char * dir) {
 	int changed = chdir(dir);
 	if (changed == -1) {
-		REPORT_ERROR();
+
 		return NULL;
 	}
 
@@ -64,7 +64,7 @@ int main (int argc, char * argv[]) {
 	char * currentDir = malloc(sizeof(char)*255);
 	strcpy(currentDir, parentDir);
 
-	char * choice[] = {"Move", "Delete", "Rename", "Insert", "View Tree", "Print Tree"};
+	char * choice[] = {"Move", "Delete", "Rename", "Insert", "View Tree [Diagram]", "View Tree [List]"};
 
 	printTree(tree->root);
 	while (start) {
@@ -75,10 +75,22 @@ int main (int argc, char * argv[]) {
 		}		
 
 		int input = getchar() - '0';
-		getchar();
+		cleanStdin();
 		switch (input) {
 			case 0:
 				fprintf(stdout, "Moving\n");
+				//Change the current working directory
+				char * toMove = malloc(sizeof(char)*255);
+				printf("Where would you like to move?\n");
+				getStdin(toMove);
+				if (changeParentDir(toMove) != NULL)
+					printf("Current dir changed");
+				else printf("This is not a directory\n");
+
+				char * present = malloc(sizeof(char)*255);
+				getPartentDir(present);
+				printf("%s\n", present);
+
 				moveOption();
 				break;
 
@@ -126,10 +138,7 @@ int main (int argc, char * argv[]) {
 			case 4:
 				fprintf(stdout, "View Tree\n");
 				viewTreeOption(tree);
-				system("clear");
-				fflush(stdout);
-				printf("\n");
-				fflush(stdout);
+			
 				break;
 
 			case 5:
@@ -142,11 +151,6 @@ int main (int argc, char * argv[]) {
 				continue;	
 		}
 		// Don't touch
-		flushinp();
-		endwin();
-		printf("%d\n", isendwin());
-		fflush(stdout);
-		fflush(stdin);
 
 	}
 	

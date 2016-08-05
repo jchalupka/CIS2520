@@ -76,8 +76,7 @@ void drawConnectionInOrder (BinNode * tree) {
 
 int initNCurses (void) {
 	initscr();
-	clear();
-	echo();
+	noecho();
 	cbreak();
 
 	return 0;
@@ -85,10 +84,8 @@ int initNCurses (void) {
 
 int exitNCurses (void) {
 	curs_set(1);
-	refresh();
-	if(endwin() == ERR) {
-		printf("Error\n");
-	} 
+	clear();
+	endwin();
 	
 	return 0;
 }

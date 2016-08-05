@@ -1,6 +1,6 @@
 #include "options.h"
 
-void moveOption (void) {
+void moveOption () {
 
 }
 
@@ -35,13 +35,15 @@ void cleanStding (void) {
 }
 
 void viewTreeOption (BinTree * tree) {
-	
 	initNCurses();
 	traverseInOrder(tree->root,0);
 	getchar();
 	exitNCurses();
 
 	endwin();
+
+
+	// Fix buffer errors with ncurses => normal
 	setvbuf(stdout, NULL, _IOLBF, 0);
  	setvbuf(stderr, NULL, _IONBF, 0);
 

@@ -71,6 +71,10 @@ Post: The tree is traversed in order and printed to the screen.
 */
 void traversePreOrder (BinNode * tree, int shift);
 
+/*Calculate the balance factor of node
+ *Pre: Node is part of tree.
+ *Post: Balance factor is returned.
+*/
 int balanceFactor (BinNode * tree);
 
 #endif
