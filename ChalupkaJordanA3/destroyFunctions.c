@@ -9,7 +9,6 @@ BinNode* rightMost (BinNode * node) {
 
 BinNode* destroyNode (BinTree* tree, BinNode* root, void * data) {
 	if (root == NULL) {
-		printf("Not Found!\n");
 		return root;
 	}
 	int (*compareFunction) (void *d1, void *d2) = tree->compareFunction;
@@ -29,14 +28,16 @@ BinNode* destroyNode (BinTree* tree, BinNode* root, void * data) {
 		}
 		else if (root->right) {
 			// Right Subroot
-			BinNode *replacement = root->right;
+			BinNode *replacement = root->left;
 			free(root);
+			root = NULL;
 			return replacement;
 		}
 		else if (root->left){
 			// Left Subroot
-			BinNode *replacement = root->left;
+			BinNode *replacement = root->right;
 			free(root);
+			root = NULL;
 			return replacement;
 		}
 		else {

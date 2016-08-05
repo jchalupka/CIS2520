@@ -63,7 +63,7 @@ void drawConnectionInOrder (BinNode * tree) {
 	getyx(stdscr,cury,curx);
 
 	if (getRightSubtree(tree)) {
-		move(cury - (numLinesUp(tree)-1), curx);
+		move(cury - (numLinesUp(tree)-1), curx);	
 		vline('+', numLinesUp(tree));
 		move(cury,curx);
 	}
@@ -74,18 +74,22 @@ void drawConnectionInOrder (BinNode * tree) {
 	move(cury+1,0);
 }
 
-int initNCurses () {
+int initNCurses (void) {
 	initscr();
-	noecho();
+	clear();
+	echo();
 	cbreak();
 
 	return 0;
 }
 
-int exitNCurses () {
-	clear();
-	endwin();
-
+int exitNCurses (void) {
+	curs_set(1);
+	refresh();
+	if(endwin() == ERR) {
+		printf("Error\n");
+	} 
+	
 	return 0;
 }
 

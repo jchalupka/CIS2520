@@ -3,11 +3,12 @@
 
 #include "BinaryTree.h"
 #include "printTree.h"
+#include <ncurses.h>
 
 void moveOption (void);
-void deleteOption (void);
+void deleteOption (BinTree * tree, void * toDelete);
 void renameOption (BinTree * tree, void * oldName, void * newName);
-void insertOption (void);
+void insertOption (BinTree * tree, void *toInsert, void * toInsertPath);
 void viewTreeOption (BinTree * tree);
 
 #endif

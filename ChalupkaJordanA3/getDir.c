@@ -98,7 +98,7 @@ BinTree* traverseDir (BinTree * tree, char * dir) {
 
 // 	BinTree *tree = createBinTree(compareStrings, destroyBinTree);
 // 	insertBinTree(tree, dirName);
-// 	traverseDir(dir, tree);
+// 	traverseDir(tree, dir);
 
 // 	// BinNode * node = rightMost(tree->root);
 // 	// printf("%s\n", node->data);
@@ -110,6 +110,10 @@ BinTree* traverseDir (BinTree * tree, char * dir) {
 // 	getchar();
 // 	exitNCurses();
 	
+
+// 	char * word = malloc(sizeof(char)*255);
+// 	fgets(word, 255, stdin);
+// 	printf("%s\n", word);
 // 	//destroyBinTree(tree);
 // 	printTree(tree->root);
 // 	//BinNode * node = rightMost(tree->root);
