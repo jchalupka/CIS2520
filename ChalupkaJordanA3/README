@@ -43,7 +43,7 @@ Testing
 *******
 
 Testing was conducted to ensure the functionality of all of the menu options, and library functions.
-For more in depth information on testing, see testing/about.
+For information on testing, see docs/testing.
 
 *****************
 Known Limitations

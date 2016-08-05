@@ -1,0 +1,51 @@
+***********************************
+Jordan Chalupka       0928258
+CIS 2520              Assignment 3
+August 4, 2016
+***********************************
+
+*********
+Testing
+*********
+
+Testing for this assignment was focused on the Binary Tree ADT, and on the libraries used to gain information on the file system (directories and files).
+
+Testing the user-interface for this program was done using the directories found in tests/testDirectories.
+
+*******************
+  Binary Tree ADT
+(BinaryTree_test.c)
+*******************
+
+This file contains tests for each of the functions in the Binary Tree ADT.
+Functionality such as sorting ability, obtaining heights, insertion, removal, searching, were tested, among others.  
+
+Each function returns whether the function was correct in it’s testing.
+At the end of all tests, the number of incorrect tests is returned.
+
+These unit tests were very useful in ensuring the continued accuracy of my Binary Tree library.
+
+
+*******************
+  Library Testing
+     (test.c)
+*******************
+
+This file contains testing that was done on various libraries (mainly dirent.h).
+These tests were not meant to be correct, but rather to explore the abilities of the libraries, and discover where the libraries fail.
+
+By doing this testing it became much easier to implement these libraries in my program.
+
+A major tool used in debugging the libraries was this macro:
+
+#define REPORT_ERROR()											\
+do { 															\
+	fprintf(stderr, "ERROR: %s\n"								\
+	"LINE: %d\n"												\
+	"FILE: %s\n"												\
+	"%s %s\n\n", 												\
+	strerror(errno), __LINE__, __FILE__, __TIME__, __DATE__);	\
+} while (0); 
+
+This macro made it very easy to see which file, and which line errors were coming from, and also gave an error message corresponding to the error the library gave.
+
