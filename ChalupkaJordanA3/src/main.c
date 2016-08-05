@@ -90,8 +90,6 @@ int main (int argc, char * argv[]) {
 				
 				
 				if (openDirectory(temp) != NULL) {
-					printf("This is what I said %s\n", temp);
-					//strcpy(toMove, temp);
 					printf("Current dir changed\n");
 					printf("Updating Tree\n");
 					tree = createBinTree(compareStrings,destroyBinTree);
