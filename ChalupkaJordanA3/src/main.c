@@ -86,7 +86,7 @@ int main (int argc, char * argv[]) {
 				printf("Where would you like to move?\n");
 				getStdin(toMove);
 				char * temp = malloc(sizeof(char)*255);
-				sprintf(temp, "./%s", toMove);
+				sprintf(temp, "%s", toMove);
 				
 				
 				if (openDirectory(temp) != NULL) {
