@@ -95,7 +95,7 @@ int main (int argc, char * argv[]) {
 					tree = createBinTree(compareStrings,destroyBinTree);
 					insertBinTree(tree, temp);
 					traverseDir(tree, temp);
-					getPartentDir(temp);
+					getPartentDir(parentDir);
 					
 
 				}
